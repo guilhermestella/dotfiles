@@ -1,0 +1,26 @@
+# Alacritty Configuration (TOML)
+
+general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+general.live_config_reload = true
+
+
+[window]
+opacity = 0.99
+blur = true
+decorations = "none"
+dynamic_padding = false
+
+[window.padding]
+x = 10
+y = 10
+
+[font]
+size = 10
+normal.family = "Jetbrains Mono"
+normal.style = "Medium"
+bold.family = "Jetbrains Mono"
+bold.style = "Bold"
+italic.family = "Jetbrains Mono"
+italic.style = "Medium Italic"
+bold_italic.family = "Jetbrains Mono"
+bold_italic.style = "Bold Italic"
