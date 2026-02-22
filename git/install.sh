@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ln -sf ~/dotfiles/gitconfig ~/.gitconfig
+ln -sf "$HOME/dotfiles/git/gitconfig" "$HOME/.gitconfig"
