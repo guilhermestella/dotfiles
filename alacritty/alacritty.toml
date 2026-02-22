@@ -16,11 +16,11 @@ y = 10
 
 [font]
 size = 10
-normal.family = "Jetbrains Mono"
+normal.family = "JetBrains Mono Nerd Font"
 normal.style = "Medium"
-bold.family = "Jetbrains Mono"
+bold.family = "JetBrains Mono Nerd Font"
 bold.style = "Bold"
-italic.family = "Jetbrains Mono"
-italic.style = "Medium Italic"
-bold_italic.family = "Jetbrains Mono"
-bold_italic.style = "Bold Italic"
+italic.family = "JetBrains Mono Nerd Font"
+italic.style = "MediumItalic"
+bold_italic.family = "JetBrains Mono Nerd Font"
+bold_italic.style = "BoldItalic"
