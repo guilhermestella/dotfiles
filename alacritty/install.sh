@@ -7,11 +7,11 @@ DOTFILES_DIR="$HOME/dotfiles/alacritty"
 CONFIG_DIR="$HOME/.config/alacritty"
 
 # Source files
-THEME_SOURCE="$DOTFILES_DIR/catppuccin-mocha.toml"
+THEME_SOURCE="$DOTFILES_DIR/gruvbox-dark.toml"
 CONFIG_SOURCE="$DOTFILES_DIR/alacritty.toml"
 
 # Destination links
-THEME_LINK="$CONFIG_DIR/catppuccin-mocha.toml"
+THEME_LINK="$CONFIG_DIR/gruvbox-dark.toml"
 CONFIG_LINK="$CONFIG_DIR/alacritty.toml"
 
 echo "alacritty: Step 1: Checking if $PACKAGE is installed..."

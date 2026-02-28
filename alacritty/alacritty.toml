@@ -1,10 +1,10 @@
 # Alacritty Configuration (TOML)
 
-general.import = ["~/.config/alacritty/catppuccin-mocha.toml"]
+general.import = ["./gruvbox-dark.toml"]
 general.live_config_reload = true
 
 [window]
-opacity = 0.99
+opacity = 0.999
 blur = true
 decorations = "none"
 dynamic_padding = false
