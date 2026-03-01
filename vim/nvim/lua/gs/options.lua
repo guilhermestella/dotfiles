@@ -1,6 +1,8 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
+vim.opt.timeoutlen = 3000
+
 vim.opt.number = true
 vim.opt.relativenumber = true
 
