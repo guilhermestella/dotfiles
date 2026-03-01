@@ -1,21 +1,18 @@
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
-vim.opt.timeoutlen = 3000
+vim.o.timeoutlen = 3000
 
-vim.opt.number = true
-vim.opt.relativenumber = true
+vim.o.wrap = false
+vim.o.number = true
+vim.o.signcolumn = "yes"
+vim.o.relativenumber = true
+vim.o.colorcolumn = "120"
 
-vim.opt.colorcolumn = "120"
-vim.api.nvim_set_hl(0, "ColorColumn", { bg = "#585b70" })
-
-vim.opt.showmode = false
-vim.opt.statusline = ''
-
-vim.opt.tabstop = 4
-vim.opt.softtabstop = 0
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.smarttab = true
-vim.opt.smartindent = true
-vim.opt.linebreak = true
+vim.o.tabstop = 4
+vim.o.softtabstop = 0
+vim.o.shiftwidth = 4
+vim.o.expandtab = true
+vim.o.smarttab = true
+vim.o.smartindent = true
+vim.o.linebreak = true
