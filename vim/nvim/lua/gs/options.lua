@@ -5,7 +5,6 @@ vim.o.timeoutlen = 3000
 
 vim.o.wrap = false
 vim.o.number = true
-vim.o.signcolumn = "yes"
 vim.o.relativenumber = true
 vim.o.colorcolumn = "120"
 
