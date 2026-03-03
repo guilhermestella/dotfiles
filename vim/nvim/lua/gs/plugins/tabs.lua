@@ -1,0 +1,34 @@
+return {
+    "akinsho/bufferline.nvim",
+    event = "VeryLazy",
+    keys = function()
+        return {
+            { "K", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
+            { "J", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
+            { "<M-w>", "<cmd>bdelete<cr>", desc = "Close buffer" },
+            { "<leader>td", "<cmd>bdelete<cr>", desc = "Close buffer" },
+            { "<M-i>", "<cmd>enew<cr>", desc = "New buffer" },
+            { "<leader>tN", "<cmd>enew<cr>", desc = "New buffer" },
+        }
+    end,
+    config = function()
+        require("bufferline").setup {
+            options = {
+                numbers = "ordinal",
+                close_command = "bdelete! %d",
+                right_mouse_command = "bdelete! %d",
+                diagnostics = "nvim_lsp",
+                always_show_bufferline = true,
+                separator_style = "thin",
+                indicator = {
+                    style = "icon",
+                    icon = "▎",
+                },
+                buffer_close_icon = "󰅖",
+                modified_icon = "●",
+                left_trunc_marker = "󰜌",
+                right_trunc_marker = "󰜌",
+            },
+        }
+    end,
+}
