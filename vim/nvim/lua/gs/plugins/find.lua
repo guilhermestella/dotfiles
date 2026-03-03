@@ -26,24 +26,13 @@ return {
             }
 
 
-            -- Find files
-            vim.keymap.set('n', '<C-t>', builtin.find_files, { desc = 'Find files' })
-            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files'})
-
-            -- Search by text
-            vim.keymap.set('n', '<C-f>', builtin.live_grep, { desc = 'Find in files' })
-            vim.keymap.set('n', '<leader>ft', builtin.live_grep, { desc = 'Find in files' })
-
-            -- Find in buffer
-            vim.keymap.set('n', '<M-e>', builtin.buffers, { desc = 'Find in buffers' })
-            vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find in buffers' })
-
-            -- Find in git status
-            vim.keymap.set('n', '<M-c>', builtin.git_status, { desc = 'Find in git status' })
-            vim.keymap.set('n', '<leader>fg', builtin.git_status, { desc = 'Find in git status' })
-
-            -- Help
-            vim.keymap.set('n', '<leader>fh', builtin.help_tags, { desc = 'Help tags' })
+            vim.keymap.set('n', '<C-w>t', builtin.find_files, { desc = 'Find files' })
+            vim.keymap.set('n', '<C-w>f', builtin.live_grep, { desc = 'Find in files' })
+            vim.keymap.set('n', '<C-w>b', builtin.buffers, { desc = 'Find in buffers' })
+            vim.keymap.set('n', '<C-w>gs', builtin.git_status, { desc = 'Git status' })
+            vim.keymap.set('n', '<C-w>gc', builtin.git_commits, { desc = 'Git commits' })
+            vim.keymap.set('n', '<C-w>gb', builtin.git_branches, { desc = 'Git branches' })
+            vim.keymap.set('n', '<C-w>?', builtin.help_tags, { desc = 'Help tags' })
         end
-    } 
+    },
 }
