@@ -19,11 +19,12 @@ vim.o.smartindent = true
 vim.o.linebreak = true
 
 -- Copy
-vim.opt.clipboard = "unnamedplus"
+vim.o.clipboard = "unnamedplus"
 
--- File handling
+-- Sync file changed externally
 vim.o.autoread = true
-vim.api.nvim_create_autocmd({ "FileChangedShellPost" }, {
-  command = "echo 'File changed externally'",
-  pattern = { "*" },
+vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
+  pattern = '*',
+  command = 'silent! checktime',
+  desc = 'Reload file'
 })
