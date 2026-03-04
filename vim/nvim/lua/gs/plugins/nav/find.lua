@@ -32,7 +32,7 @@ return {
 
             -- Git
             vim.keymap.set('n', '<C-g>s', builtin.git_status, { desc = 'Git status' })
-            vim.keymap.set('n', '<C-g>c', builtin.git_commits, { desc = 'Git commits' })
+            vim.keymap.set('n', '<C-g>h', builtin.git_commits, { desc = 'Git commits' })
 
             -- Resize (TODO: temp location)
             vim.keymap.set('n', '<C-Up>',       ':resize -2<CR>', { desc = 'Increase height' })
