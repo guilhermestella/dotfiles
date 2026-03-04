@@ -30,7 +30,7 @@ return {
             vim.keymap.set('n', '<C-w>b', builtin.buffers, { desc = 'Find in buffers' })
             vim.keymap.set('n', '<C-w>c', builtin.git_status, { desc = 'Git status' })
             vim.keymap.set('n', '<C-w>g', builtin.git_commits, { desc = 'Git commits' })
-            vim.keymap.set('n', '<C-w>?', builtin.help_tags, { desc = 'Help tags' })
+            vim.keymap.set('n', '<C-w>?', builtin.keymaps, { desc = 'Find keymaps' })
         end
     },
 }
