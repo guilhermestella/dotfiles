@@ -28,9 +28,11 @@ return {
             vim.keymap.set('n', '<C-w>t', builtin.find_files, { desc = 'Find files' })
             vim.keymap.set('n', '<C-w>f', builtin.live_grep, { desc = 'Find in files' })
             vim.keymap.set('n', '<C-w>b', builtin.buffers, { desc = 'Find in buffers' })
-            vim.keymap.set('n', '<C-w>c', builtin.git_status, { desc = 'Git status' })
-            vim.keymap.set('n', '<C-w>g', builtin.git_commits, { desc = 'Git commits' })
             vim.keymap.set('n', '<C-w>?', builtin.keymaps, { desc = 'Find keymaps' })
+
+            -- Git
+            vim.keymap.set('n', '<C-g>s', builtin.git_status, { desc = 'Git status' })
+            vim.keymap.set('n', '<C-g>c', builtin.git_commits, { desc = 'Git commits' })
         end
     },
 }
