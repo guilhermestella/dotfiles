@@ -1,6 +1,6 @@
-require('core.keymaps')
-require('core.options')
-require('core.autocmds')
+require('core.config.keymaps')
+require('core.config.options')
+require('core.config.autocmds')
 require('lazy').setup({
     spec = {
         { import = 'core.plugins.ui' },
