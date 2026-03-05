@@ -3,7 +3,7 @@ return {
          'tpope/vim-fugitive',
          cmd = {'G', 'Git'},
          keys = {
-             { '<C-g>c', ':G<CR>', desc = 'Fugitive Dashboard' }
+             { '<leader>gc', ':G<CR>', desc = 'Fugitive Dashboard' }
          },
      },
      {
@@ -19,28 +19,28 @@ return {
                          vim.keymap.set(mode, l, r, opts)
                      end
  
-                     map('n', '<C-g>b', gitsigns.blame)
-                     map('n', '<C-g>d', gitsigns.diffthis)
-                     map('n', '<C-g>p', gitsigns.preview_hunk)
+                     map('n', '<leader>gb', gitsigns.blame)
+                     map('n', '<leader>gd', gitsigns.diffthis)
+                     map('n', '<leader>gp', gitsigns.preview_hunk)
 
                      -- reset hunk
-                     map('n', '<C-g>r', gitsigns.reset_hunk)
-                     map('v', '<C-g>r', function()
+                     map('n', '<leader>gr', gitsigns.reset_hunk)
+                     map('v', '<leader>gr', function()
                          gitsigns.reset_hunk({ vim.fn.line('.'), vim.fn.line('v') })
                      end)
  
                      -- Navigation
-                     map('n', '<C-g>]', function()
+                     map('n', '<leader>g]', function()
                          if vim.wo.diff then
-                             vim.cmd.normal({'<C-g>n', bang = true})
+                             vim.cmd.normal({'<leader>gn', bang = true})
                          else
                              gitsigns.nav_hunk('next')
                          end
                      end)
  
-                     map('n', '<C-g>[', function()
+                     map('n', '<leader>g[', function()
                          if vim.wo.diff then
-                             vim.cmd.normal({'<C-g>p', bang = true})
+                             vim.cmd.normal({'<leader>gp', bang = true})
                          else
                              gitsigns.nav_hunk('prev')
                          end

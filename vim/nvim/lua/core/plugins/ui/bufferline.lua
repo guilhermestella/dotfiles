@@ -5,8 +5,8 @@ return {
         return {
             { "K", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
             { "J", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
-            { "<C-w>q", "<cmd>bdelete<cr>", desc = "Close buffer" },
-            { "<C-w>n", "<cmd>enew<cr>", desc = "New buffer" },
+            { "<leader>wq", "<cmd>bdelete<cr>", desc = "Close buffer" },
+            { "<leader>wn", "<cmd>enew<cr>", desc = "New buffer" },
         }
     end,
     config = function()
