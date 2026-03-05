@@ -11,7 +11,7 @@ vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHo
 -- ════════════════════════════════════════════════════════════════════════════
 -- Highlight on yank
 -- ════════════════════════════════════════════════════════════════════════════
-api.nvim_create_autocmd("TextYankPost", {
+vim.api.nvim_create_autocmd("TextYankPost", {
     callback = function()
         vim.hl.on_yank()
     end,
