@@ -9,7 +9,7 @@ return {
         },
         lazy = false, 
         keys = {
-            { "<leader>we", "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
+            { "<leader>e", "<cmd>Neotree toggle<cr>", desc = "Toggle Explorer" },
         },
         opts = {
             filesystem = {

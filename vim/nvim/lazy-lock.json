@@ -5,7 +5,7 @@
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
   "lualine.nvim": { "branch": "master", "commit": "47f91c416daef12db467145e16bed5bbfe00add8" },
   "nvim-autopairs": { "branch": "master", "commit": "59bce2eef357189c3305e25bc6dd2d138c1683f5" },
-  "nvim-surround": { "branch": "main", "commit": "ce4ad4a8909d7f4537803c8f09b79e78c49a6cc4" },
+  "nvim-surround": { "branch": "main", "commit": "9488883f58161c1e302ae6bfa5ecd79ac828b36e" },
   "nvim-tmux-navigation": { "branch": "main", "commit": "4898c98702954439233fdaf764c39636681e2861" },
   "nvim-tree.lua": { "branch": "master", "commit": "c8d8d515c29f0f0b1a352e0d75616f74f42fc03b" },
   "nvim-web-devicons": { "branch": "master", "commit": "737cf6c657898d0c697311d79d361288a1343d50" },
