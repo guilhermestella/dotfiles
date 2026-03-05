@@ -25,20 +25,13 @@ return {
                 }
             }
 
-            vim.keymap.set('n', '<leader>wt', builtin.find_files, { desc = 'Find files' })
-            vim.keymap.set('n', '<leader>wf', builtin.live_grep, { desc = 'Find in files' })
-            vim.keymap.set('n', '<leader>wb', builtin.buffers, { desc = 'Find in buffers' })
-            vim.keymap.set('n', '<leader>w?', builtin.keymaps, { desc = 'Find keymaps' })
+            vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find files' })
+            vim.keymap.set('n', '<leader>fg', builtin.live_grep, { desc = 'Search in files' })
+            vim.keymap.set('n', '<leader>fb', builtin.buffers, { desc = 'Find in buffers' })
 
             -- Git
             vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Git status' })
             vim.keymap.set('n', '<leader>gh', builtin.git_commits, { desc = 'Git commits' })
-
-            -- Resize (TODO: temp location)
-            vim.keymap.set('n', '<C-Up>',       ':resize -2<CR>', { desc = 'Increase height' })
-            vim.keymap.set('n', '<C-Down>',     ':resize +2<CR>', { desc = 'Decrease height' })
-            vim.keymap.set('n', '<C-Left>',     ':vertical resize -2<CR>', { desc = 'Decrease width' })
-            vim.keymap.set('n', '<C-Right>',    ':vertical resize +2<CR>', { desc = 'Increase width' })
         end
     },
 }
