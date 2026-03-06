@@ -48,7 +48,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- ════════════════════════════════════════════════════════════════════════════
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
-local float_opts = { float = { focusable = false, border = "rounded" } }
+local diagnostic_opts = { focusable = false, border = "rounded" }
+local float_opts = { float =  diagnostic_opts }
 vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next(float_opts) end, { desc = "Go to next Diagnostic" })
 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev(float_opts) end, { desc = "Go to prev Diagnostic" })
+vim.keymap.set("n", "<C-w>d", function() vim.diagnostic.open_float(diagnostic_opts) end, { desc = "Show Diagnostic" })
 

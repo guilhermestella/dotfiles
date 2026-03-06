@@ -18,15 +18,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 -- ════════════════════════════════════════════════════════════════════════════
--- Diagnostics
--- ════════════════════════════════════════════════════════════════════════════
-vim.api.nvim_create_autocmd("CursorHold", {
-    callback = function()
-        vim.diagnostic.open_float(nil, { focusable = false, border = "rounded" })
-    end,
-})
-
--- ════════════════════════════════════════════════════════════════════════════
 -- Remove Trailing Whitespaces
 -- ════════════════════════════════════════════════════════════════════════════
 vim.api.nvim_create_autocmd("BufWritePre", {
