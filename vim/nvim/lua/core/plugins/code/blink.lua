@@ -15,11 +15,6 @@ return {
             },
             completion = {
                 documentation = { auto_show = true },
-                accept = {
-                    auto_brackets = {
-                        enable = true,
-                    }
-                }
             },
             sources = {
                 default = { "lsp", "path", "snippets", "buffer" },
