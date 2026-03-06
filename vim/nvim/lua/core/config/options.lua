@@ -34,6 +34,20 @@ vim.o.showmode = false -- Don't show mode in command line (shown in statusline)
 vim.o.ruler = false -- Don't show ruler (shown in statusline)
 
 -- ════════════════════════════════════════════════════════════════════════════
+-- Diagnostic
+-- ════════════════════════════════════════════════════════════════════════════
+vim.diagnostic.config({
+    signs = {
+        text = {
+            [vim.diagnostic.severity.ERROR] = " ",
+            [vim.diagnostic.severity.WARN]  = " ",
+            [vim.diagnostic.severity.HINT]  = " ",
+            [vim.diagnostic.severity.INFO]  = " ",
+        },
+    }
+})
+
+-- ════════════════════════════════════════════════════════════════════════════
 -- Identation
 -- ════════════════════════════════════════════════════════════════════════════
 vim.o.expandtab = true -- Convert tabs to spaces

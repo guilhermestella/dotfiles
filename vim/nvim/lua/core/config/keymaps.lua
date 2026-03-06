@@ -37,3 +37,8 @@ vim.keymap.set("v", "<A-K>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move b
 -- Better indenting (stay in visual mode)
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- Diagnostics
+-- ════════════════════════════════════════════════════════════════════════════
+vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" }) 
