@@ -17,7 +17,7 @@ return {
         input = { enabled = true },
         notifier = { enabled = true },
         picker = { enabled = true },
-        quickfile = { enabled = false },
+        quickfile = { enabled = true },
         scope = { enabled = false },
         scroll = { enabled = false },
         statuscolumn = {
