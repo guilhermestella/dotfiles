@@ -3,9 +3,9 @@
 -- ════════════════════════════════════════════════════════════════════════════
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ 'FocusGained', 'BufEnter', 'CursorHold', 'CursorHoldI' }, {
-  pattern = '*',
-  command = 'silent! checktime',
-  desc = 'Reload file'
+    pattern = '*',
+    command = 'silent! checktime',
+    desc = 'Reload file'
 })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -30,6 +30,6 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- Remove Trailing Whitespaces
 -- ════════════════════════════════════════════════════════════════════════════
 vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*",
-  command = [[%s/\s\+$//e]],
+    pattern = "*",
+    command = [[%s/\s\+$//e]],
 })
