@@ -34,6 +34,10 @@ vim.keymap.set("v", "<A-K>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move b
 -- Editing
 -- ════════════════════════════════════════════════════════════════════════════
 
+-- Auto indent after paste
+vim.keymap.set("n", "p", "p=']", { desc = "Paste and indent" })
+vim.keymap.set("n", "P", "P=']", { desc = "Paste (before) and indent" })
+
 -- Better indenting (stay in visual mode)
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
