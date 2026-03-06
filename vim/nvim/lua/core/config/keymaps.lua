@@ -41,4 +41,5 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- ════════════════════════════════════════════════════════════════════════════
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" }) 
+vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next Diagnostic" })
+vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to prev Diagnostic" })

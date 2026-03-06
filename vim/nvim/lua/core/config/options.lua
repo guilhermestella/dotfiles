@@ -24,6 +24,7 @@ vim.o.autoread = true -- Automatically reload files changed outside vim
 -- ════════════════════════════════════════════════════════════════════════════
 -- UI
 -- ════════════════════════════════════════════════════════════════════════════
+vim.o.updatetime = 500
 vim.o.termguicolors = true -- Enable 24-bit RBG colors in terminal
 vim.o.number = true
 vim.o.relativenumber = true
@@ -43,6 +44,16 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.WARN]  = " ",
             [vim.diagnostic.severity.HINT]  = " ",
             [vim.diagnostic.severity.INFO]  = " ",
+        },
+        virtual_text = {
+            spacing = 4,
+            source = "if_many",
+            prefix = "●",
+        },
+        severity_sort = true,
+        float = {
+            border = "rounded",
+            source = "always",
         },
     }
 })
