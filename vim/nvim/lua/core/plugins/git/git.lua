@@ -19,8 +19,6 @@ return {
                          vim.keymap.set(mode, l, r, opts)
                      end
  
-                     map('n', '<leader>gb', gitsigns.blame)
-                     map('n', '<leader>gd', gitsigns.diffthis)
                      map('n', '<leader>gp', gitsigns.preview_hunk)
 
                      -- reset hunk
