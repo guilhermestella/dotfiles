@@ -9,7 +9,7 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { silent = true, desc =
 
 -- Tab navigation is defined in tmux.lua plugin
 
--- Resize 
+-- Resize
 vim.keymap.set('n', '<C-Up>',       ':resize -2<CR>', { desc = 'Increase height' })
 vim.keymap.set('n', '<C-Down>',     ':resize +2<CR>', { desc = 'Decrease height' })
 vim.keymap.set('n', '<C-Left>',     ':vertical resize -2<CR>', { desc = 'Decrease width' })
@@ -45,5 +45,7 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- ════════════════════════════════════════════════════════════════════════════
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "]d", vim.diagnostic.goto_next, { desc = "Go to next Diagnostic" })
-vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, { desc = "Go to prev Diagnostic" })
+local float_opts = { float = { focusable = false, border = "rounded" } }
+vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next(float_opts) end, { desc = "Go to next Diagnostic" })
+vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev(float_opts) end, { desc = "Go to prev Diagnostic" })
+

@@ -7,7 +7,7 @@ vim.g.maplocalleader = " "
 -- ════════════════════════════════════════════════════════════════════════════
 -- Disable Built-in Plugins
 -- ════════════════════════════════════════════════════════════════════════════
-vim.g.loaded_netrw = 1 -- Disable netrw file explorer 
+vim.g.loaded_netrw = 1 -- Disable netrw file explorer
 vim.g.loaded_netrwPlugin = 1 -- Disable netrw plugin component
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -28,7 +28,7 @@ vim.o.updatetime = 500
 vim.o.termguicolors = true -- Enable 24-bit RBG colors in terminal
 vim.o.number = true
 vim.o.relativenumber = true
-vim.o.numberwidth = 4 -- Keep a consistent 4-column gutter 
+vim.o.numberwidth = 4 -- Keep a consistent 4-column gutter
 vim.o.wrap = false
 vim.o.breakindent = true -- Wrapped lines preserve indentation
 vim.o.showmode = false -- Don't show mode in command line (shown in statusline)
@@ -45,16 +45,7 @@ vim.diagnostic.config({
             [vim.diagnostic.severity.HINT]  = " ",
             [vim.diagnostic.severity.INFO]  = " ",
         },
-        virtual_text = {
-            spacing = 4,
-            source = "if_many",
-            prefix = "●",
-        },
         severity_sort = true,
-        float = {
-            border = "rounded",
-            source = "always",
-        },
     }
 })
 
