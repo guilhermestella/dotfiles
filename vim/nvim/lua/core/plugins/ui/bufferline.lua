@@ -3,8 +3,6 @@ return {
     event = "VeryLazy",
     keys = function()
         return {
-            { "K", "<cmd>BufferLineCycleNext<cr>", desc = "Next buffer" },
-            { "J", "<cmd>BufferLineCyclePrev<cr>", desc = "Previous buffer" },
             { "<leader>bq", "<cmd>bdelete<cr>", desc = "Close buffer" },
             { "<leader>bn", "<cmd>enew<cr>", desc = "New buffer" },
         }
