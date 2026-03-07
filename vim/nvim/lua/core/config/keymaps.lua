@@ -34,12 +34,7 @@ vim.keymap.set("v", "<A-K>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move b
 -- Editing
 -- ════════════════════════════════════════════════════════════════════════════
 
--- Auto indent after paste
-vim.keymap.set("n", "p", "p=']", { desc = "Paste and indent" })
-vim.keymap.set("n", "P", "P=']", { desc = "Paste (before) and indent" })
-
--- Indent file
-vim.keymap.set("n", "==", "m`gg=G``", { desc = "Indent file", silent = true })
+-- Some formatter maps are in conform.lua
 
 -- Better indenting (stay in visual mode)
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })
@@ -54,3 +49,12 @@ vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next(float_opts) end, {
 vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev(float_opts) end, { desc = "Go to prev Diagnostic" })
 vim.keymap.set("n", "<C-w>d", function() vim.diagnostic.open_float(diagnostic_opts) end, { desc = "Show Diagnostic" })
 
+-- ════════════════════════════════════════════════════════════════════════════
+-- LSP
+-- ════════════════════════════════════════════════════════════════════════════
+local hover_opts = { focusable = false, max_height = 25, max_width = 120 }
+vim.keymap.set("n", "K", function()
+	vim.lsp.buf.hover(hover_opts)
+end, { desc = "Hover documentation" })
+vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP Rename Symbol" })
+vim.keymap.set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
