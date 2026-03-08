@@ -24,15 +24,6 @@ return {
                 modified_icon = "●",
                 left_trunc_marker = "󰜌",
                 right_trunc_marker = "󰜌",
-                offsets = {
-                    {
-                        filetype = "neo-tree",
-                        text = "File Explorer",
-                        text_align = "left",
-                        highlight = "Directory",
-                        separator = true,
-                    }
-                }
             },
         }
     end,
