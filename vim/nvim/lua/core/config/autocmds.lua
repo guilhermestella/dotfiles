@@ -28,7 +28,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 -- ════════════════════════════════════════════════════════════════════════════
 -- Auto-save
 -- ════════════════════════════════════════════════════════════════════════════
-vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave" }, {
-	pattern = "*",
-	command = "silent! write",
+vim.api.nvim_create_autocmd({ "FocusLost", "BufLeave", "ExitPre" }, {
+    pattern = "*",
+    command = "silent! wall",
 })
