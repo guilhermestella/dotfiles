@@ -1,7 +1,6 @@
 -- ════════════════════════════════════════════════════════════════════════════
 -- Essential Operations
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "Quit all" })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { silent = true, desc = "Clear highlight" })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -15,12 +14,6 @@ vim.keymap.set('n', '<C-Up>',       ':resize -2<CR>', { desc = 'Increase height'
 vim.keymap.set('n', '<C-Down>',     ':resize +2<CR>', { desc = 'Decrease height' })
 vim.keymap.set('n', '<C-Left>',     ':vertical resize -2<CR>', { desc = 'Decrease width' })
 vim.keymap.set('n', '<C-Right>',    ':vertical resize +2<CR>', { desc = 'Increase width' })
-
--- ════════════════════════════════════════════════════════════════════════════
--- Buffer Navigation (no prefix for speed)
--- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
-vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Move Block (Visual Mode)
@@ -45,9 +38,6 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
 local diagnostic_opts = { focusable = false }
-local float_opts = { float =  diagnostic_opts }
-vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next(float_opts) end, { desc = "Go to next Diagnostic" })
-vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev(float_opts) end, { desc = "Go to prev Diagnostic" })
 vim.keymap.set("n", "<C-w>d", function() vim.diagnostic.open_float(diagnostic_opts) end, { desc = "Show Diagnostic" })
 
 -- ════════════════════════════════════════════════════════════════════════════
