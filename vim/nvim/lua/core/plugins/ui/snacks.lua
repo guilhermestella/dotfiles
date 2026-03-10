@@ -52,14 +52,64 @@ return {
         terminal = { enabled = false },
         zen = { enabled = false },
     },
-    -- keys = {
-    --     -- LSP
-    --     { "gd",         function() Snacks.picker.lsp_definitions() end,                         desc = "Goto Definition" },
-    --     { "gD",         function() Snacks.picker.lsp_declarations() end,                        desc = "Goto Declaration" },
-    --     { "gr",         function() Snacks.picker.lsp_references() end,                          nowait = true,                     desc = "References" },
-    --     { "gI",         function() Snacks.picker.lsp_implementations() end,                     desc = "Goto Implementation" },
-    --     { "gy",         function() Snacks.picker.lsp_type_definitions() end,                    desc = "Goto T[y]pe Definition" },
-    --     { "gai",        function() Snacks.picker.lsp_incoming_calls() end,                      desc = "C[a]lls Incoming" },
-    --     { "gao",        function() Snacks.picker.lsp_outgoing_calls() end,                      desc = "C[a]lls Outgoing" },
-    -- }
+    keys = {
+        -- Uncategorized
+        { "/", function() Snacks.picker.grep_word({ live = true }) end, desc = "➜ Grep Selection", mode = "x" },
+
+        -- General
+        { "<leader>n", function() Snacks.picker.notifications() end, desc = "➜ Notification" },
+        { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
+        { "<leader>,", function() Snacks.picker.buffers() end, desc = "➜ Find Buffers" },
+        { "<leader>/", function() Snacks.picker.grep() end, desc = "➜ Grep" },
+        { "<leader>:", function() Snacks.picker.command_history() end, desc = "➜ Command" },
+        { "<leader><space>", function() Snacks.picker.smart() end, desc = "➜ Smart Find Files" },
+
+        -- Buffer
+        { "<leader>bd", function() Snacks.bufdelete() end, desc = "➜ Delete" },
+
+        -- Find
+        { "<leader>fc", function() Snacks.picker.files({ cwd = vim.fn.stdpath("config") }) end, desc = "➜ Config File" },
+        { "<leader>ff", function() Snacks.picker.files() end, desc = "➜ Files" },
+        { "<leader>fg", function() Snacks.picker.git_files() end, desc = "➜ Git Files" },
+        { "<leader>fp", function() Snacks.picker.projects() end, desc = "➜ Projects" },
+        { "<leader>fr", function() Snacks.picker.recent() end, desc = "➜ Recent" },
+
+        -- Git
+        { "<leader>gb", function() Snacks.picker.git_branches() end, desc = "➜ Branches" },
+        { "<leader>gd", function() Snacks.picker.git_diff() end, desc = "➜ Diff (Hunks)" },
+        { "<leader>gf", function() Snacks.picker.git_log_file() end, desc = "➜ Log File" },
+        { "<leader>gl", function() Snacks.picker.git_log() end, desc = "➜ Log" },
+        { "<leader>gL", function() Snacks.picker.git_log_line() end, desc = "➜ Log Line" },
+        { "<leader>gs", function() Snacks.picker.git_status() end, desc = "➜ Status" },
+        { "<leader>ge", function() Snacks.picker.git_stash() end, desc = "➜ Stash" },
+
+        -- Search
+        { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "➜ Diagnostics" },
+        { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "➜ Buffer Diagnostics" },
+        { "<leader>sm", function() Snacks.picker.marks() end, desc = "➜ Marks" },
+        { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
+        { "<leader>su", function() Snacks.picker.undo() end, desc = "➜ Undo History" },
+
+        -- Temp File
+        { "<leader>ts", function() Snacks.scratch.select() end, desc = "➜ Select" },
+        { "<leader>tn",
+            function() vim.ui.input({ prompt = "Scratch name: " }, function(name)
+                if name then
+                    local ext = name:match("%.(%w+)$")
+                    Snacks.scratch({ name = name, ft = ext or "markdown" })
+                end end)
+            end, desc = "➜ New"
+        },
+
+        -- Go To (LSP)
+        { "gd", function() Snacks.picker.lsp_definitions() end, desc = "➜ Definition" },
+        { "gD", function() Snacks.picker.lsp_declarations() end, desc = "➜ Declaration" },
+        { "gr", function() Snacks.picker.lsp_references() end, desc = "➜ References" },
+        { "gi", function() Snacks.picker.lsp_implementations() end, desc = "➜ Implementation" },
+        { "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "➜ Type Definition" },
+
+        -- Go To Calls (LSP)
+        { "gai", function() Snacks.picker.lsp_incoming_calls() end, desc = "➜ Incoming" },
+        { "gao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "➜ Outgoing" },
+    }
 }
