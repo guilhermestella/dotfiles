@@ -1,7 +1,18 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Essential Operations
+-- <Esc> Action
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { silent = true, desc = "Clear highlight" })
+vim.keymap.set("n", "<Esc>", function()
+	local closed = false
+	for _, win in ipairs(vim.api.nvim_list_wins()) do
+		if vim.api.nvim_win_get_config(win).relative ~= "" then
+			vim.api.nvim_win_close(win, false)
+			closed = true
+		end
+	end
+	if not closed then
+		vim.cmd("nohlsearch")
+	end
+end, { noremap = true, silent = true, desc = "Esc Action" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Window Navigation (no prefix for speed)
@@ -10,10 +21,10 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR><Esc>", { silent = true, desc =
 -- Tab navigation is defined in tmux.lua plugin
 
 -- Resize
-vim.keymap.set('n', '<C-Up>',       ':resize -2<CR>', { desc = 'Increase height' })
-vim.keymap.set('n', '<C-Down>',     ':resize +2<CR>', { desc = 'Decrease height' })
-vim.keymap.set('n', '<C-Left>',     ':vertical resize -2<CR>', { desc = 'Decrease width' })
-vim.keymap.set('n', '<C-Right>',    ':vertical resize +2<CR>', { desc = 'Increase width' })
+vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { desc = "Increase height" })
+vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", { desc = "Decrease height" })
+vim.keymap.set("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease width" })
+vim.keymap.set("n", "<C-Right>", ":vertical resize +2<CR>", { desc = "Increase width" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Move Block (Visual Mode)
@@ -38,7 +49,9 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
 local diagnostic_opts = { focusable = false }
-vim.keymap.set("n", "<C-w>d", function() vim.diagnostic.open_float(diagnostic_opts) end, { desc = "Show Diagnostic" })
+vim.keymap.set("n", "<C-w>d", function()
+	vim.diagnostic.open_float(diagnostic_opts)
+end, { desc = "Show Diagnostic" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- LSP
