@@ -37,7 +37,6 @@ return {
     },
     config = function(_, opts)
         local wk = require("which-key")
-        local gitsigns = require("gitsigns")
         wk.setup(opts)
         wk.add({
             -- General
@@ -51,12 +50,6 @@ return {
 
             -- Hunk
             { "<leader>h", group = "Hunk" },
-            { "<leader>hp", function() gitsigns.preview_hunk() end, desc = "➜ Preview" },
-            { "<leader>hr", function() gitsigns.reset_hunk() end, desc = "➜ Reset" },
-            { "<leader>hr", function()
-                                gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
-                            end, desc = "➜ Reset", mode = "v" },
-            { "<leader>hR", function() gitsigns.reset_buffer() end, desc = "➜ Reset All" },
 
             -- Previous
             { "[", group = "Previous" },
@@ -64,7 +57,6 @@ return {
             { "[d", function()
                         vim.diagnostic.goto_prev({ float = { focusable = false } })
                     end, desc = "➜ Diagnostic" },
-            { "[h", function() gitsigns.nav_hunk("prev") end, desc = "➜ Hunk" },
 
             -- Next
             { "]", group = "Next" },
@@ -72,7 +64,6 @@ return {
             { "]d", function()
                         vim.diagnostic.goto_next({ float = { focusable = false } })
                     end, desc = "➜ Diagnostic" },
-            { "]h", function() gitsigns.nav_hunk("next") end, desc = "➜ Hunk" },
         })
     end,
 }
