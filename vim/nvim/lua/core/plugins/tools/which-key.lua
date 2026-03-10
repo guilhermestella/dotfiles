@@ -6,7 +6,7 @@ return {
         "echasnovski/mini.icons"
     },
     opts = {
-        delay = 1000,
+        delay = 500,
         preset = "helix",
         icons = {
             mappings = false,
@@ -39,31 +39,17 @@ return {
         local wk = require("which-key")
         wk.setup(opts)
         wk.add({
-            -- General
             { "<leader>", group = "General" },
-            { "<leader>q", "<cmd>qa<cr>", desc = "➜ Quit" },
-            { "<leader>?", function() wk.show({ global = false }) end, desc = "➜ Keymaps" },
-
-            -- Buffer
             { "<leader>b", group = "Buffer" },
-            { "<leader>bn", "<cmd>enew<cr>", desc = "➜ New" },
-
-            -- Hunk
+            { "<leader>f", group = "Find" },
+            { "<leader>g", group = "Git" },
             { "<leader>h", group = "Hunk" },
-
-            -- Previous
+            { "<leader>s", group = "Search" },
+            { "<leader>t", group = "Temp File" },
+            { "g", group = "Goto" },
+            { "ga", group = "Goto Calls" },
             { "[", group = "Previous" },
-            { "[b", "<cmd>bprevious<cr>", desc = "➜ Buffer" },
-            { "[d", function()
-                        vim.diagnostic.goto_prev({ float = { focusable = false } })
-                    end, desc = "➜ Diagnostic" },
-
-            -- Next
             { "]", group = "Next" },
-            { "]b", "<cmd>bnext<cr>", desc = "➜ Buffer" },
-            { "]d", function()
-                        vim.diagnostic.goto_next({ float = { focusable = false } })
-                    end, desc = "➜ Diagnostic" },
         })
     end,
 }

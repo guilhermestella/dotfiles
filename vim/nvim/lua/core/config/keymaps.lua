@@ -1,4 +1,9 @@
 -- ════════════════════════════════════════════════════════════════════════════
+-- General
+-- ════════════════════════════════════════════════════════════════════════════
+vim.keymap.set("n", "<leader>q", "<cmd>qa<cr>", { desc = "➜ Quit" })
+
+-- ════════════════════════════════════════════════════════════════════════════
 -- <Esc> Action
 -- ════════════════════════════════════════════════════════════════════════════
 vim.keymap.set("n", "<Esc>", function()
@@ -13,6 +18,13 @@ vim.keymap.set("n", "<Esc>", function()
 		vim.cmd("nohlsearch")
 	end
 end, { noremap = true, silent = true, desc = "Esc Action" })
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- Buffer Navigation
+-- ════════════════════════════════════════════════════════════════════════════
+vim.keymap.set("n", "<leader>bn","<cmd>enew<cr>",{ desc = "➜ New" })
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "➜ Buffer" })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "➜ Buffer" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Window Navigation (no prefix for speed)
@@ -36,11 +48,8 @@ vim.keymap.set("v", "<A-J>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move b
 vim.keymap.set("v", "<A-K>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move block up" })
 
 -- ════════════════════════════════════════════════════════════════════════════
--- Editing
+-- Indentation
 -- ════════════════════════════════════════════════════════════════════════════
-
--- Some formatter maps are in conform.lua
-
 -- Better indenting (stay in visual mode)
 vim.keymap.set("v", "<", "<gv", { desc = "Indent Left" })
 vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
@@ -51,7 +60,13 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 local diagnostic_opts = { focusable = false }
 vim.keymap.set("n", "<C-w>d", function()
 	vim.diagnostic.open_float(diagnostic_opts)
-end, { desc = "Show Diagnostic" })
+end, { desc = "➜ Show Diagnostic" })
+vim.keymap.set("n", "[d", function()
+	vim.diagnostic.goto_prev({ float = { focusable = false } })
+end, { desc = "➜ Diagnostic" })
+vim.keymap.set("n", "]d", function()
+	vim.diagnostic.goto_next({ float = { focusable = false } })
+end, { desc = "➜ Diagnostic" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- LSP
