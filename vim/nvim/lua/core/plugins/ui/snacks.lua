@@ -61,9 +61,9 @@ return {
 
         -- General
         { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
-        { "<leader>,", function() Snacks.picker.buffers() end, desc = "➜ Find Buffers" },
-        { "<leader>.", function() Snacks.picker.git_status() end, desc = "➜ Git Status" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "➜ Grep" },
+        { "<leader>`", function() Snacks.picker.git_status() end, desc = "➜ Git Status" },
+        { "<leader><Tab>", function() Snacks.picker.buffers() end, desc = "➜ Find Buffers" },
         { "<leader><space>", function() Snacks.picker.smart() end, desc = "➜ Smart Find Files" },
 
         -- Buffer
