@@ -93,6 +93,8 @@ return {
         { "<leader>sm", function() Snacks.picker.marks() end, desc = "➜ Marks" },
         { "<leader>sn", function() Snacks.picker.notifications() end, desc = "➜ Notifications" },
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
+        { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "➜ File Structure" },
+        { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "➜ Workspace Structure" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "➜ Undo History" },
 
         -- Scratch
