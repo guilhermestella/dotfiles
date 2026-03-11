@@ -8,6 +8,7 @@ return {
     opts = {
         delay = 500,
         preset = "helix",
+        sort = { "group" , "alphanum" },
         icons = {
             mappings = false,
             rules = false,
@@ -41,11 +42,17 @@ return {
             { "<leader>s", group = "Search" },
             { "<leader>S", group = "Scratch" },
             { "<leader>t", group = "Temp File" },
-            { "g", group = "Goto" },
+            { "g",  group = "Goto" },
             { "ga", group = "Goto Calls" },
-            { "[", group = "Previous" },
-            { "]", group = "Next" },
+            { "z",  group = "Fold" },
+            { "[",  group = "Previous" },
+            { "]",  group = "Next" },
 
+            -- Override native mappings
+            { "zo", desc = "➜ Open" },
+            { "zO", desc = "➜ Open All" },
+            { "zc", desc = "➜ Close" },
+            { "zC", desc = "➜ Close All" },
         },
         -- Trick to show only my defined mappings
         filter = function(mapping) return mapping.desc ~= nil and vim.startswith(mapping.desc, "➜") end,

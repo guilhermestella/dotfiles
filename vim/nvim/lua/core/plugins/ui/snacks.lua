@@ -13,7 +13,10 @@ return {
             },
         },
         explorer = { enabled = true },
-        indent = { enabled = false },
+        indent = {
+            enabled = enabled,
+            animate = { enabled = false, },
+        },
         input = { enabled = true },
         notifier = { enabled = true },
         picker = {
@@ -39,7 +42,7 @@ return {
             left = { "mark", "sign" },
             right = { "fold", "git" },
             folds = {
-                open = false,
+                open = true,
                 git_hl = false,
             },
             git = {

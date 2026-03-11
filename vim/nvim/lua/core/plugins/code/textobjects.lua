@@ -4,7 +4,6 @@ return {
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		config = function()
 			local select = require("nvim-treesitter-textobjects.select")
-			-- local swap = require("nvim-treesitter-textobjects.swap")
 			local move = require("nvim-treesitter-textobjects.move")
 
 			require("nvim-treesitter-textobjects").setup({
@@ -48,10 +47,10 @@ return {
 			-- Move
 			vim.keymap.set({ "n", "x", "o" }, "]f", function()
 				move.goto_next_start({ "@function.outer", "@class.outer" }, "textobjects")
-			end)
+			end, { desc = "➜ Function" })
 			vim.keymap.set({ "n", "x", "o" }, "[f", function()
 				move.goto_previous_start({ "@function.outer", "@class.outer" }, "textobjects")
-			end)
+			end, { desc = "➜ Function" })
 		end,
 	},
 }
