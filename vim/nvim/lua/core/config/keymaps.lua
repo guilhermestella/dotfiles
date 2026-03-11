@@ -32,6 +32,11 @@ vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "➜ Buffer" })
 
 -- Tab navigation is defined in tmux.lua plugin
 
+vim.keymap.set("t", "<C-h>", "<C-\\><C-n><C-w>h", { desc = "Move to left pane" })
+vim.keymap.set("t", "<C-j>", "<C-\\><C-n><C-w>j", { desc = "Move to bottom pane" })
+vim.keymap.set("t", "<C-k>", "<C-\\><C-n><C-w>k", { desc = "Move to top pane" })
+vim.keymap.set("t", "<C-l>", "<C-\\><C-n><C-w>l", { desc = "Move to right pane" })
+
 -- Resize
 vim.keymap.set("n", "<C-Up>", ":resize -2<CR>", { desc = "Increase height" })
 vim.keymap.set("n", "<C-Down>", ":resize +2<CR>", { desc = "Decrease height" })
