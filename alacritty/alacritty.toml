@@ -7,12 +7,12 @@ general.live_config_reload = true
 opacity = 0.999
 blur = true
 decorations = "none"
-dynamic_padding = false
+dynamic_padding = true
 dimensions = { columns = 180, lines = 45 }
 
 [window.padding]
-x = 10
-y = 10
+x = 1
+y = 0
 
 [font]
 size = 10
