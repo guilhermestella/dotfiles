@@ -32,13 +32,7 @@ return {
                 g = false
             }
         },
-        -- Trick to show only my defined mappings
-        filter = function(mapping) return mapping.desc ~= nil and vim.startswith(mapping.desc, "➜") end,
-    },
-    config = function(_, opts)
-        local wk = require("which-key")
-        wk.setup(opts)
-        wk.add({
+        spec = {
             { "<leader>",  group = "General" },
             { "<leader>b", group = "Buffer" },
             { "<leader>f", group = "Find" },
@@ -51,6 +45,9 @@ return {
             { "ga", group = "Goto Calls" },
             { "[", group = "Previous" },
             { "]", group = "Next" },
-        })
-    end,
+
+        },
+        -- Trick to show only my defined mappings
+        filter = function(mapping) return mapping.desc ~= nil and vim.startswith(mapping.desc, "➜") end,
+    },
 }
