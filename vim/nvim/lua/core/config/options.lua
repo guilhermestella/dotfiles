@@ -40,7 +40,7 @@ vim.o.breakindent = true -- Wrapped lines preserve indentation
 vim.o.showmode = false -- Don't show mode in command line (shown in statusline)
 vim.o.ruler = false -- Don't show ruler (shown in statusline)
 vim.o.winborder = 'rounded' -- Rounded window for neovim
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0 -- Break visual block (https://github.com/neovim/neovim/issues/20635)
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Diagnostic
