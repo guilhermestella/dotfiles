@@ -41,7 +41,6 @@ return {
             { "<leader>h", group = "Hunk" },
             { "<leader>s", group = "Search" },
             { "<leader>S", group = "Scratch" },
-            { "<leader>t", group = "Temp File" },
             { "g",  group = "Goto" },
             { "ga", group = "Goto Calls" },
             { "z",  group = "Fold" },
