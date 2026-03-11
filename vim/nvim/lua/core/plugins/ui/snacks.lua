@@ -57,12 +57,10 @@ return {
         { "/", function() Snacks.picker.grep_word({ live = true }) end, desc = "➜ Grep Selection", mode = "x" },
 
         -- General
-        { "<leader>n", function() Snacks.picker.notifications() end, desc = "➜ Notification" },
         { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
         { "<leader>,", function() Snacks.picker.buffers() end, desc = "➜ Find Buffers" },
         { "<leader>.", function() Snacks.picker.git_status() end, desc = "➜ Git Status" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "➜ Grep" },
-        { "<leader>:", function() Snacks.picker.command_history() end, desc = "➜ Command" },
         { "<leader><space>", function() Snacks.picker.smart() end, desc = "➜ Smart Find Files" },
 
         -- Buffer
@@ -85,9 +83,11 @@ return {
         { "<leader>ge", function() Snacks.picker.git_stash() end, desc = "➜ Stash" },
 
         -- Search
+        { "<leader>sc", function() Snacks.picker.command_history() end, desc = "➜ Commands" },
         { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "➜ Diagnostics" },
         { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "➜ Buffer Diagnostics" },
         { "<leader>sm", function() Snacks.picker.marks() end, desc = "➜ Marks" },
+        { "<leader>sn", function() Snacks.picker.notifications() end, desc = "➜ Notifications" },
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "➜ Undo History" },
 
