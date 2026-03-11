@@ -52,12 +52,13 @@ return {
         },
         words = { enabled = true },
         toggle = { enabled = false },
-        terminal = { enabled = false },
+        terminal = { enabled = true },
         zen = { enabled = false },
     },
     keys = {
         -- Uncategorized
         { "/", function() Snacks.picker.grep_word({ live = true }) end, desc = "➜ Grep Selection", mode = "x" },
+        { "<M-t>", function() Snacks.terminal.toggle() end, desc = "➜ Open Terminal", mode = { "n", "t" } },
 
         -- General
         { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
