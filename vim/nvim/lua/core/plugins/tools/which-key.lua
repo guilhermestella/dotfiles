@@ -39,12 +39,13 @@ return {
         local wk = require("which-key")
         wk.setup(opts)
         wk.add({
-            { "<leader>", group = "General" },
+            { "<leader>",  group = "General" },
             { "<leader>b", group = "Buffer" },
             { "<leader>f", group = "Find" },
             { "<leader>g", group = "Git" },
             { "<leader>h", group = "Hunk" },
             { "<leader>s", group = "Search" },
+            { "<leader>S", group = "Scratch" },
             { "<leader>t", group = "Temp File" },
             { "g", group = "Goto" },
             { "ga", group = "Goto Calls" },

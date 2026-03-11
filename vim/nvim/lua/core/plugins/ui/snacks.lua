@@ -91,9 +91,9 @@ return {
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
         { "<leader>su", function() Snacks.picker.undo() end, desc = "➜ Undo History" },
 
-        -- Temp File
-        { "<leader>ts", function() Snacks.scratch.select() end, desc = "➜ Select" },
-        { "<leader>tn",
+        -- Scratch
+        { "<leader>Ss", function() Snacks.scratch.select() end, desc = "➜ Select" },
+        { "<leader>Sn",
             function() vim.ui.input({ prompt = "Scratch name: " }, function(name)
                 if name then
                     local ext = name:match("%.(%w+)$")
