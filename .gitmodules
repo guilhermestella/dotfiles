@@ -1,3 +1,4 @@
 [submodule "jenv/.jenv"]
 	path = jenv/.jenv
 	url = https://github.com/jenv/jenv.git
+	branch = master
