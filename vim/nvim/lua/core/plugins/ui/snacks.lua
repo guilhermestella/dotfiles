@@ -52,13 +52,26 @@ return {
         },
         words = { enabled = true },
         toggle = { enabled = false },
-        terminal = { enabled = true },
+        terminal = {
+            enabled = true,
+            win = {
+                keys = {
+                    term_normal = {
+                        "<esc>",
+                        function() return "<C-\\><C-n>" end,
+                        mode = "t",
+                        expr = true,
+                        desc = "Escape to normal mode",
+                    }
+                }
+            }
+        },
         zen = { enabled = false },
     },
     keys = {
         -- Uncategorized
         { "/", function() Snacks.picker.grep_word({ live = true }) end, desc = "➜ Grep Selection", mode = "x" },
-        { "<M-t>", function() Snacks.terminal.toggle() end, desc = "➜ Open Terminal", mode = { "n", "t" } },
+        { "<C-_>", function() Snacks.terminal.toggle() end, desc = "➜ Open Terminal", mode = { "n", "t" } },
 
         -- General
         { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
