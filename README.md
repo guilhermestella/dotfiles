@@ -8,6 +8,7 @@ A set of tools used in my workflow
 * [Jenv](https://github.com/jenv/jenv)
 * [Opencode](https://github.com/anomalyco/opencode)
 * [Tmux](https://github.com/tmux/tmux)
+* [Neovim](https://github.com/neovim/neovim)
 
 ## Install
 
