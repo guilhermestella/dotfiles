@@ -1,11 +1,10 @@
-# dotfiles
-a set of tools used in my workflow
+# My .dotfiles
+A set of tools used in my workflow
 
-## install
+## Dependencies
+[Alacritty](https://github.com/alacritty/alacritty)
 
-### from root
-execute install.sh on root dir to install all tools
-
-### from tool
-execute install.sh inside a child dir to install it
-
+## Install
+```bash
+stow .
+```
