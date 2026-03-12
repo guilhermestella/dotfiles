@@ -21,7 +21,11 @@ return {
         notifier = { enabled = true },
         picker = {
             enabled = true,
+            hidden = true,
             sources = {
+                files = {
+                    hidden = true,
+                },
                 buffers = {
                     win = {
                         input = {
