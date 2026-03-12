@@ -75,6 +75,7 @@ return {
 
         -- General
         { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
+        { "<leader>q", function() Snacks.bufdelete() end, desc = "➜ Quit Buffer" },
         { "<leader>/", function() Snacks.picker.grep() end, desc = "➜ Grep" },
         { "<leader>`", function() Snacks.picker.git_status() end, desc = "➜ Git Status" },
         { "<leader><Tab>", function() Snacks.picker.buffers() end, desc = "➜ Find Buffers" },
