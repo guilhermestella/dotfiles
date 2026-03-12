@@ -10,8 +10,3 @@ A set of tools used in my workflow
 stow .
 ```
 
-## Nerd Fonts
-```bash
-git clone https://github.com/ryanoasis/nerd-fonts
-./install.sh JetBrainsMono Hack FiraCode Meslo
-```
