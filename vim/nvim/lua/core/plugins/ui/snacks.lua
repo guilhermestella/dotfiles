@@ -101,8 +101,8 @@ return {
 
         -- Search
         { "<leader>sc", function() Snacks.picker.command_history() end, desc = "➜ Commands" },
-        { "<leader>sd", function() Snacks.picker.diagnostics() end, desc = "➜ Diagnostics" },
-        { "<leader>sD", function() Snacks.picker.diagnostics_buffer() end, desc = "➜ Buffer Diagnostics" },
+        { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc = "➜ Buffer Diagnostics" },
+        { "<leader>sD", function() Snacks.picker.diagnostics() end, desc = "➜ Diagnostics" },
         { "<leader>sm", function() Snacks.picker.marks() end, desc = "➜ Marks" },
         { "<leader>sn", function() Snacks.picker.notifications() end, desc = "➜ Notifications" },
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
