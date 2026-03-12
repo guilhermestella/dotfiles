@@ -2,11 +2,12 @@
 A set of tools used in my workflow
 
 ## Dependencies
-[Alacritty](https://github.com/alacritty/alacritty)
-[NerdFonts](https://github.com/ryanoasis/nerd-fonts)
-[Git](https://github.com/git/git)
-[Jenv](https://github.com/jenv/jenv)
-[Opencode](https://github.com/anomalyco/opencode)
+* [Alacritty](https://github.com/alacritty/alacritty)
+* [NerdFonts](https://github.com/ryanoasis/nerd-fonts)
+* [Git](https://github.com/git/git)
+* [Jenv](https://github.com/jenv/jenv)
+* [Opencode](https://github.com/anomalyco/opencode)
+* [Tmux](https://github.com/tmux/tmux)
 
 ## Install
 
