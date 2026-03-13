@@ -109,7 +109,13 @@ return {
         { "<leader>sd", function() Snacks.picker.diagnostics_buffer() end, desc = "➜ Buffer Diagnostics" },
         { "<leader>sD", function() Snacks.picker.diagnostics() end, desc = "➜ Diagnostics" },
         { "<leader>sm", function() Snacks.picker.marks() end, desc = "➜ Marks" },
-        { "<leader>sn", function() Snacks.picker.notifications() end, desc = "➜ Notifications" },
+        {
+            "<leader>sn",
+            function()
+                Snacks.picker.notifications({ win = { preview = { wo = { wrap = true } } } })
+            end,
+            desc = "➜ Notifications"
+        },
         { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
         { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "➜ File Structure" },
         { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "➜ Workspace Structure" },
