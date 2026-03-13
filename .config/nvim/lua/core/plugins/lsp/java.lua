@@ -1,10 +1,36 @@
 return {
 	{
 		"nvim-java/nvim-java",
+		dependencies = { "SmiteshP/nvim-navic" },
 		config = function()
-			require("java").setup({
-				vim.lsp.enable("jdtls"),
-		})
+			require("java").setup()
+
+			vim.lsp.config("jdtls", {
+				on_attach = function(client, bufnr)
+					require("nvim-navic").attach(client, bufnr)
+
+					local map = function(mode, keys, func, desc)
+						vim.keymap.set(mode, keys, func, { buffer = bufnr, desc = desc })
+					end
+
+					map("n", "<leader>la", vim.lsp.buf.code_action, "➜ Code Action")
+					map("n", "<leader>lo", function()
+						vim.lsp.buf.code_action({
+							context = { only = { "source.organizeImports" } },
+							apply = true,
+						})
+					end, "➜ Organize Imports")
+					map({ "n", "v" }, "<leader>le", function()
+						vim.lsp.buf.code_action({
+							context = { only = { "refactor.extract" } },
+							apply = true,
+						})
+					end, "➜ Extract Method")
+				end,
+			})
+
+			vim.lsp.enable("jdtls")
+
 			vim.api.nvim_create_autocmd({ "BufNewFile", "BufReadPost" }, {
 				pattern = "*.java",
 				callback = function()

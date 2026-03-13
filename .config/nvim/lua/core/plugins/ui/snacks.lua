@@ -134,7 +134,7 @@ return {
         { "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "➜ Type Definition" },
 
         -- Go To Calls (LSP)
-        { "gai", function() Snacks.picker.lsp_incoming_calls() end, desc = "➜ Incoming" },
-        { "gao", function() Snacks.picker.lsp_outgoing_calls() end, desc = "➜ Outgoing" },
+        { "gci", function() Snacks.picker.lsp_incoming_calls() end, desc = "➜ Incoming" },
+        { "gco", function() Snacks.picker.lsp_outgoing_calls() end, desc = "➜ Outgoing" },
     }
 }
