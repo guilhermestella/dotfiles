@@ -16,6 +16,10 @@ return {
 				"lua_ls",
 				"jdtls",
 				"bashls",
+                "marksman",
+
+                -- Linters
+                "markdownlint",
 
 				-- DAP
 				"java-debug-adapter",

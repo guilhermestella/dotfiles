@@ -44,6 +44,7 @@ return {
             { "<leader>s",  group = "Search" },
             { "<leader>S",  group = "Scratch" },
             { "<leader>t",  group = "Test" },
+            { "<leader>T",  group = "Toggle" },
             { "g",          group = "Goto" },
             { "gc",         group = "Goto Calls" },
             { "z",          group = "Fold" },
