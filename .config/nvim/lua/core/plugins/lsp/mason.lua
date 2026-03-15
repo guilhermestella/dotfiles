@@ -1,12 +1,33 @@
 return {
-    {
-        "mason-org/mason-lspconfig.nvim",
-        opts = {
-            ensure_installed = { 'lua_ls', 'jdtls', 'bashls' },
-        },
-        dependencies = {
-            { "mason-org/mason.nvim", opts = {} },
-            "neovim/nvim-lspconfig",
-        },
-    }
+	{
+		"mason-org/mason.nvim",
+		opts = {},
+	},
+	{
+		"mason-org/mason-lspconfig.nvim",
+		dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
+		opts = {
+			ensure_installed = {
+				-- LSP
+				"lua_ls",
+				"jdtls",
+				"bashls",
+
+				-- DAP
+				"java-debug-adapter",
+				"java-test",
+			},
+		},
+	},
+	{
+		"jay-babu/mason-nvim-dap.nvim",
+		dependencies = {
+			"mason-org/mason.nvim",
+			"mfussenegger/nvim-dap",
+		},
+	},
 }

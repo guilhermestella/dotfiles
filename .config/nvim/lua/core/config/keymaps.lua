@@ -7,22 +7,22 @@ vim.keymap.set("n", "<leader>Q", "<cmd>qa<cr>", { desc = "➜ Quit All" })
 -- <Esc> Action
 -- ════════════════════════════════════════════════════════════════════════════
 vim.keymap.set("n", "<Esc>", function()
-	local closed = false
-	for _, win in ipairs(vim.api.nvim_list_wins()) do
-		if vim.api.nvim_win_get_config(win).relative ~= "" then
-			vim.api.nvim_win_close(win, false)
-			closed = true
-		end
-	end
-	if not closed then
-		vim.cmd("nohlsearch")
-	end
+    local closed = false
+    for _, win in ipairs(vim.api.nvim_list_wins()) do
+        if vim.api.nvim_win_get_config(win).relative ~= "" then
+            vim.api.nvim_win_close(win, false)
+            closed = true
+        end
+    end
+    if not closed then
+        vim.cmd("nohlsearch")
+    end
 end, { noremap = true, silent = true, desc = "Esc Action" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Buffer Navigation
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<leader>bn","<cmd>enew<cr>",{ desc = "➜ New" })
+vim.keymap.set("n", "<leader>bn", "<cmd>enew<cr>", { desc = "➜ New" })
 vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "➜ Buffer" })
 vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "➜ Buffer" })
 
@@ -59,13 +59,13 @@ vim.keymap.set("v", ">", ">gv", { desc = "Indent Right" })
 -- ════════════════════════════════════════════════════════════════════════════
 local diagnostic_opts = { focusable = false }
 vim.keymap.set("n", "<C-w>d", function()
-	vim.diagnostic.open_float(diagnostic_opts)
+    vim.diagnostic.open_float(diagnostic_opts)
 end, { desc = "➜ Show Diagnostic" })
 vim.keymap.set("n", "[d", function()
-	vim.diagnostic.goto_prev({ float = { focusable = false } })
+    vim.diagnostic.goto_prev({ float = { focusable = false } })
 end, { desc = "➜ Diagnostic" })
 vim.keymap.set("n", "]d", function()
-	vim.diagnostic.goto_next({ float = { focusable = false } })
+    vim.diagnostic.goto_next({ float = { focusable = false } })
 end, { desc = "➜ Diagnostic" })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -73,23 +73,36 @@ end, { desc = "➜ Diagnostic" })
 -- ════════════════════════════════════════════════════════════════════════════
 local hover_opts = { focusable = false, max_height = 25, max_width = 120 }
 vim.keymap.set("n", "K", function()
-	vim.lsp.buf.hover(hover_opts)
+    vim.lsp.buf.hover(hover_opts)
 end, { desc = "Hover documentation" })
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "LSP Rename Symbol" })
 vim.keymap.set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, { desc = "LSP Code Action" })
+vim.keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, { desc = "➜ Code Action" })
+vim.keymap.set({ "n", "v" }, "<leader>lo", function()
+    vim.lsp.buf.code_action({
+        context = { only = { "refactor.extract" } },
+        apply = true,
+    })
+end, { desc = "➜ Extract Method" })
+vim.keymap.set("n", "<leader>lo", function()
+    vim.lsp.buf.code_action({
+        context = { only = { "source.organizeImports" } },
+        apply = true,
+    })
+end, { desc = "➜ Organize Imports" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Marks
 -- ════════════════════════════════════════════════════════════════════════════
 -- Better add/remove marks
 vim.keymap.set("n", "m", function()
-	local line = vim.fn.line(".")
-	local next_char = vim.fn.getcharstr()
-	local mark = vim.fn.getpos("'" .. next_char)
-	if mark[2] == line then
-		vim.cmd("delmarks " .. next_char)
-	else
-		vim.cmd("mark " .. next_char)
-	end
-	vim.cmd("redraw!")
+    local line = vim.fn.line(".")
+    local next_char = vim.fn.getcharstr()
+    local mark = vim.fn.getpos("'" .. next_char)
+    if mark[2] == line then
+        vim.cmd("delmarks " .. next_char)
+    else
+        vim.cmd("mark " .. next_char)
+    end
+    vim.cmd("redraw!")
 end)

@@ -7,6 +7,7 @@ require('lazy').setup({
         { import = 'core.plugins.git' },
         { import = 'core.plugins.lsp' },
         { import = 'core.plugins.code' },
+        { import = 'core.plugins.debug' },
         { import = 'core.plugins.tools' },
     },
 })

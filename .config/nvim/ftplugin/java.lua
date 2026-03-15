@@ -1,0 +1,170 @@
+local jdtls = require("jdtls")
+local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+
+local lombok_jar = mason_packages .. "/jdtls/lombok.jar"
+
+local bundles = {
+    vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+}
+
+vim.list_extend(bundles, vim.split(vim.fn.glob(mason_packages .. "/java-test/extension/server/*.jar"), "\n"))
+
+jdtls.start_or_attach({
+    name = "jdtls",
+    cmd = {
+        "jdtls",
+        "--jvm-arg=-javaagent:" .. lombok_jar,
+    },
+    root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+    settings = {
+        java = {
+            -- Enable code formatting
+            format = {
+                enabled = true,
+                -- Use the Google Style guide for code formattingh
+                -- settings = {
+                -- 	url = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml",
+                -- 	profile = "GoogleStyle",
+                -- },
+            },
+            -- Enable downloading archives from eclipse automatically
+            eclipse = {
+                downloadSource = true,
+            },
+            -- Enable downloading archives from maven automatically
+            maven = {
+                downloadSources = true,
+            },
+            -- Enable method signature help
+            signatureHelp = {
+                enabled = true,
+            },
+            -- Use the fernflower decompiler when using the javap command to decompile byte code back to java code
+            contentProvider = {
+                preferred = "fernflower",
+            },
+            -- Setup automatical package import oranization on file save
+            saveActions = {
+                organizeImports = true,
+            },
+            -- Customize completion options
+            completion = {
+                -- When using an unimported static method, how should the LSP rank possible places to import the static method from
+                favoriteStaticMembers = {
+                    "org.hamcrest.MatcherAssert.assertThat",
+                    "org.hamcrest.Matchers.*",
+                    "org.hamcrest.CoreMatchers.*",
+                    "org.junit.jupiter.api.Assertions.*",
+                    "java.util.Objects.requireNonNull",
+                    "java.util.Objects.requireNonNullElse",
+                    "org.mockito.Mockito.*",
+                },
+                -- Try not to suggest imports from these packages in the code action window
+                filteredTypes = {
+                    "com.sun.*",
+                    "io.micrometer.shaded.*",
+                    "java.awt.*",
+                    "jdk.*",
+                    "sun.*",
+                },
+                -- Set the order in which the language server should organize imports
+                importOrder = {
+                    "java",
+                    "jakarta",
+                    "javax",
+                    "com",
+                    "org",
+                },
+            },
+            sources = {
+                -- How many classes from a specific package should be imported before automatic imports combine them all into a single import
+                organizeImports = {
+                    starThreshold = 9999,
+                    staticThreshold = 9999,
+                },
+            },
+            -- How should different pieces of code be generated?
+            codeGeneration = {
+                -- When generating toString use a json format
+                toString = {
+                    template = "${object.className}{${member.name()}=${member.value}, ${otherMembers}}",
+                },
+                -- When generating hashCode and equals methods use the java 7 objects method
+                hashCodeEquals = {
+                    useJava7Objects = true,
+                },
+                -- When generating code use code blocks
+                useBlocks = true,
+            },
+            -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
+            configuration = {
+                updateBuildConfiguration = "interactive",
+            },
+            -- enable code lens in the lsp
+            referencesCodeLens = {
+                enabled = true,
+            },
+            -- enable inlay hints for parameter names,
+            inlayHints = {
+                parameterNames = {
+                    enabled = "all",
+                },
+            },
+        },
+    },
+    init_options = {
+        bundles = bundles,
+    },
+    capabilities = {
+        workspace = {
+            configuration = true
+        },
+        textDocument = {
+            completion = {
+                snippetSupport = false
+            }
+        }
+    },
+    on_attach = function()
+
+        require('jdtls.dap').setup_dap()
+        require('jdtls.dap').setup_dap_main_class_configs()
+        vim.lsp.codelens.refresh()
+
+        vim.keymap.set("n", "<leader>lo", "<Cmd> lua require('jdtls').organize_imports()<CR>",
+            { desc = "➜ Organize Imports" })
+
+        vim.keymap.set("n", "<leader>lev", "<Cmd> lua require('jdtls').extract_variable()<CR>",
+            { desc = "➜ Extract Variable" })
+
+        vim.keymap.set("v", "<leader>lev", "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
+            { desc = "➜ Extract Variable" })
+
+        vim.keymap.set("n", "<leader>leV", "<Cmd> lua require('jdtls').extract_variable_all()<CR>",
+            { desc = "➜ Extract Variable All" })
+
+        vim.keymap.set("v", "<leader>leV", "<Esc><Cmd> lua require('jdtls').extract_variable_all(true)<CR>",
+            { desc = "➜ Extract Variable All" })
+
+        vim.keymap.set("n", "<leader>lec", "<Cmd> lua require('jdtls').extract_constant()<CR>",
+            { desc = "➜ Extract Constant" })
+
+        vim.keymap.set("v", "<leader>lec", "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
+            { desc = "➜ Extract Constant" })
+
+        vim.keymap.set("n", "<leader>lem", "<Cmd> lua require('jdtls').extract_method()<CR>",
+            { desc = "➜ Extract Method" })
+
+        vim.keymap.set("v", "<leader>lem", "<Esc><Cmd> lua require('jdtls').extract_method()<CR>",
+            { desc = "➜ Extract Method" })
+
+        vim.keymap.set("n", "<leader>tm", "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
+            { desc = "➜ Test Method" })
+
+        vim.keymap.set("v", "<leader>tm", "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
+            { desc = "➜ Test Method" })
+
+        vim.keymap.set("n", "<leader>tc", "<Esc><Cmd> lua require('jdtls').test_class()<CR>",
+            { desc = "➜ Test Method" })
+    end
+})
