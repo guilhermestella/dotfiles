@@ -1,5 +1,5 @@
 require('core.options')
-require('core.config.keymaps')
+require('core.keymaps')
 require('core.autocmds')
 require('lazy').setup({
     spec = {
