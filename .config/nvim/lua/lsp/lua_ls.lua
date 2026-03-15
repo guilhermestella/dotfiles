@@ -1,4 +1,3 @@
--- lua/lsp/lua_ls.lua
 vim.lsp.config("lua_ls", {
   settings = {
     Lua = {
