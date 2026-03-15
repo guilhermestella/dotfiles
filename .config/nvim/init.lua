@@ -16,12 +16,12 @@ require('keymaps')
 require('autocmds')
 require('lsp')
 require('lazy').setup({
-    spec = {
-        { import = 'plugins.code' },
-        { import = 'plugins.debug' },
-        { import = 'plugins.git' },
-        { import = 'plugins.lsp' },
-        { import = 'plugins.tools' },
-        { import = 'plugins.ui' },
-    },
+  spec = {
+    { import = 'plugins.code' },
+    { import = 'plugins.debug' },
+    { import = 'plugins.git' },
+    { import = 'plugins.lsp' },
+    { import = 'plugins.tools' },
+    { import = 'plugins.ui' },
+  },
 })

@@ -6,4 +6,3 @@ for _, file in ipairs(vim.fn.readdir(opt_path)) do
     require("lsp." .. mod)
   end
 end
-

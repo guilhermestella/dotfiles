@@ -8,4 +8,3 @@ vim.o.tabstop = 4
 vim.o.softtabstop = 0
 vim.o.smarttab = true
 vim.o.linebreak = true
-
