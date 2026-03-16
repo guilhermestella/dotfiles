@@ -18,10 +18,15 @@ return {
         "json-lsp",
         "lua_ls",
         "marksman",
+        "yaml-language-server",
+
+        -- Formatter
+        "yamlfmt",
 
         -- Linters
         "jsonlint",
         "markdownlint",
+        "yamllint",
 
         -- DAP
         "java-debug-adapter",
