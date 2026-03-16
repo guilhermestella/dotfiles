@@ -12,7 +12,7 @@ return {
       },
       highlight = true,
       separator = " > ",
-      depth_limit = 5,
+      depth_limit = 8,
       depth_limit_indicator = "...",
       lazy_update_context = false,
     }

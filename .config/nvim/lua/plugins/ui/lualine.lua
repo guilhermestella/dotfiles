@@ -12,8 +12,11 @@ return {
         sections = {
           lualine_a = { 'mode' },
           lualine_b = { 'branch', 'diff', 'diagnostics' },
-          lualine_c = { 'filename', 'navic' },
+          lualine_c = { 'filename' },
         },
+        winbar = {
+          lualine_c = { 'navic' }
+        }
       }
     end
   }
