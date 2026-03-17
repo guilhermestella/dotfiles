@@ -10,5 +10,6 @@ vim.o.wrap = false
 vim.o.breakindent = true    -- Wrapped lines preserve indentation
 vim.o.showmode = false      -- Don't show mode in command line (shown in statusline)
 vim.o.ruler = false         -- Don't show ruler (shown in statusline)
+vim.o.winbar = '%t'         -- Filename in winbar (navic will use it if available)
 vim.o.winborder = 'rounded' -- Rounded window for neovim
 vim.o.cmdheight = 1         -- Break visual block (https://github.com/neovim/neovim/issues/20635)

@@ -15,10 +15,36 @@ return {
           lualine_c = { 'filename' },
         },
         winbar = {
-          lualine_c = { 'navic' }
+          lualine_c = {
+            {
+              'filename',
+              color = "NavicText"
+            },
+            {
+              'navic',
+              fmt = function(str)
+                if str == "" then return "" end
+                return " ❯ " .. str
+              end,
+              color = "NavicText"
+            }
+          }
         },
         inactive_winbar = {
-          lualine_c = { 'navic' }
+          lualine_c = {
+            {
+              'filename',
+              color = "NavicText"
+            },
+            {
+              'navic',
+              fmt = function(str)
+                if str == "" then return "" end
+                return " ❯ " .. str
+              end,
+              color = "NavicText"
+            }
+          }
         }
       }
     end
