@@ -16,6 +16,9 @@ return {
         },
         winbar = {
           lualine_c = { 'navic' }
+        },
+        inactive_winbar = {
+          lualine_c = { 'navic' }
         }
       }
     end
