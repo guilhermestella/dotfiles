@@ -17,6 +17,12 @@ return {
         winbar = {
           lualine_c = {
             {
+              "filetype",
+              icon_only = true,
+              color = { bg = "NONE" },
+              padding = { left = 1, right = 0 },
+            },
+            {
               'filename',
               color = "NavicText"
             },
@@ -32,6 +38,12 @@ return {
         },
         inactive_winbar = {
           lualine_c = {
+            {
+              "filetype",
+              icon_only = true,
+              color = { bg = "NONE" },
+              padding = { left = 1, right = 0 },
+            },
             {
               'filename',
               color = "NavicText"

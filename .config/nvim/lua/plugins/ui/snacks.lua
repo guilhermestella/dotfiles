@@ -27,6 +27,8 @@ return {
           hidden = true,
         },
         buffers = {
+          sort_lastused = true,
+          current = false,
           win = {
             input = {
               keys = {
