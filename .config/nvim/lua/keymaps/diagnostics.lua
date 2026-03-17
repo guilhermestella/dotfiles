@@ -1,13 +1,19 @@
 -- ════════════════════════════════════════════════════════════════════════════
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
-local diagnostic_opts = { focusable = false }
-vim.keymap.set("n", "<C-w>d", function()
-  vim.diagnostic.open_float(diagnostic_opts)
-end, { desc = "➜ Show Diagnostic" })
-vim.keymap.set("n", "[d", function()
-  vim.diagnostic.goto_prev({ float = { focusable = false } })
-end, { desc = "➜ Diagnostic" })
-vim.keymap.set("n", "]d", function()
-  vim.diagnostic.goto_next({ float = { focusable = false } })
-end, { desc = "➜ Diagnostic" })
+vim.diagnostic.config({
+  jump = {
+    on_jump = function(bufnr)
+      vim.diagnostic.open_float({
+        bufnr = bufnr,
+        scope = "cursor",
+        focus = false,
+        focusable = true,
+      })
+    end,
+  },
+})
+
+vim.keymap.set("n", "<C-w>d", vim.diagnostic.open_float, { desc = "➜ Show Diagnostic" })
+vim.keymap.set("n", "[d", function() vim.diagnostic.jump({ count = -1 }) end, { desc = "➜ Diagnostic" })
+vim.keymap.set("n", "]d", function() vim.diagnostic.jump({ count = 1 }) end, { desc = "➜ Diagnostic" })
