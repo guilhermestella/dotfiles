@@ -1,9 +1,8 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Sync file changed externally
+-- Open Help in Vertical Tab
 -- ════════════════════════════════════════════════════════════════════════════
-vim.api.nvim_create_autocmd({ "VimResume", "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  group = vim.api.nvim_create_augroup("sync_externally", { clear = true }),
+vim.api.nvim_create_autocmd("VimResized", {
   pattern = "*",
-  desc = "Sync file changed externally",
-  command = "silent! checktime",
+  desc = "Auto resize splits when windows are resized",
+  command = "wincmd =",
 })

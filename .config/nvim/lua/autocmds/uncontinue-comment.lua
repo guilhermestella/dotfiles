@@ -1,9 +1,11 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Sync file changed externally
+-- Uncontinue Comment
 -- ════════════════════════════════════════════════════════════════════════════
-vim.api.nvim_create_autocmd({ "VimResume", "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  group = vim.api.nvim_create_augroup("sync_externally", { clear = true }),
+vim.api.nvim_create_autocmd("FileType", {
+  group = vim.api.nvim_create_augroup("no_auto_comment", {}),
   pattern = "*",
-  desc = "Sync file changed externally",
-  command = "silent! checktime",
+  desc = "Do not continue comment on new line",
+  callback = function()
+    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
+  end,
 })
