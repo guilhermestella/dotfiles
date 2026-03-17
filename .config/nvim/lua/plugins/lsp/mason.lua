@@ -16,11 +16,13 @@ return {
         "bashls",
         "jdtls",
         "json-lsp",
+        "lemminx", -- xml
         "lua_ls",
         "marksman",
         "yaml-language-server",
 
         -- Formatter
+        "xmlformatter",
         "yamlfmt",
 
         -- Linters
