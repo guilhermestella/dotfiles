@@ -8,7 +8,9 @@ return {
       keymap = {
         ["<CR>"] = { "accept", "fallback" },
         ["<Tab>"] = { "select_next", "fallback" },
+        ["<c-j>"] = { "select_next", "fallback" },
         ["<S-Tab>"] = { "select_prev", "fallback" },
+        ["<c-k>"] = { "select_prev", "fallback" },
       },
       snippets = { preset = "default" },
       signature = { enabled = true },

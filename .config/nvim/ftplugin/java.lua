@@ -130,33 +130,7 @@ jdtls.start_or_attach({
     require('jdtls.dap').setup_dap_main_class_configs()
     vim.lsp.codelens.refresh()
 
-    vim.keymap.set("n", "<leader>lo", "<Cmd> lua require('jdtls').organize_imports()<CR>",
-      { desc = "➜ Organize Imports" })
-
-    vim.keymap.set("n", "<leader>lev", "<Cmd> lua require('jdtls').extract_variable()<CR>",
-      { desc = "➜ Extract Variable" })
-
-    vim.keymap.set("v", "<leader>lev", "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
-      { desc = "➜ Extract Variable" })
-
-    vim.keymap.set("n", "<leader>leV", "<Cmd> lua require('jdtls').extract_variable_all()<CR>",
-      { desc = "➜ Extract Variable All" })
-
-    vim.keymap.set("v", "<leader>leV", "<Esc><Cmd> lua require('jdtls').extract_variable_all(true)<CR>",
-      { desc = "➜ Extract Variable All" })
-
-    vim.keymap.set("n", "<leader>lec", "<Cmd> lua require('jdtls').extract_constant()<CR>",
-      { desc = "➜ Extract Constant" })
-
-    vim.keymap.set("v", "<leader>lec", "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
-      { desc = "➜ Extract Constant" })
-
-    vim.keymap.set("n", "<leader>lem", "<Cmd> lua require('jdtls').extract_method()<CR>",
-      { desc = "➜ Extract Method" })
-
-    vim.keymap.set("v", "<leader>lem", "<Esc><Cmd> lua require('jdtls').extract_method()<CR>",
-      { desc = "➜ Extract Method" })
-
+    -- Vim-like shortcuts
     vim.keymap.set("n", "<leader>tm", "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
       { desc = "➜ Test Method" })
 
@@ -164,6 +138,28 @@ jdtls.start_or_attach({
       { desc = "➜ Test Method" })
 
     vim.keymap.set("n", "<leader>tc", "<Esc><Cmd> lua require('jdtls').test_class()<CR>",
-      { desc = "➜ Test Method" })
+      { desc = "➜ Test Class" })
+
+    -- IDE inherited shortcuts
+    vim.keymap.set("n", "<C-M-o>", "<Cmd> lua require('jdtls').organize_imports()<CR>",
+      { desc = "➜ Organize Imports" })
+
+    vim.keymap.set("n", "<C-M-m>", "<Cmd> lua require('jdtls').extract_method()<CR>",
+      { desc = "➜ Extract Method" })
+
+    vim.keymap.set("v", "<C-M-m>", "<Esc><Cmd> lua require('jdtls').extract_method()<CR>",
+      { desc = "➜ Extract Method" })
+
+    vim.keymap.set("n", "<C-M-v>", "<Cmd> lua require('jdtls').extract_variable()<CR>",
+      { desc = "➜ Extract Variable" })
+
+    vim.keymap.set("v", "<C-M-v>", "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
+      { desc = "➜ Extract Variable" })
+
+    vim.keymap.set("n", "<C-M-c>", "<Cmd> lua require('jdtls').extract_constant()<CR>",
+      { desc = "➜ Extract Constant" })
+
+    vim.keymap.set("v", "<C-M-c>", "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
+      { desc = "➜ Extract Constant" })
   end
 })
