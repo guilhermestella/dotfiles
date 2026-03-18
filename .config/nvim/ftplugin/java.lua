@@ -31,17 +31,12 @@ jdtls.start_or_attach({
     "-configuration",
     jdtls_path .. "/config_linux",
   },
-  root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
+  root_dir = jdtls.setup.find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' }),
   settings = {
     java = {
       -- Enable code formatting
       format = {
-        enabled = true,
-        -- Use the Google Style guide for code formattingh
-        -- settings = {
-        -- 	url = vim.fn.stdpath("config") .. "/lang_servers/intellij-java-google-style.xml",
-        -- 	profile = "GoogleStyle",
-        -- },
+        enabled = false,
       },
       -- Enable downloading archives from eclipse automatically
       eclipse = {

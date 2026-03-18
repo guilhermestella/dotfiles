@@ -24,6 +24,7 @@ return {
         -- Formatter
         "xmlformatter",
         "yamlfmt",
+        "google-java-format",
 
         -- Linters
         "jsonlint",
