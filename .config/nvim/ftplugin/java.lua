@@ -109,7 +109,7 @@ jdtls.start_or_attach({
       },
       -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
       configuration = {
-        updateBuildConfiguration = "interactive",
+        updateBuildConfiguration = "automatic",
       },
       -- enable code lens in the lsp
       referencesCodeLens = {
@@ -141,16 +141,6 @@ jdtls.start_or_attach({
     require('jdtls.dap').setup_dap()
     require('jdtls.dap').setup_dap_main_class_configs()
     require 'jdtls.setup'.add_commands()
-    vim.lsp.codelens.refresh()
-
-
-    -- Setup a function that automatically runs every time a java file is saved to refresh the code lens
-    vim.api.nvim_create_autocmd("BufWritePost", {
-      pattern = { "*.java" },
-      callback = function()
-        local _, _ = pcall(vim.lsp.codelens.refresh)
-      end
-    })
 
     -- Vim-like shortcuts
     vim.keymap.set("n", "<leader>tm", "<Cmd> lua require('jdtls').test_nearest_method()<CR>",

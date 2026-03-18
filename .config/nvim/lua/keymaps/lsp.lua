@@ -14,14 +14,10 @@ local function fn_extract_constant() vim.lsp.buf.code_action(extract_constant) e
 local function fn_organize_imports() vim.lsp.buf.code_action(organize_imports) end
 
 -- Default LSP shortcuts with description override
+-- Other mappings are defined in Snacks
 vim.keymap.set("n", "K", function() vim.lsp.buf.hover(hover_opts) end, { desc = "Hover documentation" })
 vim.keymap.set("n", "grn", vim.lsp.buf.rename, { desc = "➜ LSP Rename Symbol" })
 vim.keymap.set("n", "gra", vim.lsp.buf.code_action, { desc = "➜ LSP Code Action" })
-vim.keymap.set("n", "grr", vim.lsp.buf.references, { desc = "➜ LSP References" })
-vim.keymap.set("n", "gri", vim.lsp.buf.implementation, { desc = "➜ LSP Implementation" })
-vim.keymap.set("n", "gO", vim.lsp.buf.document_symbol, { desc = "➜ LSP Document Symbols" })
-vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "➜ LSP Definition" })
-vim.keymap.set("n", "gD", vim.lsp.buf.declaration, { desc = "➜ LSP Declaration" })
 
 -- Inheritance from my IntelliJ Keymaps
 vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, { desc = "➜ LSP Rename Symbol" })

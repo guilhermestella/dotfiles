@@ -157,9 +157,8 @@ return {
     -- Go To (LSP)
     { "gd", function() Snacks.picker.lsp_definitions() end, desc = "➜ Definition" },
     { "gD", function() Snacks.picker.lsp_declarations() end, desc = "➜ Declaration" },
-    { "gr", function() Snacks.picker.lsp_references() end, desc = "➜ References" },
-    { "gi", function() Snacks.picker.lsp_implementations() end, desc = "➜ Implementation" },
-    { "gt", function() Snacks.picker.lsp_type_definitions() end, desc = "➜ Type Definition" },
+    { "grr", function() Snacks.picker.lsp_references() end, desc = "➜ References" },
+    { "gri", function() Snacks.picker.lsp_implementations() end, desc = "➜ Implementation" },
 
     -- Go To Calls (LSP)
     { "gci", function() Snacks.picker.lsp_incoming_calls() end, desc = "➜ Incoming" },
