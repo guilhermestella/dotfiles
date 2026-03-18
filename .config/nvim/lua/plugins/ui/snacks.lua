@@ -36,9 +36,25 @@ return {
               }
             }
           }
+        },
+      },
+      win = {
+        input = {
+          keys = {
+            ["<c-p>"] = { "cycle_win", mode = { "i", "n" } },
+          }
+        },
+        preview = {
+          keys = {
+            ["<c-p>"] = { "cycle_win", mode = { "i", "n" } },
+          }
+        },
+        list = {
+          keys = {
+            ["<c-p>"] = { "cycle_win", mode = { "i", "n" } },
+          }
         }
       }
-
     },
     quickfile = { enabled = true },
     scope = { enabled = false },
