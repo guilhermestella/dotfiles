@@ -1,19 +1,35 @@
 local jdtls = require("jdtls")
 local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
-
-local lombok_jar = mason_packages .. "/jdtls/lombok.jar"
-
+local jdtls_path = mason_packages .. "/jdtls"
+local lombok_jar = jdtls_path .. "/lombok.jar"
+local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local bundles = {
   vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
 }
-
 vim.list_extend(bundles, vim.split(vim.fn.glob(mason_packages .. "/java-test/extension/server/*.jar"), "\n"))
+
+local extendedClientCapabilities = jdtls.extendedClientCapabilities
+extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
 jdtls.start_or_attach({
   name = "jdtls",
   cmd = {
     "jdtls",
     "--jvm-arg=-javaagent:" .. lombok_jar,
+    "-data", vim.fn.expand("~/.cache/jdtls/workspace/") .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
+    "-Declipse.application=org.eclipse.jdt.ls.core.id1",
+    "-Dosgi.bundles.defaultStartLevel=4",
+    "-Declipse.product=org.eclipse.jdt.ls.core.product",
+    "-Dlog.protocol=true",
+    "-Dlog.level=ALL",
+    "-Xmx1g",
+    "--add-modules=ALL-SYSTEM",
+    "--add-opens", "java.base/java.util=ALL-UNNAMED",
+    "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+    "-jar",
+    launcher,
+    "-configuration",
+    jdtls_path .. "/config_linux",
   },
   root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" }),
   settings = {
@@ -114,6 +130,7 @@ jdtls.start_or_attach({
   },
   init_options = {
     bundles = bundles,
+    extendedClientCapabilities = extendedClientCapabilities
   },
   capabilities = {
     workspace = {
@@ -128,7 +145,17 @@ jdtls.start_or_attach({
   on_attach = function()
     require('jdtls.dap').setup_dap()
     require('jdtls.dap').setup_dap_main_class_configs()
+    require 'jdtls.setup'.add_commands()
     vim.lsp.codelens.refresh()
+
+
+    -- Setup a function that automatically runs every time a java file is saved to refresh the code lens
+    vim.api.nvim_create_autocmd("BufWritePost", {
+      pattern = { "*.java" },
+      callback = function()
+        local _, _ = pcall(vim.lsp.codelens.refresh)
+      end
+    })
 
     -- Vim-like shortcuts
     vim.keymap.set("n", "<leader>tm", "<Cmd> lua require('jdtls').test_nearest_method()<CR>",

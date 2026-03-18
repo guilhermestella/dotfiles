@@ -40,6 +40,7 @@ return {
       { "<leader>f", group = "Find" },
       { "<leader>g", group = "Git" },
       { "<leader>h", group = "Hunk" },
+      { "<leader>j", group = "Java" },
       { "<leader>l", group = "Lsp Actions" },
       { "<leader>s", group = "Search" },
       { "<leader>S", group = "Scratch" },
