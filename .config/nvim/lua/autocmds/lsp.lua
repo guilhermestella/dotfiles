@@ -1,37 +1,34 @@
 -- ════════════════════════════════════════════════════════════════════════════
 -- Word on yank
 -- ════════════════════════════════════════════════════════════════════════════
-
-local lsp_reference_hightligh = vim.api.nvim_create_augroup("LspReferenceHighlight", { clear = true })
+local lsp_group = vim.api.nvim_create_augroup("LspHighlight", { clear = true })
 
 vim.api.nvim_create_autocmd("CursorMoved", {
-  group = lsp_reference_hightligh,
+  group = lsp_group,
   desc = "Highlight references under cursor",
   callback = function()
-    -- Only run if the cursor is not in insert mode
     if vim.fn.mode() ~= "i" then
       local clients = vim.lsp.get_clients({ bufnr = 0 })
       local supports_highlight = false
       for _, client in ipairs(clients) do
         if client.server_capabilities.documentHighlightProvider then
           supports_highlight = true
-          break -- Found a supporting client, no need to check others
+          break
         end
       end
 
-      -- Proceed only if an LSP is active AND supports the feature
       if supports_highlight then
         vim.lsp.buf.clear_references()
         vim.lsp.buf.document_highlight()
       end
     end
-  end,
+  end
 })
 
 vim.api.nvim_create_autocmd("CursorMovedI", {
-  group = "LspReferenceHighlight",
+  group = lsp_group,
   desc = "Clear highlights when entering insert mode",
   callback = function()
     vim.lsp.buf.clear_references()
-  end,
+  end
 })

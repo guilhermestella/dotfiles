@@ -1,9 +1,0 @@
--- ════════════════════════════════════════════════════════════════════════════
--- Sync file changed externally
--- ════════════════════════════════════════════════════════════════════════════
-vim.api.nvim_create_autocmd({ "VimResume", "FocusGained", "BufEnter", "CursorHold", "CursorHoldI" }, {
-  group = vim.api.nvim_create_augroup("sync_externally", { clear = true }),
-  pattern = "*",
-  desc = "Sync file changed externally",
-  command = "silent! checktime",
-})
