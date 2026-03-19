@@ -1,7 +1,13 @@
 -- ════════════════════════════════════════════════════════════════════════════
+-- Buffer Navigation
+-- ════════════════════════════════════════════════════════════════════════════
+vim.keymap.set("n", "<leader>bn", "<cmd>enew<cr>", { desc = "New buffer" })
+vim.keymap.set("n", "[b", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "]b", "<cmd>bnext<cr>", { desc = "Next buffer" })
+
+-- ════════════════════════════════════════════════════════════════════════════
 -- Marks
 -- ════════════════════════════════════════════════════════════════════════════
--- Better add/remove marks
 vim.keymap.set("n", "m", function()
   local line = vim.fn.line(".")
   local next_char = vim.fn.getcharstr()
