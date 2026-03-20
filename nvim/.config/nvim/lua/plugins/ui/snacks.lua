@@ -22,6 +22,19 @@ return {
     picker = {
       enabled = true,
       hidden = true,
+      layouts = {
+        buffers_vertical = {
+          layout = {
+            box = "vertical",
+            width = 0.5,
+            height = 0.7,
+            border = "rounded",
+            { win = "input",   height = 1,    border = "bottom" },
+            { win = "list",    height = 0.55,  border = "none" },
+            { win = "preview", border = "top" },
+          },
+        }
+      },
       sources = {
         files = {
           hidden = true,
@@ -29,6 +42,7 @@ return {
         buffers = {
           sort_lastused = true,
           current = false,
+          layout = { preset = "buffers_vertical" },
           win = {
             input = {
               keys = {
@@ -41,17 +55,17 @@ return {
       win = {
         input = {
           keys = {
-            ["<c-p>"] = { "cycle_win", mode = { "i", "n" } },
+            ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
           }
         },
         preview = {
           keys = {
-            ["<c-p>"] = { "cycle_win", mode = { "i", "n" } },
+            ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
           }
         },
         list = {
           keys = {
-            ["<c-p>"] = { "cycle_win", mode = { "i", "n" } },
+            ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
           }
         }
       }
