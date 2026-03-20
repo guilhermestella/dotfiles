@@ -1,0 +1,7 @@
+width=30%
+allow_images = true
+prompt = Search...
+lines = 10
+
+matching = fuzzy
+insensitive = true
