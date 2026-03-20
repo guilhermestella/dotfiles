@@ -1,5 +1,5 @@
-[submodule ".jenv"]
-	path = .jenv
+[submodule "jenv/.jenv"]
+	path = jenv/.jenv
 	url = https://github.com/jenv/jenv
 	branch = master
 [submodule ".config/tmux/plugins/tpm"]
