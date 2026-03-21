@@ -14,7 +14,7 @@ return {
     },
     explorer = { enabled = true },
     indent = {
-      enabled = enabled,
+      enabled = true,
       animate = { enabled = false, },
     },
     input = { enabled = true },
