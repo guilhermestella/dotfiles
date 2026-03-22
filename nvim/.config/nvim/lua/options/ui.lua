@@ -14,3 +14,4 @@ vim.o.winbar = '%t'         -- Filename in winbar (navic will use it if availabl
 vim.o.winborder = 'rounded' -- Rounded window for neovim
 vim.o.cmdheight = 1         -- Break visual block (https://github.com/neovim/neovim/issues/20635)
 vim.o.colorcolumn = "120"   -- Virtual Line at column 120
+vim.opt.shortmess:append("I")

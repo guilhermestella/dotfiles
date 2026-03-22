@@ -1,6 +1,7 @@
 return {
   "Hajime-Suzuki/vuffers.nvim",
   dependencies = { "nvim-tree/nvim-web-devicons" },
+  lazy = false,
   keys = {
     { "<leader><Tab>", function() require("vuffers").toggle() end, desc = "➜ Toggle Vuffers" },
   },
@@ -48,8 +49,8 @@ return {
         pinned_icon = "󰐾",
         show_file_extension = true,
         window = {
-          auto_resize = true,
-          width = 35,
+          auto_resize = false,
+          width = 40,
           focus_on_open = false,
         },
       },
@@ -57,8 +58,6 @@ return {
 
     local function set_vuffers_highlights()
       local normal = vim.api.nvim_get_hl(0, { name = "Normal" })
-      local normalNC = vim.api.nvim_get_hl(0, { name = "NormalNC" })
-      local cursorLine = vim.api.nvim_get_hl(0, { name = "CursorLine" })
       local yellow = vim.api.nvim_get_hl(0, { name = "GruvboxYellow" })
       local green = vim.api.nvim_get_hl(0, { name = "GruvboxGreen" })
       local orange = vim.api.nvim_get_hl(0, { name = "GruvboxOrange" })
@@ -66,7 +65,6 @@ return {
 
       vim.api.nvim_set_hl(0, "VuffersWindowBackground", {
         fg = normal.fg,
-        bg = normalNC.bg or cursorLine.bg,
       })
       vim.api.nvim_set_hl(0, "VuffersActiveBuffer", {
         fg = yellow.fg,
@@ -88,5 +86,8 @@ return {
     vim.api.nvim_create_autocmd("ColorScheme", {
       callback = set_vuffers_highlights,
     })
+
+
+    vuffers.open()
   end,
 }

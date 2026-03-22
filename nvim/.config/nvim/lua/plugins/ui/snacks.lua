@@ -4,14 +4,7 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = {
-      enabled = true,
-      sections = {
-        { section = "header" },
-        { section = "keys",   gap = 1, padding = 1 },
-        { section = "startup" },
-      },
-    },
+    dashboard = { enabled = false },
     explorer = { enabled = true },
     indent = {
       enabled = true,
@@ -62,6 +55,7 @@ return {
       win = {
         input = {
           keys = {
+            ["<a-h>"] = false,
             ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
           }
         },
@@ -72,6 +66,7 @@ return {
         },
         list = {
           keys = {
+            ["<a-h>"] = false,
             ["<c-w>"] = { "cycle_win", mode = { "i", "n" } },
           }
         }
