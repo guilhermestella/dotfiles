@@ -7,12 +7,12 @@ return {
           local gitsigns = require("gitsigns")
 
           -- Hunk
-          vim.keymap.set("n", "<leader>hp", gitsigns.preview_hunk, { buffer = bufnr, desc = "➜ Preview" })
-          vim.keymap.set("n", "<leader>hr", gitsigns.reset_hunk, { buffer = bufnr, desc = "➜ Reset" })
-          vim.keymap.set("v", "<leader>hr", function()
+          vim.keymap.set("n", "ghp", gitsigns.preview_hunk, { buffer = bufnr, desc = "➜ Preview" })
+          vim.keymap.set("n", "ghr", gitsigns.reset_hunk, { buffer = bufnr, desc = "➜ Reset" })
+          vim.keymap.set("v", "ghr", function()
             gitsigns.reset_hunk({ vim.fn.line("."), vim.fn.line("v") })
           end, { buffer = bufnr, desc = "➜ Reset" })
-          vim.keymap.set("n", "<leader>hR", gitsigns.reset_buffer, { buffer = bufnr, desc = "➜ Reset All" })
+          vim.keymap.set("n", "ghR", gitsigns.reset_buffer, { buffer = bufnr, desc = "➜ Reset All" })
 
           -- Previous/Next
           vim.keymap.set("n", "[h", function()
