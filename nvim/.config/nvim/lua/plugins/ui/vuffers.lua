@@ -16,7 +16,7 @@ return {
 
     vuffers.setup({
       debug = {
-        enabled = true,
+        enabled = false,
         level = "error",
       },
       exclude = {
