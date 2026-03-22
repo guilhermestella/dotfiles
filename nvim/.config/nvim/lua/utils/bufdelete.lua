@@ -18,7 +18,7 @@ local function get_replacement(buf)
 end
 
 function M.bufdelete(bufnr, force)
-  bufnr = bufnr or vim.api.nvim_get_current_buf()
+  bufnr = (type(bufnr) == "number" and bufnr) or vim.api.nvim_get_current_buf()
   force = force or false
 
   if vim.bo[bufnr].buftype ~= "" then
