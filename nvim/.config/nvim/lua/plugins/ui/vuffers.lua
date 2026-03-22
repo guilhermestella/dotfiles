@@ -11,7 +11,7 @@ return {
     vim.api.nvim_create_autocmd("FileType", {
       pattern = "vuffers",
       callback = function(ev)
-        vim.api.nvim_buf_set_name(ev.buf, "~Vuffers~")
+        vim.api.nvim_buf_set_name(ev.buf, "~~~ Opened Buffers ~~~")
       end
     })
 
@@ -49,7 +49,7 @@ return {
         pinned_icon = "󰐾",
         show_file_extension = true,
         window = {
-          auto_resize = false,
+          auto_resize = true,
           width = 40,
           focus_on_open = false,
         },
@@ -86,8 +86,5 @@ return {
     vim.api.nvim_create_autocmd("ColorScheme", {
       callback = set_vuffers_highlights,
     })
-
-
-    vuffers.open()
   end,
 }
