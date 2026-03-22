@@ -8,13 +8,6 @@ return {
   config = function()
     local vuffers = require("vuffers")
 
-    vim.api.nvim_create_autocmd("FileType", {
-      pattern = "vuffers",
-      callback = function(ev)
-        vim.api.nvim_buf_set_name(ev.buf, "~~~ Opened Buffers ~~~")
-      end
-    })
-
     vuffers.setup({
       debug = {
         enabled = false,
@@ -82,9 +75,23 @@ return {
       })
     end
 
+    vim.api.nvim_create_autocmd("FileType", {
+      pattern = "vuffers",
+      callback = function(ev)
+        vim.api.nvim_buf_set_name(ev.buf, "~~~ Opened Buffers ~~~")
+      end
+    })
+
     set_vuffers_highlights()
-    vim.api.nvim_create_autocmd("ColorScheme", {
-      callback = set_vuffers_highlights,
+
+    vim.api.nvim_create_autocmd("User", {
+      pattern = "SnacksDashboardClosed",
+      desc = "Open vuffers after leaving dashboard",
+      callback = function()
+        vim.schedule(function()
+          vuffers.open()
+        end)
+      end,
     })
   end,
 }

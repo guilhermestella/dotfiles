@@ -4,7 +4,14 @@ return {
   lazy = false,
   opts = {
     bigfile = { enabled = true },
-    dashboard = { enabled = false },
+    dashboard = {
+      enabled = true,
+      sections = {
+        { section = "header" },
+        { section = "keys",   gap = 1, padding = 1 },
+        { section = "startup" },
+      },
+    },
     explorer = { enabled = true },
     indent = {
       enabled = true,
@@ -107,6 +114,13 @@ return {
     zen = { enabled = false },
   },
   keys = {
+
+
+    -- IDE Shortcuts
+
+
+
+
     -- Uncategorized
     { "/", function() Snacks.picker.grep_word({ live = true }) end, desc = "➜ Grep Selection", mode = "x" },
     { "<C-_>", function() Snacks.terminal.toggle() end, desc = "➜ Open Terminal", mode = { "n", "t" } },
