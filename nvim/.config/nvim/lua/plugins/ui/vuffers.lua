@@ -3,7 +3,7 @@ return {
   dependencies = { "nvim-tree/nvim-web-devicons" },
   lazy = false,
   keys = {
-    { "<leader><Tab>", function() require("vuffers").toggle() end, desc = "➜ Toggle Vuffers" },
+    { "<c-w>`", function() require("vuffers").toggle() end, desc = "➜ Toggle Vuffers" },
   },
   config = function()
     local vuffers = require("vuffers")
