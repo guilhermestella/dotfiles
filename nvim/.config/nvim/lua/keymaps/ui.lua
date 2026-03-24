@@ -41,8 +41,8 @@ vim.keymap.set({ "t", "n" }, "<M-Right>", ":vertical resize +2<CR>", { desc = "I
 -- ════════════════════════════════════════════════════════════════════════════
 -- Buffer Navigation
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<M-k>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<M-j>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<M-j>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+vim.keymap.set("n", "<M-k>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Marks

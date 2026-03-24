@@ -12,7 +12,7 @@ return {
         { section = "startup" },
       },
     },
-    explorer = { enabled = true },
+    explorer = { enabled = false },
     indent = {
       enabled = true,
       animate = { enabled = false, },
@@ -126,7 +126,6 @@ return {
     { "<C-_>", function() Snacks.terminal.toggle() end, desc = "➜ Open Terminal", mode = { "n", "t" } },
 
     -- General
-    { "<leader>e", function() Snacks.explorer() end, desc = "➜ Explorer" },
     { "<leader>/", function() Snacks.picker.grep() end, desc = "➜ Grep" },
     { "<leader>`", function() Snacks.picker.git_status() end, desc = "➜ Git Status" },
     { "<leader><space>", function() Snacks.picker.smart() end, desc = "➜ Smart Find Files" },
@@ -163,8 +162,6 @@ return {
       desc = "➜ Notifications"
     },
     { "<leader>sq", function() Snacks.picker.qflist() end, desc = "➜ Quickfix List" },
-    { "<leader>ss", function() Snacks.picker.lsp_symbols() end, desc = "➜ File Structure" },
-    { "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "➜ Workspace Structure" },
     { "<leader>su", function() Snacks.picker.undo() end, desc = "➜ Undo History" },
 
     -- Scratch
