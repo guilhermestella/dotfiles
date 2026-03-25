@@ -32,7 +32,8 @@ set cmdheight=1
 set colorcolumn=120
 set linebreak
 set shortmess+=I
-colorscheme habamax
+let g:jellybeans_overrides = { 'background': { 'guibg': '060606' } }
+colorscheme jellybeans
 
 " Indentation
 set expandtab
