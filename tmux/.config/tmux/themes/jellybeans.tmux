@@ -1,0 +1,32 @@
+%hidden bg="#1c1c1c"
+%hidden bg_mid="#333333"
+%hidden bg_subtle="#404040"
+%hidden fg="#bcbcbc"
+%hidden fg_muted="#767676"
+%hidden green="#99ad6a"
+%hidden blue="#8fbfdc"
+%hidden red="#cf6a4c"
+%hidden yellow="#d8ad4c"
+
+set -g status-bg "$bg"
+set -g status-justify "left"
+set -g status-left-length "100"
+set -g status "on"
+set -g status-right-length "100"
+set -g status-style "none"
+
+set -g pane-border-style "fg=$bg_subtle"
+set -g pane-active-border-style "fg=$blue"
+
+set -g message-style "fg=$bg,bg=$green"
+set -g message-command-style "fg=$bg,bg=$green"
+
+setw -g window-status-style "bg=$bg,fg=$fg_muted"
+setw -g window-status-activity-style "bg=$bg,fg=$yellow"
+setw -g window-status-separator "#[fg=$bg_subtle] │ "
+
+set -g status-left ""
+set -g status-right "#{?client_prefix,#[fg=$bg]#[bg=$red],#[fg=$bg]#[bg=$green]} #S #{?client_prefix,#[fg=$red]#[bg=$bg],#[fg=$green]#[bg=$bg]}#[nobold,nounderscore,noitalics]"
+
+setw -g window-status-format "#[fg=$fg_muted,bg=$bg] #W "
+setw -g window-status-current-format "#[fg=$blue,bg=$bg,nobold,nounderscore,noitalics]#[fg=$bg,bg=$blue,bold] #W #[fg=$blue,bg=$bg,nobold,nounderscore,noitalics]"
