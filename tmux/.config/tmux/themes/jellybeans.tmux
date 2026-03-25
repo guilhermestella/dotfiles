@@ -1,4 +1,4 @@
-%hidden bg="#1c1c1c"
+%hidden bg="#060606"
 %hidden bg_mid="#333333"
 %hidden bg_subtle="#404040"
 %hidden fg="#bcbcbc"
