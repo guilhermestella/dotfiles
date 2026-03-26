@@ -3,7 +3,7 @@
         email = eng.guilhermestella@gmail.com
 
 [core]
-        editor = nvim
+        editor = vim
 
 [color]
         ui = true
