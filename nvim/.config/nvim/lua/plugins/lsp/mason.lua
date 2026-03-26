@@ -1,47 +1,47 @@
 return {
   {
     "mason-org/mason.nvim",
-    opts = {},
-  },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
-  },
-  {
-    "WhoIsSethDaniel/mason-tool-installer.nvim",
-    dependencies = { "mason-org/mason.nvim", "neovim/nvim-lspconfig" },
-    opts = {
-      ensure_installed = {
-        -- LSP
-        "bashls",
-        "jdtls",
-        "json-lsp",
-        "lemminx", -- xml
-        "lua_ls",
-        "marksman",
-        "yaml-language-server",
-
-        -- Formatter
-        "xmlformatter",
-        "yamlfmt",
-        "google-java-format",
-
-        -- Linters
-        "jsonlint",
-        "markdownlint",
-        "yamllint",
-
-        -- DAP
-        "java-debug-adapter",
-        "java-test",
-      },
-    },
-  },
-  {
-    "jay-babu/mason-nvim-dap.nvim",
     dependencies = {
-      "mason-org/mason.nvim",
-      "mfussenegger/nvim-dap",
+      "mason-org/mason-lspconfig.nvim",
+      "WhoIsSethDaniel/mason-tool-installer.nvim",
+      "jay-babu/mason-nvim-dap.nvim",
     },
+    opts = {},
+    config = function()
+      local mason = require('mason')
+      local mason_lspconfig = require('mason-lspconfig')
+      local mason_installer = require('mason-tool-installer')
+      local mason_dap = require('mason-nvim-dap')
+
+      mason.setup()
+      mason_lspconfig.setup()
+      mason_installer.setup {
+        ensure_installed = {
+          -- LSP
+          "bashls",
+          "jdtls",
+          "json-lsp",
+          "lemminx", -- xml
+          "lua_ls",
+          "marksman",
+          "yaml-language-server",
+
+          -- Formatter
+          "xmlformatter",
+          "yamlfmt",
+          "google-java-format",
+
+          -- Linters
+          "jsonlint",
+          "markdownlint",
+          "yamllint",
+
+          -- DAP
+          "java-debug-adapter",
+          "java-test",
+        },
+      }
+      mason_dap.setup()
+    end
   },
 }
