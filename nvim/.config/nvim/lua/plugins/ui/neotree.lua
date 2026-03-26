@@ -96,7 +96,7 @@ return {
         if buf_name:match("neo%-tree") and buf_name:match(source) then
           vim.cmd("Neotree " .. source .. " close")
         else
-          vim.cmd("Neotree " .. source .. " focus reveal right")
+          vim.cmd("Neotree " .. source .. " focus reveal")
         end
       end
 
