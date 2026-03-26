@@ -1,7 +1,4 @@
-vim.lsp.config("lemminx", {
-  cmd = { "lemminx" },
-  filetypes = { "xml", "xsd", "xsl", "xslt", "svg" },
-  root_markers = { ".git" },
+return {
   settings = {
     xml = {
       validation = {
@@ -16,6 +13,4 @@ vim.lsp.config("lemminx", {
       },
     },
   },
-})
-
-vim.lsp.enable("lemminx")
+}

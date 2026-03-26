@@ -15,7 +15,6 @@ require('options')
 require('keymaps')
 require('cmds')
 require('autocmds')
-require('lsp')
 require('lazy').setup({
   spec = {
     { import = 'plugins.code' },
