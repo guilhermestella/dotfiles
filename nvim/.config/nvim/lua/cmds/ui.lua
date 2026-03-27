@@ -5,7 +5,7 @@
 -- ════════════════════════════════════════════════════════════════════════════
 -- Override closing commands
 -- ════════════════════════════════════════════════════════════════════════════
-local bd = require('utils.bufdelete')
+local bd = require "utils.bufdelete"
 
 vim.api.nvim_create_user_command("Bdelete", function(opts)
   local force = opts.bang
@@ -19,9 +19,11 @@ vim.api.nvim_create_user_command("Q", function(opts)
 end, { bang = true })
 
 vim.api.nvim_create_user_command("X", function(opts)
-  if not opts.bang and vim.bo.modified then vim.cmd("write") end
+  if not opts.bang and vim.bo.modified then
+    vim.cmd "write"
+  end
   bd.bufdelete(nil, opts.bang)
 end, { bang = true })
 
-vim.cmd([[cnoreabbrev <expr> q getcmdtype() == ':' && getcmdline() == 'q' ? 'Q' : 'q']])
-vim.cmd([[cnoreabbrev <expr> x getcmdtype() == ':' && getcmdline() == 'x' ? 'X' : 'x']])
+vim.cmd [[cnoreabbrev <expr> q getcmdtype() == ':' && getcmdline() == 'q' ? 'Q' : 'q']]
+vim.cmd [[cnoreabbrev <expr> x getcmdtype() == ':' && getcmdline() == 'x' ? 'X' : 'x']]

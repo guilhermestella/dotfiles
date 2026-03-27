@@ -3,10 +3,10 @@ return {
     "nvim-treesitter/nvim-treesitter-textobjects",
     dependencies = { "nvim-treesitter/nvim-treesitter" },
     config = function()
-      local select = require("nvim-treesitter-textobjects.select")
-      local move = require("nvim-treesitter-textobjects.move")
+      local select = require "nvim-treesitter-textobjects.select"
+      local move = require "nvim-treesitter-textobjects.move"
 
-      require("nvim-treesitter-textobjects").setup({
+      require("nvim-treesitter-textobjects").setup {
         select = {
           lookahead = true,
           selection_modes = {
@@ -19,7 +19,7 @@ return {
         move = {
           set_jumps = true,
         },
-      })
+      }
 
       -- Select
       vim.keymap.set({ "x", "o" }, "af", function()

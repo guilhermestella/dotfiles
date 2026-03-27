@@ -23,7 +23,7 @@ vim.keymap.set("n", "<Esc>", function()
   end
 
   -- otherwise, just clear search highlights
-  vim.cmd("nohlsearch")
+  vim.cmd "nohlsearch"
 end, { noremap = true, silent = true, desc = "Esc Action" })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -48,7 +48,7 @@ vim.keymap.set("n", "<M-k>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 -- Marks
 -- ════════════════════════════════════════════════════════════════════════════
 vim.keymap.set("n", "m", function()
-  local line = vim.fn.line(".")
+  local line = vim.fn.line "."
   local next_char = vim.fn.getcharstr()
   local mark = vim.fn.getpos("'" .. next_char)
   if mark[2] == line then
@@ -56,5 +56,5 @@ vim.keymap.set("n", "m", function()
   else
     vim.cmd("mark " .. next_char)
   end
-  vim.cmd("redraw!")
+  vim.cmd "redraw!"
 end)

@@ -8,13 +8,13 @@ return {
     opts = {
       lsp = {
         auto_attach = true,
-        preference = { "jdtls", "spring-boot" }
+        preference = { "jdtls", "spring-boot" },
       },
       highlight = true,
       separator = " > ",
       depth_limit = 8,
       depth_limit_indicator = "...",
       lazy_update_context = false,
-    }
-  }
+    },
+  },
 }

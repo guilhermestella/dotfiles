@@ -1,22 +1,23 @@
-local jdtls = require("jdtls")
-local mason_packages = vim.fn.stdpath("data") .. "/mason/packages"
+local jdtls = require "jdtls"
+local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
 local jdtls_path = mason_packages .. "/jdtls"
 local lombok_jar = jdtls_path .. "/lombok.jar"
 local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
 local bundles = {
-  vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true)
+  vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
 }
 vim.list_extend(bundles, vim.split(vim.fn.glob(mason_packages .. "/java-test/extension/server/*.jar"), "\n"))
 
 local extendedClientCapabilities = jdtls.extendedClientCapabilities
 extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
 
-jdtls.start_or_attach({
+jdtls.start_or_attach {
   name = "jdtls",
   cmd = {
     "jdtls",
     "--jvm-arg=-javaagent:" .. lombok_jar,
-    "-data", vim.fn.expand("~/.cache/jdtls/workspace/") .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
+    "-data",
+    vim.fn.expand "~/.cache/jdtls/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -24,14 +25,16 @@ jdtls.start_or_attach({
     "-Dlog.level=ALL",
     "-Xmx1g",
     "--add-modules=ALL-SYSTEM",
-    "--add-opens", "java.base/java.util=ALL-UNNAMED",
-    "--add-opens", "java.base/java.lang=ALL-UNNAMED",
+    "--add-opens",
+    "java.base/java.util=ALL-UNNAMED",
+    "--add-opens",
+    "java.base/java.lang=ALL-UNNAMED",
     "-jar",
     launcher,
     "-configuration",
     jdtls_path .. "/config_linux",
   },
-  root_dir = jdtls.setup.find_root({ '.git', 'mvnw', 'gradlew', 'pom.xml', 'build.gradle' }),
+  root_dir = jdtls.setup.find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
   settings = {
     java = {
       -- Enable code formatting
@@ -125,53 +128,83 @@ jdtls.start_or_attach({
   },
   init_options = {
     bundles = bundles,
-    extendedClientCapabilities = extendedClientCapabilities
+    extendedClientCapabilities = extendedClientCapabilities,
   },
   capabilities = {
     workspace = {
-      configuration = true
+      configuration = true,
     },
     textDocument = {
       completion = {
-        snippetSupport = false
-      }
-    }
+        snippetSupport = false,
+      },
+    },
   },
   on_attach = function()
-    require('jdtls.dap').setup_dap()
-    require('jdtls.dap').setup_dap_main_class_configs()
-    require 'jdtls.setup'.add_commands()
+    require("jdtls.dap").setup_dap()
+    require("jdtls.dap").setup_dap_main_class_configs()
+    require("jdtls.setup").add_commands()
 
     -- Vim-like shortcuts
-    vim.keymap.set("n", "<leader>tm", "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
-      { desc = "➜ Test Method" })
+    vim.keymap.set(
+      "n",
+      "<leader>tm",
+      "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
+      { desc = "➜ Test Method" }
+    )
 
-    vim.keymap.set("v", "<leader>tm", "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
-      { desc = "➜ Test Method" })
+    vim.keymap.set(
+      "v",
+      "<leader>tm",
+      "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
+      { desc = "➜ Test Method" }
+    )
 
-    vim.keymap.set("n", "<leader>tc", "<Esc><Cmd> lua require('jdtls').test_class()<CR>",
-      { desc = "➜ Test Class" })
+    vim.keymap.set("n", "<leader>tc", "<Esc><Cmd> lua require('jdtls').test_class()<CR>", { desc = "➜ Test Class" })
 
     -- IDE inherited shortcuts
-    vim.keymap.set("n", "<C-M-o>", "<Cmd> lua require('jdtls').organize_imports()<CR>",
-      { desc = "➜ Organize Imports" })
+    vim.keymap.set(
+      "n",
+      "<C-M-o>",
+      "<Cmd> lua require('jdtls').organize_imports()<CR>",
+      { desc = "➜ Organize Imports" }
+    )
 
-    vim.keymap.set("n", "<C-M-m>", "<Cmd> lua require('jdtls').extract_method()<CR>",
-      { desc = "➜ Extract Method" })
+    vim.keymap.set("n", "<C-M-m>", "<Cmd> lua require('jdtls').extract_method()<CR>", { desc = "➜ Extract Method" })
 
-    vim.keymap.set("v", "<C-M-m>", "<Esc><Cmd> lua require('jdtls').extract_method()<CR>",
-      { desc = "➜ Extract Method" })
+    vim.keymap.set(
+      "v",
+      "<C-M-m>",
+      "<Esc><Cmd> lua require('jdtls').extract_method()<CR>",
+      { desc = "➜ Extract Method" }
+    )
 
-    vim.keymap.set("n", "<C-M-v>", "<Cmd> lua require('jdtls').extract_variable()<CR>",
-      { desc = "➜ Extract Variable" })
+    vim.keymap.set(
+      "n",
+      "<C-M-v>",
+      "<Cmd> lua require('jdtls').extract_variable()<CR>",
+      { desc = "➜ Extract Variable" }
+    )
 
-    vim.keymap.set("v", "<C-M-v>", "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
-      { desc = "➜ Extract Variable" })
+    vim.keymap.set(
+      "v",
+      "<C-M-v>",
+      "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
+      { desc = "➜ Extract Variable" }
+    )
 
-    vim.keymap.set("n", "<C-M-c>", "<Cmd> lua require('jdtls').extract_constant()<CR>",
-      { desc = "➜ Extract Constant" })
+    vim.keymap.set(
+      "n",
+      "<C-M-c>",
+      "<Cmd> lua require('jdtls').extract_constant()<CR>",
+      { desc = "➜ Extract Constant" }
+    )
 
-    vim.keymap.set("v", "<C-M-c>", "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
-      { desc = "➜ Extract Constant" })
-  end
-})
+    vim.keymap.set(
+      "v",
+      "<C-M-c>",
+      "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
+      { desc = "➜ Extract Constant" }
+    )
+  end,
+}

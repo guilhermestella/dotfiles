@@ -8,9 +8,9 @@ vim.api.nvim_create_autocmd({ "BufWritePre", "InsertLeave" }, {
   desc = "Remove trailing whitespaces",
   callback = function()
     if vim.bo.modifiable then
-      vim.cmd([[%s/\s\+$//e]])
+      vim.cmd [[%s/\s\+$//e]]
     end
-  end
+  end,
 })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -20,6 +20,6 @@ vim.api.nvim_create_autocmd("FileType", {
   group = edit_group,
   desc = "Do not continue comment on new line",
   callback = function()
-    vim.opt_local.formatoptions:remove({ "c", "r", "o" })
-  end
+    vim.opt_local.formatoptions:remove { "c", "r", "o" }
+  end,
 })

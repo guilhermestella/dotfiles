@@ -3,7 +3,7 @@ return {
   event = "VeryLazy",
   dependencies = {
     "lewis6991/gitsigns.nvim",
-    "echasnovski/mini.icons"
+    "echasnovski/mini.icons",
   },
   opts = {
     delay = 500,
@@ -30,8 +30,8 @@ return {
         windows = false,
         nav = false,
         z = false,
-        g = false
-      }
+        g = false,
+      },
     },
     spec = {
       { "<leader>", group = "General" },
@@ -59,6 +59,8 @@ return {
       { "zC", desc = "➜ Close All" },
     },
     -- Trick to show only my defined mappings
-    filter = function(mapping) return mapping.desc ~= nil and vim.startswith(mapping.desc, "➜") end,
+    filter = function(mapping)
+      return mapping.desc ~= nil and vim.startswith(mapping.desc, "➜")
+    end,
   },
 }

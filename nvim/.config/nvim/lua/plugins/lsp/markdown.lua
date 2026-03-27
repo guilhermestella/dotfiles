@@ -1,22 +1,23 @@
 return {
   {
-    'MeanderingProgrammer/render-markdown.nvim',
+    "MeanderingProgrammer/render-markdown.nvim",
     dependencies = {
-      'nvim-treesitter/nvim-treesitter',
-      'nvim-mini/mini.icons' },
+      "nvim-treesitter/nvim-treesitter",
+      "nvim-mini/mini.icons",
+    },
     opts = {
       enabled = false,
       anti_conceal = {
-        enabled = false
+        enabled = false,
       },
       completions = {
         lsp = {
-          enabled = true
-        }
+          enabled = true,
+        },
       },
     },
     keys = {
-      { "<leader>Tm", "<cmd>RenderMarkdown toggle<cr>", desc = "➜ Render Markdown Toggle", ft = "markdown" }
-    }
-  }
+      { "<leader>Tm", "<cmd>RenderMarkdown toggle<cr>", desc = "➜ Render Markdown Toggle", ft = "markdown" },
+    },
+  },
 }

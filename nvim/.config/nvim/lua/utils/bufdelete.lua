@@ -5,7 +5,7 @@
 local M = {}
 
 local function get_replacement(buf)
-  local alt = vim.fn.bufnr("#")
+  local alt = vim.fn.bufnr "#"
   if alt ~= -1 and alt ~= buf and vim.api.nvim_buf_is_valid(alt) and vim.bo[alt].buflisted then
     return alt
   end
@@ -50,7 +50,9 @@ function M.bufdelete(bufnr, force)
   for _, win in ipairs(wins) do
     if vim.api.nvim_win_is_valid(win) then
       if replacement == -1 then
-        vim.api.nvim_win_call(win, function() vim.cmd("enew") end)
+        vim.api.nvim_win_call(win, function()
+          vim.cmd "enew"
+        end)
       else
         vim.api.nvim_win_set_buf(win, replacement)
       end
@@ -58,7 +60,7 @@ function M.bufdelete(bufnr, force)
   end
 
   local ok, err = pcall(function()
-    vim.cmd.bdelete({ count = bufnr, bang = force })
+    vim.cmd.bdelete { count = bufnr, bang = force }
   end)
   if not ok then
     vim.notify("bufdelete: " .. err, vim.log.levels.ERROR)

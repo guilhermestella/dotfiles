@@ -13,7 +13,7 @@ return {
         "filesystem",
         "buffers",
         "git_status",
-        "document_symbols"
+        "document_symbols",
       },
       clipboard = { sync = "global" },
       hide_root_node = true,
@@ -56,9 +56,9 @@ return {
           mappings = {
 
             ["<bs>"] = false,
-            ["."] = false
-          }
-        }
+            ["."] = false,
+          },
+        },
       },
       buffers = {
         show_unloaded = true,
@@ -85,8 +85,8 @@ return {
             ["gg"] = false,
             ["i"] = "show_file_details", -- see `:h neo-tree-file-actions` for options to customize the window.
             ["b"] = false,
-          }
-        }
+          },
+        },
       },
     },
     config = function(_, opts)
@@ -96,24 +96,36 @@ return {
         local buf = vim.api.nvim_win_get_buf(win)
         local buf_name = vim.api.nvim_buf_get_name(buf)
 
-        if buf_name:match("neo%-tree") and buf_name:match(source) then
+        if buf_name:match "neo%-tree" and buf_name:match(source) then
           vim.cmd("Neotree " .. source .. " close")
         else
           vim.cmd("Neotree " .. source .. " focus reveal")
         end
       end
 
-      vim.keymap.set("n", "<leader>e", function() toggle('filesystem') end, { desc = "➜ Toggle Explorer" })
-      vim.keymap.set("n", "<M-1>", function() toggle('filesystem') end, { desc = "➜ Toggle Explorer" })
+      vim.keymap.set("n", "<leader>e", function()
+        toggle "filesystem"
+      end, { desc = "➜ Toggle Explorer" })
+      vim.keymap.set("n", "<M-1>", function()
+        toggle "filesystem"
+      end, { desc = "➜ Toggle Explorer" })
 
-      vim.keymap.set("n", "<leader>ss", function() toggle('document_symbols') end, { desc = "➜ Toggle Structure" })
-      vim.keymap.set("n", "<M-2>", function() toggle('document_symbols') end, { desc = "➜ Toggle Structure" })
+      vim.keymap.set("n", "<leader>ss", function()
+        toggle "document_symbols"
+      end, { desc = "➜ Toggle Structure" })
+      vim.keymap.set("n", "<M-2>", function()
+        toggle "document_symbols"
+      end, { desc = "➜ Toggle Structure" })
 
-      vim.keymap.set("n", "<C-w>`", function() toggle('buffers') end, { desc = "➜ Toggle Buffers" })
+      vim.keymap.set("n", "<C-w>`", function()
+        toggle "buffers"
+      end, { desc = "➜ Toggle Buffers" })
 
-      vim.keymap.set("n", "<M-c>", function() toggle('git_status') end, { desc = "➜ Toggle Git Status" })
+      vim.keymap.set("n", "<M-c>", function()
+        toggle "git_status"
+      end, { desc = "➜ Toggle Git Status" })
 
-      require('neo-tree').setup(opts)
-    end
-  }
+      require("neo-tree").setup(opts)
+    end,
+  },
 }

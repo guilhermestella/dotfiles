@@ -7,11 +7,11 @@ return {
     },
     config = function()
       -- gain access to the dap plugin and its functions
-      local dap = require("dap")
+      local dap = require "dap"
       -- gain access to the dap ui plugin and its functions
-      local dapui = require("dapui")
+      local dapui = require "dapui"
       -- gain access to the dap widgets
-      local widgets = require('dap.ui.widgets')
+      local widgets = require "dap.ui.widgets"
 
       -- Setup the dap ui with default configuration
       dapui.setup()
@@ -25,7 +25,7 @@ return {
       -- Breakpoint
       vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, { desc = "➜ Toggle Breakpoint" })
       vim.keymap.set("n", "<leader>dT", function()
-        dap.toggle_breakpoint(vim.fn.input('Condition: '))
+        dap.toggle_breakpoint(vim.fn.input "Condition: ")
       end, { desc = "➜ Toggle Conditional Breakpoint" })
 
       -- Navigation

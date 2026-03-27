@@ -12,10 +12,10 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     if mark[1] > 0 and mark[1] <= line_count then
       vim.api.nvim_win_set_cursor(0, mark)
       vim.schedule(function()
-        vim.cmd.normal({ "zz", bang = true })
+        vim.cmd.normal { "zz", bang = true }
       end)
     end
-  end
+  end,
 })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -31,8 +31,8 @@ vim.api.nvim_create_autocmd({ "VimSuspend", "FocusLost" }, {
   group = buffers_group,
   desc = "Auto save all files on focus lost",
   callback = function()
-    vim.cmd.wall({ bang = true })
-  end
+    vim.cmd.wall { bang = true }
+  end,
 })
 
 -- ════════════════════════════════════════════════════════════════════════════
@@ -42,8 +42,8 @@ vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
   group = buffers_group,
   desc = "Auto save buffer",
   callback = function()
-    if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand("%") ~= "" then
-      vim.cmd.write({ bang = true })
+    if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand "%" ~= "" then
+      vim.cmd.write { bang = true }
     end
-  end
+  end,
 })
