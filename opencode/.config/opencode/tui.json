@@ -5,7 +5,6 @@
     "leader": "ctrl+x",
     "messages_line_up": "ctrl+y",
     "messages_line_down": "ctrl+e",
-    "command_list": "<leader>c",
     "session_list": "<leader>s"
   }
 }
