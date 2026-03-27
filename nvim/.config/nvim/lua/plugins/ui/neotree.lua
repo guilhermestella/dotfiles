@@ -49,6 +49,9 @@ return {
         },
       },
       filesystem = {
+        filtered_items = {
+          hide_hidden = false,
+        },
         window = {
           mappings = {
 
