@@ -8,10 +8,10 @@ return {
     },
     opts = {},
     config = function()
-      local mason = require('mason')
-      local mason_lspconfig = require('mason-lspconfig')
-      local mason_installer = require('mason-tool-installer')
-      local mason_dap = require('mason-nvim-dap')
+      local mason = require "mason"
+      local mason_lspconfig = require "mason-lspconfig"
+      local mason_installer = require "mason-tool-installer"
+      local mason_dap = require "mason-nvim-dap"
 
       mason.setup()
       mason_lspconfig.setup()
@@ -27,9 +27,10 @@ return {
           "yaml-language-server",
 
           -- Formatter
+          "google-java-format",
+          "stylua",
           "xmlformatter",
           "yamlfmt",
-          "google-java-format",
 
           -- Linters
           "jsonlint",
@@ -42,6 +43,6 @@ return {
         },
       }
       mason_dap.setup()
-    end
+    end,
   },
 }
