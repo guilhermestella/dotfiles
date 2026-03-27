@@ -8,7 +8,7 @@ return {
     opts = {
       lsp = {
         auto_attach = true,
-        preference = { "jdtls", "spring-boot" },
+        preference = { "jdtls", "spring-boot", "lua_ls" },
       },
       highlight = true,
       separator = " > ",

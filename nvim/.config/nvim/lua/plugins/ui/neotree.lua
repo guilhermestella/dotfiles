@@ -27,8 +27,8 @@ return {
         },
       },
       window = {
-        position = "left",
-        width = 45,
+        position = "right",
+        width = 60,
         mappings = {
           ["<space>"] = false,
           ["l"] = "open",
@@ -54,7 +54,6 @@ return {
         },
         window = {
           mappings = {
-
             ["<bs>"] = false,
             ["."] = false,
           },
@@ -99,7 +98,7 @@ return {
         if buf_name:match "neo%-tree" and buf_name:match(source) then
           vim.cmd("Neotree " .. source .. " close")
         else
-          vim.cmd("Neotree " .. source .. " focus reveal")
+          vim.cmd("Neotree " .. source .. " focus reveal right")
         end
       end
 
