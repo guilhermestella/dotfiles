@@ -23,7 +23,7 @@ return {
       enabled = true,
       hidden = true,
       layouts = {
-        buffers_vertical = {
+        vertical_buffers = {
           layout = {
             box = "vertical",
             width = 0.5,
@@ -42,7 +42,7 @@ return {
         buffers = {
           sort_lastused = true,
           current = false,
-          layout = { preset = "buffers_vertical" },
+          layout = { preset = "vertical_buffers" },
           win = {
             input = {
               keys = {
@@ -97,22 +97,7 @@ return {
     },
     words = { enabled = true },
     toggle = { enabled = false },
-    terminal = {
-      enabled = true,
-      win = {
-        keys = {
-          term_normal = {
-            "<esc>",
-            function()
-              return "<C-\\><C-n>"
-            end,
-            mode = "t",
-            expr = true,
-            desc = "Escape to normal mode",
-          },
-        },
-      },
-    },
+    terminal = { enabled = false },
     zen = { enabled = false },
   },
   keys = {
@@ -128,20 +113,19 @@ return {
       desc = "➜ Grep Selection",
       mode = "x",
     },
-    {
-      "<C-_>",
-      function()
-        Snacks.terminal.toggle()
-      end,
-      desc = "➜ Open Terminal",
-      mode = { "n", "t" },
-    },
 
     -- General
     {
       "<leader>/",
       function()
         Snacks.picker.grep()
+      end,
+      desc = "➜ Grep",
+    },
+    {
+      "<leader><Tab>",
+      function()
+        Snacks.picker.buffers()
       end,
       desc = "➜ Grep",
     },
@@ -160,50 +144,13 @@ return {
       desc = "➜ Smart Find Files",
     },
 
-    -- Buffer
-    {
-      "<leader>bd",
-      function()
-        Snacks.bufdelete()
-      end,
-      desc = "➜ Delete",
-    },
-
     -- Find
-    {
-      "<leader>fc",
-      function()
-        Snacks.picker.files { cwd = vim.fn.stdpath "config" }
-      end,
-      desc = "➜ Config File",
-    },
-    {
-      "<leader>ff",
-      function()
-        Snacks.picker.files()
-      end,
-      desc = "➜ Files",
-    },
-    {
-      "<leader>fg",
-      function()
-        Snacks.picker.git_files()
-      end,
-      desc = "➜ Git Files",
-    },
     {
       "<leader>fp",
       function()
         Snacks.picker.projects()
       end,
       desc = "➜ Projects",
-    },
-    {
-      "<leader>fr",
-      function()
-        Snacks.picker.recent()
-      end,
-      desc = "➜ Recent",
     },
 
     -- Git
@@ -244,13 +191,6 @@ return {
     },
     {
       "<leader>gs",
-      function()
-        Snacks.picker.git_status()
-      end,
-      desc = "➜ Status",
-    },
-    {
-      "<leader>ge",
       function()
         Snacks.picker.git_stash()
       end,
