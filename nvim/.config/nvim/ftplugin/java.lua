@@ -1,38 +1,103 @@
-local jdtls = require "jdtls"
-local mason_packages = vim.fn.stdpath "data" .. "/mason/packages"
-local jdtls_path = mason_packages .. "/jdtls"
-local lombok_jar = jdtls_path .. "/lombok.jar"
-local launcher = vim.fn.glob(jdtls_path .. "/plugins/org.eclipse.equinox.launcher_*.jar")
-local bundles = {
-  vim.fn.glob(mason_packages .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true),
-}
-vim.list_extend(bundles, vim.split(vim.fn.glob(mason_packages .. "/java-test/extension/server/*.jar"), "\n"))
+local status, jdtls = pcall(require, "jdtls")
+if not status then
+  return
+end
 
-local extendedClientCapabilities = jdtls.extendedClientCapabilities
-extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+local home = os.getenv "HOME"
+local mason_packages_path = vim.fn.stdpath "data" .. "/mason/packages"
+
+local function get_launcher(mason_path)
+  return vim.fn.glob(mason_path .. "/jdtls/plugins/org.eclipse.equinox.launcher_*.jar")
+end
+
+local function get_config(mason_path)
+  return mason_path .. "/jdtls/config_linux"
+end
+
+local function get_lombok(mason_path)
+  return mason_path .. "/jdtls/lombok.jar"
+end
+
+local function get_bundles(mason_path)
+  local debug_adapter =
+    vim.fn.glob(mason_path .. "/java-debug-adapter/extension/server/com.microsoft.java.debug.plugin-*.jar", true, true)
+  local test_jars = vim.fn.glob(mason_path .. "/java-test/extension/server/*.jar", true, true)
+
+  local bundles = debug_adapter or {}
+
+  if test_jars then
+    -- https://github.com/mfussenegger/nvim-jdtls/issues/746
+    local excluded = {
+      "com.microsoft.java.test.runner-jar-with-dependencies.jar",
+      "jacocoagent.jar",
+    }
+
+    for _, jar in ipairs(test_jars) do
+      local fname = vim.fn.fnamemodify(jar, ":t")
+      if not vim.tbl_contains(excluded, fname) then
+        table.insert(bundles, jar)
+      end
+    end
+  end
+
+  return bundles
+end
+
+local function get_extended_client_capabilities(jdt_ls)
+  local extendedClientCapabilities = jdt_ls.extendedClientCapabilities
+  extendedClientCapabilities.resolveAdditionalTextEditsSupport = true
+  return extendedClientCapabilities
+end
+
+local function get_workspace(home_path)
+  local cache_dir = vim.fn.expand(home_path .. "/.cache/jdtls/workspace/")
+  local project_name = vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+  return cache_dir .. project_name
+end
+
+local function get_runtimes(home_path)
+  return {
+    {
+      name = "JavaSE-11",
+      path = home_path .. "/.jdk/jdk-11.0.2/",
+    },
+    {
+      name = "JavaSE-17",
+      path = home_path .. "/.jdk/jdk-17.0.2/",
+    },
+    {
+      name = "JavaSE-21",
+      path = home_path .. "/.jdk/jdk-21.0.2/",
+      default = true,
+    },
+    {
+      name = "JavaSE-25",
+      path = home_path .. "/.jdk/jdk-25.0.1/",
+    },
+  }
+end
 
 jdtls.start_or_attach {
   name = "jdtls",
   cmd = {
-    "jdtls",
-    "--jvm-arg=-javaagent:" .. lombok_jar,
-    "-data",
-    vim.fn.expand "~/.cache/jdtls/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t"),
+    "/home/guistella/.jdk/jdk-21.0.2/bin/java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
-    "-Dlog.protocol=true",
     "-Dlog.level=ALL",
-    "-Xmx1g",
+    "-Xmx1G",
     "--add-modules=ALL-SYSTEM",
     "--add-opens",
     "java.base/java.util=ALL-UNNAMED",
     "--add-opens",
     "java.base/java.lang=ALL-UNNAMED",
+    "-javaagent:" .. get_lombok(mason_packages_path),
     "-jar",
-    launcher,
+    get_launcher(mason_packages_path),
     "-configuration",
-    jdtls_path .. "/config_linux",
+    get_config(mason_packages_path),
+    "-data",
+    get_workspace(home),
   },
   root_dir = jdtls.setup.find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
   settings = {
@@ -112,6 +177,7 @@ jdtls.start_or_attach {
       },
       -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
       configuration = {
+        runtimes = get_runtimes(home),
         updateBuildConfiguration = "automatic",
       },
       -- enable code lens in the lsp
@@ -127,8 +193,8 @@ jdtls.start_or_attach {
     },
   },
   init_options = {
-    bundles = bundles,
-    extendedClientCapabilities = extendedClientCapabilities,
+    bundles = get_bundles(mason_packages_path),
+    extendedClientCapabilities = get_extended_client_capabilities(jdtls),
   },
   capabilities = {
     workspace = {
@@ -143,7 +209,6 @@ jdtls.start_or_attach {
   on_attach = function()
     require("jdtls.dap").setup_dap()
     require("jdtls.dap").setup_dap_main_class_configs()
-    require("jdtls.setup").add_commands()
 
     -- Vim-like shortcuts
     vim.keymap.set(
