@@ -14,11 +14,7 @@ return {
       local mason_dap = require "mason-nvim-dap"
 
       mason.setup()
-      mason_lspconfig.setup {
-        automatic_enable = {
-          exclude = { "jdtls" },
-        },
-      }
+      mason_lspconfig.setup()
       mason_installer.setup {
         ensure_installed = {
           -- LSP
