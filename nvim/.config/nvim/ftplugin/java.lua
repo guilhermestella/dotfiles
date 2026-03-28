@@ -77,6 +77,33 @@ local function get_runtimes(home_path)
   }
 end
 
+vim.api.nvim_create_user_command("JdtGetRuntime", function()
+  local bufnr = vim.api.nvim_get_current_buf()
+  local _, client = next(vim.lsp.get_clients { name = "jdtls" })
+  if not client then
+    return
+  end
+
+  local command = {
+    command = "java.project.getSettings",
+    arguments = {
+      vim.uri_from_bufnr(bufnr),
+      {
+        "org.eclipse.jdt.core.compiler.source",
+        "org.eclipse.jdt.ls.core.vm.location",
+      },
+    },
+  }
+
+  client:request("workspace/executeCommand", command, function(err, result)
+    if err then
+      vim.print(err)
+    else
+      vim.print(result)
+    end
+  end)
+end, { desc = "Get current Java runtime" })
+
 jdtls.start_or_attach {
   name = "jdtls",
   cmd = {
