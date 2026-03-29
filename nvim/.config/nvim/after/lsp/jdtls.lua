@@ -239,6 +239,24 @@ return {
 
     vim.api.nvim_create_user_command("JdtGetRuntime", get_runtime, { desc = "Get current Java runtime" })
 
+    -- Vim override shortcuts
+    vim.keymap.set("n", "gf", function()
+      local file = vim.fn.expand "<cfile>"
+      local paths = {
+        file,
+        "src/main/resources/" .. file,
+        "src/test/resources/" .. file,
+      }
+      for _, p in ipairs(paths) do
+        if vim.fn.filereadable(p) == 1 then
+          vim.cmd("edit " .. p)
+          return
+        end
+      end
+      local err_msg = string.format('Cannot find file "%s"', file)
+      vim.notify(err_msg, vim.log.levels.INFO)
+    end, { buffer = true, desc = "➜ Go to file" })
+
     -- Vim-like shortcuts
     vim.keymap.set(
       "n",
