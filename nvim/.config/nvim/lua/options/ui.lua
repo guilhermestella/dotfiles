@@ -21,3 +21,4 @@ set.linebreak = true -- Wrap lines at word boundaries
 set.cursorline = true
 set.cursorlineopt = "screenline"
 seto.shortmess:append "I"
+seto.fillchars:append { eob = " " }
