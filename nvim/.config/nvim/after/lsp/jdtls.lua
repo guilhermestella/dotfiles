@@ -104,7 +104,7 @@ local function get_runtime()
   end)
 end
 
-vim.lsp.config('jdtls', {
+vim.lsp.config("jdtls", {
   cmd = {
     "/home/guistella/.jdk/jdk-21.0.2/bin/java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -235,6 +235,7 @@ vim.lsp.config('jdtls', {
   on_attach = function()
     require("jdtls.dap").setup_dap()
     require("jdtls.dap").setup_dap_main_class_configs()
+    local springboot_nvim = require "springboot-nvim"
 
     vim.api.nvim_create_user_command("JdtGetRuntime", get_runtime, { desc = "Get current Java runtime" })
 
@@ -299,5 +300,11 @@ vim.lsp.config('jdtls', {
       "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
       { desc = "➜ Extract Constant" }
     )
+
+    vim.keymap.set("n", "<leader>jr", springboot_nvim.boot_run, { desc = "➜ Spring Boot Run Project" })
+    vim.keymap.set("n", "<leader>jc", springboot_nvim.generate_class, { desc = "➜ Java Create Class" })
+    vim.keymap.set("n", "<leader>ji", springboot_nvim.generate_interface, { desc = "➜ Java Create Interface" })
+    vim.keymap.set("n", "<leader>je", springboot_nvim.generate_enum, { desc = "➜ Java Create Enum" })
+    springboot_nvim.setup {}
   end,
 })
