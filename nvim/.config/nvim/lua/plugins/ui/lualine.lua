@@ -45,12 +45,19 @@ return {
           lualine_a = {
             {
               "buffers",
-              fmt = function(buffer_name)
-                if buffer_name:sub(1, #"neo-tree ") == "neo-tree " then
-                  return "Neo-tree"
+              fmt = function(buffer_name, buf)
+                local bufnr = buf.bufnr
+                local readonly = vim.bo[bufnr].readonly
+                if readonly then
+                  if buffer_name:sub(1, #"neo-tree ") == "neo-tree " then
+                    return "Neo-tree"
+                  end
+                  return buffer_name .. " [RO]"
                 end
+
                 return buffer_name
               end,
+              symbols = { alternate_file = false },
             },
           },
         },
