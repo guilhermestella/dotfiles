@@ -14,5 +14,5 @@ set("v", ">", ">gv", { desc = "Indent Right" })
 -- ════════════════════════════════════════════════════════════════════════════
 set("n", "<A-J>", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
 set("n", "<A-K>", ":m .-2<CR>==", { silent = true, desc = "Move line up" })
-set("v", "<A-J>", ":m '>+1<CR>gv=gv", { silent = true, desc = "Move block down" })
-set("v", "<A-K>", ":m '<-2<CR>gv=gv", { silent = true, desc = "Move block up" })
+set("v", "<A-J>", ":m '>+1<CR><CR>gv=gv", { silent = true, desc = "Move block down" })
+set("v", "<A-K>", ":m '<-2<CR><CR>gv=gv", { silent = true, desc = "Move block up" })
