@@ -1,17 +1,16 @@
 return {
   {
-    "alexghergh/nvim-tmux-navigation",
-    config = function()
-      local nvim_tmux_nav = require "nvim-tmux-navigation"
+    "mrjones2014/smart-splits.nvim",
+    init = function()
+      vim.keymap.set("n", "<M-Left>", require("smart-splits").resize_left)
+      vim.keymap.set("n", "<M-Down>", require("smart-splits").resize_down)
+      vim.keymap.set("n", "<M-UP>", require("smart-splits").resize_up)
+      vim.keymap.set("n", "<M-Right>", require("smart-splits").resize_right)
 
-      nvim_tmux_nav.setup {
-        disable_when_zoomed = true, -- defaults to false
-      }
-
-      vim.keymap.set({ "n", "i" }, "<C-h>", nvim_tmux_nav.NvimTmuxNavigateLeft)
-      vim.keymap.set({ "n", "i" }, "<C-j>", nvim_tmux_nav.NvimTmuxNavigateDown)
-      vim.keymap.set({ "n", "i" }, "<C-k>", nvim_tmux_nav.NvimTmuxNavigateUp)
-      vim.keymap.set({ "n", "i" }, "<C-l>", nvim_tmux_nav.NvimTmuxNavigateRight)
+      vim.keymap.set("n", "<C-h>", require("smart-splits").move_cursor_left)
+      vim.keymap.set("n", "<C-j>", require("smart-splits").move_cursor_down)
+      vim.keymap.set("n", "<C-k>", require("smart-splits").move_cursor_up)
+      vim.keymap.set("n", "<C-l>", require("smart-splits").move_cursor_right)
     end,
   },
 }

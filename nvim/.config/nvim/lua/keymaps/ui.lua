@@ -33,10 +33,10 @@ end, { noremap = true, silent = true, desc = "Esc Action" })
 -- Tab navigation is defined in tmux.lua plugin
 
 -- Resize
-vim.keymap.set({ "t", "n" }, "<M-Up>", ":resize -2<CR>", { desc = "Increase height" })
-vim.keymap.set({ "t", "n" }, "<M-Down>", ":resize +2<CR>", { desc = "Decrease height" })
-vim.keymap.set({ "t", "n" }, "<M-Left>", ":vertical resize -2<CR>", { desc = "Decrease width" })
-vim.keymap.set({ "t", "n" }, "<M-Right>", ":vertical resize +2<CR>", { desc = "Increase width" })
+-- vim.keymap.set({ "t", "n" }, "<M-Up>", ":resize -2<CR>", { desc = "Increase height" })
+-- vim.keymap.set({ "t", "n" }, "<M-Down>", ":resize +2<CR>", { desc = "Decrease height" })
+-- vim.keymap.set({ "t", "n" }, "<M-Left>", ":vertical resize -2<CR>", { desc = "Decrease width" })
+-- vim.keymap.set({ "t", "n" }, "<M-Right>", ":vertical resize +2<CR>", { desc = "Increase width" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Buffer Navigation
