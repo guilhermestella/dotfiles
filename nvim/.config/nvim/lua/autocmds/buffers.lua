@@ -1,8 +1,11 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Restore cursor position
+-- Buffer Auto Commands
 -- ════════════════════════════════════════════════════════════════════════════
 local buffers_group = vim.api.nvim_create_augroup("Buffers", { clear = true })
 
+-- ════════════════════════════════════════════════════════════════════════════
+-- Restore cursor position
+-- ════════════════════════════════════════════════════════════════════════════
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = buffers_group,
   desc = "Restore cursor to its position when file is reopened",

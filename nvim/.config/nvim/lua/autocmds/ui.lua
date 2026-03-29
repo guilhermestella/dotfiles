@@ -1,8 +1,11 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Highlight on yank
+-- UI Auto commands
 -- ════════════════════════════════════════════════════════════════════════════
 local ui_group = vim.api.nvim_create_augroup("UI", { clear = true })
 
+-- ════════════════════════════════════════════════════════════════════════════
+-- Highlight on yank
+-- ════════════════════════════════════════════════════════════════════════════
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = ui_group,
   desc = "Highlight selection on yank",

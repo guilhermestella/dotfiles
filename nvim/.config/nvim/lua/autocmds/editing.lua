@@ -1,9 +1,12 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Remove Trailing Whitespaces
+-- Editing Auto Commands
 -- ════════════════════════════════════════════════════════════════════════════
 local edit_group = vim.api.nvim_create_augroup("Editing", { clear = true })
 
-vim.api.nvim_create_autocmd({ "BufWritePre", "InsertLeave" }, {
+-- ════════════════════════════════════════════════════════════════════════════
+-- Remove Trailing Whitespaces
+-- ════════════════════════════════════════════════════════════════════════════
+vim.api.nvim_create_autocmd({ "BufWritePre" }, {
   group = edit_group,
   desc = "Remove trailing whitespaces",
   callback = function()
