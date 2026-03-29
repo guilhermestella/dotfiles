@@ -1,18 +1,18 @@
 -- ════════════════════════════════════════════════════════════════════════════
--- Windows, Buffers, Operations, etc
+-- UI Keymaps
 -- ════════════════════════════════════════════════════════════════════════════
+local set = vim.keymap.set
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Quit, Save Operation
 -- ════════════════════════════════════════════════════════════════════════════
-
-vim.keymap.set("n", "<C-w>Q", "<cmd>qa<cr>", { desc = "Quit all" })
-vim.keymap.set("n", "<C-w>q", "<cmd>Bdelete!<cr>", { desc = "Delete buffer" })
+set("n", "<C-w>Q", "<cmd>qa<cr>", { desc = "Quit all" })
+set("n", "<C-w>q", "<cmd>Bdelete!<cr>", { desc = "Delete buffer" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Esc Action
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<Esc>", function()
+set("n", "<Esc>", function()
   local win = vim.api.nvim_get_current_win()
   local config = vim.api.nvim_win_get_config(win)
 
@@ -27,27 +27,20 @@ vim.keymap.set("n", "<Esc>", function()
 end, { noremap = true, silent = true, desc = "Esc Action" })
 
 -- ════════════════════════════════════════════════════════════════════════════
--- Window Navigation (no prefix for speed)
+-- Window Navigation
 -- ════════════════════════════════════════════════════════════════════════════
-
--- Tab navigation is defined in tmux.lua plugin
-
--- Resize
--- vim.keymap.set({ "t", "n" }, "<M-Up>", ":resize -2<CR>", { desc = "Increase height" })
--- vim.keymap.set({ "t", "n" }, "<M-Down>", ":resize +2<CR>", { desc = "Decrease height" })
--- vim.keymap.set({ "t", "n" }, "<M-Left>", ":vertical resize -2<CR>", { desc = "Decrease width" })
--- vim.keymap.set({ "t", "n" }, "<M-Right>", ":vertical resize +2<CR>", { desc = "Increase width" })
+-- Navigation and resize are defined in tmux.lua plugin
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Buffer Navigation
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "<M-j>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
-vim.keymap.set("n", "<M-k>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+set("n", "<M-j>", "<cmd>bprevious<cr>", { desc = "Previous buffer" })
+set("n", "<M-k>", "<cmd>bnext<cr>", { desc = "Next buffer" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Marks
 -- ════════════════════════════════════════════════════════════════════════════
-vim.keymap.set("n", "m", function()
+set("n", "m", function()
   local line = vim.fn.line "."
   local next_char = vim.fn.getcharstr()
   local mark = vim.fn.getpos("'" .. next_char)
