@@ -39,19 +39,6 @@ set({ "n", "v" }, "<M-CR>", vim.lsp.buf.code_action, { desc = "LSP Code Action" 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Diagnostics
 -- ════════════════════════════════════════════════════════════════════════════
-vim.diagnostic.config {
-  jump = {
-    on_jump = function(bufnr)
-      vim.diagnostic.open_float {
-        bufnr = bufnr,
-        scope = "cursor",
-        focus = false,
-        focusable = true,
-      }
-    end,
-  },
-}
-
 set("n", "<C-w>d", vim.diagnostic.open_float, { desc = "Show Diagnostic" })
 set("n", "[d", function()
   vim.diagnostic.jump { count = -1 }
