@@ -4,7 +4,14 @@ return {
     dependencies = { "nvim-tree/nvim-web-devicons" },
     config = function()
       local jellybeans = require "lualine.themes.jellybeans-nvim"
+
       jellybeans.normal.c.bg = "#060606"
+      jellybeans.normal.b.bg = "#060606"
+
+      jellybeans.inactive.a.bg = "#060606"
+      jellybeans.inactive.a.fg = "#ffffff"
+      jellybeans.inactive.b.bg = "#060606"
+      jellybeans.inactive.c.bg = "#060606"
 
       require("lualine").setup {
         options = {
