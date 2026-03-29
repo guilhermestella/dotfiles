@@ -30,12 +30,10 @@ vim.api.nvim_create_autocmd({ "VimResume", "FocusGained", "BufEnter", "CursorHol
   command = "silent! checktime",
 })
 
-vim.api.nvim_create_autocmd({ "VimSuspend", "FocusLost" }, {
+vim.api.nvim_create_autocmd({ "VimLeavePre", "VimSuspend", "FocusLost", "InsertLeave", "TextChanged" }, {
   group = buffers_group,
   desc = "Auto save all files on focus lost",
-  callback = function()
-    vim.cmd.wall { bang = true }
-  end,
+  command = "silent! update",
 })
 
 -- ════════════════════════════════════════════════════════════════════════════
