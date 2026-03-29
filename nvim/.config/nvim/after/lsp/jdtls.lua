@@ -104,7 +104,7 @@ local function get_runtime()
   end)
 end
 
-vim.lsp.config("jdtls", {
+return {
   cmd = {
     "/home/guistella/.jdk/jdk-21.0.2/bin/java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -307,4 +307,4 @@ vim.lsp.config("jdtls", {
     vim.keymap.set("n", "<leader>je", springboot_nvim.generate_enum, { desc = "➜ Java Create Enum" })
     springboot_nvim.setup {}
   end,
-})
+}
