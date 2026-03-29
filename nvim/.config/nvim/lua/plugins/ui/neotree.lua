@@ -82,7 +82,7 @@ return {
             ["gc"] = false,
             ["gp"] = false,
             ["gg"] = false,
-            ["i"] = "show_file_details", -- see `:h neo-tree-file-actions` for options to customize the window.
+            ["i"] = "show_file_details",
             ["b"] = false,
           },
         },
@@ -102,27 +102,26 @@ return {
         end
       end
 
+      -- IDE inheritance shortcuts
       vim.keymap.set("n", "<leader>e", function()
         toggle "filesystem"
       end, { desc = "➜ Toggle Explorer" })
+
       vim.keymap.set("n", "<M-1>", function()
         toggle "filesystem"
       end, { desc = "➜ Toggle Explorer" })
 
-      vim.keymap.set("n", "<leader>ss", function()
-        toggle "document_symbols"
-      end, { desc = "➜ Toggle Structure" })
       vim.keymap.set("n", "<M-2>", function()
-        toggle "document_symbols"
-      end, { desc = "➜ Toggle Structure" })
-
-      vim.keymap.set("n", "<C-w>`", function()
         toggle "buffers"
       end, { desc = "➜ Toggle Buffers" })
 
-      vim.keymap.set("n", "<M-c>", function()
+      vim.keymap.set("n", "<M-3>", function()
         toggle "git_status"
       end, { desc = "➜ Toggle Git Status" })
+
+      vim.keymap.set("n", "<M-4>", function()
+        toggle "document_symbols"
+      end, { desc = "➜ Toggle Structure" })
 
       require("neo-tree").setup(opts)
     end,
