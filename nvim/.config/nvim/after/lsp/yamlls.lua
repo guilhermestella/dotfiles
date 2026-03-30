@@ -4,10 +4,8 @@ return {
       validate = true,
       completion = true,
       hover = true,
-      schemaStore = {
-        enable = true,
-        url = "https://www.schemastore.org/api/json/catalog.json",
-      },
+      schemastore = { enable = false, url = "" },
+      schemas = require("schemastore").yaml.schemas(),
     },
   },
 }

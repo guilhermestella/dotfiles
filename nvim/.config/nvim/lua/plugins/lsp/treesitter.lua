@@ -8,6 +8,7 @@ return {
       auto_install = true,
       indent = { enable = true },
       ensure_installed = {
+        "angular",
         "bash",
         "c",
         "css",

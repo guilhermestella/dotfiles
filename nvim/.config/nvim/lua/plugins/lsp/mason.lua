@@ -18,12 +18,16 @@ return {
       mason_installer.setup {
         ensure_installed = {
           -- LSP
+          "angularls",
           "bashls",
+          "cssls",
+          "html",
           "jdtls",
           "json-lsp",
           "lemminx", -- xml
           "lua_ls",
           "marksman",
+          "ts_ls",
           "yaml-language-server",
 
           -- Formatter
@@ -33,6 +37,7 @@ return {
           "yamlfmt",
 
           -- Linters
+          "eslint",
           "jsonlint",
           "markdownlint",
           "yamllint",

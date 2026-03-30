@@ -3,4 +3,10 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 return {
   capabilities = capabilities,
+  settings = {
+    json = {
+      validate = { enable = true },
+      schemas = require("schemastore").json.schemas(),
+    },
+  },
 }
