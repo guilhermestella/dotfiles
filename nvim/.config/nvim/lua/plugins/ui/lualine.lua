@@ -1,25 +1,31 @@
 return {
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "nvim-tree/nvim-web-devicons" },
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+      {
+        "SmiteshP/nvim-navic",
+        dependencies = {
+          "neovim/nvim-lspconfig",
+        },
+        opts = {
+          lsp = { auto_attach = true },
+          highlight = true,
+          separator = " > ",
+          depth_limit = 8,
+          depth_limit_indicator = "...",
+          lazy_update_context = false,
+        },
+      },
+    },
     config = function()
-      local jellybeans = require "lualine.themes.jellybeans-nvim"
-
-      jellybeans.normal.c.bg = "#060606"
-      jellybeans.normal.b.bg = "#060606"
-
-      jellybeans.inactive.a.bg = "#060606"
-      jellybeans.inactive.a.fg = "#ffffff"
-      jellybeans.inactive.b.bg = "#060606"
-      jellybeans.inactive.c.bg = "#060606"
-
       require("lualine").setup {
         options = {
+          theme = "dracula",
           icons_enabled = true,
-          theme = jellybeans,
-          component_separators = { left = "|", right = "|" },
-          section_separators = { left = " ", right = " " },
           disabled_filetypes = { "neo-tree" },
+          section_separators = { left = " ", right = " " },
+          component_separators = { left = "|", right = "|" },
         },
         sections = {
           lualine_a = { "mode" },

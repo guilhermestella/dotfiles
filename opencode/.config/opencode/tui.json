@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "jellybeans",
+  "theme": "dracula",
   "keybinds": {
     "leader": "ctrl+x",
     "messages_line_up": "ctrl+y",
