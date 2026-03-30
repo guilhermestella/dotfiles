@@ -22,3 +22,5 @@ set.cursorline = true
 set.cursorlineopt = "screenline"
 seto.shortmess:append "I"
 seto.fillchars:append { eob = " " }
+seto.foldcolumn = "1"
+seto.signcolumn = "yes:2"
