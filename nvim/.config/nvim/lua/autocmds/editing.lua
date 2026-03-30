@@ -26,3 +26,21 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:remove { "c", "r", "o" }
   end,
 })
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- Record - cmdheight bug (https://github.com/neovim/neovim/issues/20635)
+-- ════════════════════════════════════════════════════════════════════════════
+vim.api.nvim_create_autocmd("RecordingEnter", {
+  group = edit_group,
+  desc = "Add cmdheight when start recording",
+  callback = function()
+    vim.opt.cmdheight = 1
+  end,
+})
+vim.api.nvim_create_autocmd("RecordingLeave", {
+  group = edit_group,
+  desc = "Remove cmdheight when finishing recording",
+  callback = function()
+    vim.opt.cmdheight = 0
+  end,
+})
