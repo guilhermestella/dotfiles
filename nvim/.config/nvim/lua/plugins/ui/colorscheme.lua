@@ -23,7 +23,6 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.wo.winhighlight = "WinBar:Normal,WinBarNC:Normal"
       vim.cmd.colorscheme "dracula"
     end,
   },

@@ -13,6 +13,7 @@ set.wrap = false
 set.breakindent = true -- Wrapped lines preserve indentation
 set.showmode = false -- Don't show mode in command line (shown in statusline)
 set.ruler = false -- Don't show ruler (shown in statusline)
+-- set.winbar = " " -- Filename in winbar (navic will use it if available)
 set.winborder = "rounded" -- Rounded window for neovim
 set.cmdheight = 0 -- Break visual block (https://github.com/neovim/neovim/issues/20635)
 set.colorcolumn = "120" -- Virtual Line at column 120

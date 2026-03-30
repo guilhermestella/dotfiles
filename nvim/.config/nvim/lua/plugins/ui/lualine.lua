@@ -11,8 +11,8 @@ return {
         opts = {
           lsp = { auto_attach = true },
           highlight = true,
-          separator = " > ",
-          depth_limit = 8,
+          separator = " » ",
+          depth_limit = 4,
           depth_limit_indicator = "...",
           lazy_update_context = false,
         },
@@ -30,7 +30,7 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = { "branch", "diff", "diagnostics", "filename" },
-          lualine_c = {},
+          lualine_c = { "navic" },
         },
         inactive_sections = {
           lualine_a = { "mode" },
@@ -38,14 +38,6 @@ return {
           lualine_c = {},
           lualine_y = { "progress" },
           lualine_z = { "location" },
-        },
-        winbar = {
-          lualine_b = {},
-          lualine_c = { "navic" },
-        },
-        inactive_winbar = {
-          lualine_b = {},
-          lualine_c = { "navic" },
         },
         tabline = {
           lualine_a = {
