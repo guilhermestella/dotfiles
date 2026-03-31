@@ -12,7 +12,7 @@ return {
           lsp = { auto_attach = true },
           highlight = true,
           separator = " » ",
-          depth_limit = 4,
+          depth_limit = 8,
           depth_limit_indicator = "...",
           lazy_update_context = false,
         },
@@ -21,7 +21,7 @@ return {
     config = function()
       require("lualine").setup {
         options = {
-          theme = "dracula",
+          theme = "gruvbox-material",
           icons_enabled = true,
           disabled_filetypes = { "neo-tree" },
           section_separators = { left = " ", right = " " },
@@ -30,7 +30,7 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = { "branch", "diff", "diagnostics", "filename" },
-          lualine_c = { "navic" },
+          lualine_c = {},
         },
         inactive_sections = {
           lualine_a = { "mode" },
@@ -38,6 +38,12 @@ return {
           lualine_c = {},
           lualine_y = { "progress" },
           lualine_z = { "location" },
+        },
+        winbar = {
+          lualine_c = { "navic" },
+        },
+        inactive_winbar = {
+          lualine_c = { "navic" },
         },
         tabline = {
           lualine_a = {

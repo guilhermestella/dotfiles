@@ -1,6 +1,6 @@
 # Alacritty Configuration (TOML)
 
-general.import = ["./dracula.toml"]
+general.import = ["./gruvbox-dark.toml"]
 general.live_config_reload = true
 
 [window]
