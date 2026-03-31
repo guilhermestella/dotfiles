@@ -1,0 +1,14 @@
+{
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./angular/typescript.json"
+      },
+      {
+        "language": "htmlangular",
+        "path": "./angular/htmlangular.json"
+      }
+    ]
+  }
+}
