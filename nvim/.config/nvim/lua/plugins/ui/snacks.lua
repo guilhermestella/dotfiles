@@ -252,27 +252,6 @@ return {
       desc = "➜ Undo History",
     },
 
-    -- Scratch
-    {
-      "<leader>Ss",
-      function()
-        Snacks.scratch.select()
-      end,
-      desc = "➜ Select",
-    },
-    {
-      "<leader>Sn",
-      function()
-        vim.ui.input({ prompt = "Scratch name: " }, function(name)
-          if name then
-            local ext = name:match "%.(%w+)$"
-            Snacks.scratch { name = name, ft = ext or "markdown" }
-          end
-        end)
-      end,
-      desc = "➜ New",
-    },
-
     -- Go To (LSP)
     {
       "gd",

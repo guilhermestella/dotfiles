@@ -2,6 +2,7 @@
 -- Editing Keymaps
 -- ════════════════════════════════════════════════════════════════════════════
 local set = vim.keymap.set
+local scratch = require "utils.scratch"
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Search word without jump
@@ -21,3 +22,8 @@ set("n", "<A-J>", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
 set("n", "<A-K>", ":m .-2<CR>==", { silent = true, desc = "Move line up" })
 set("v", "<A-J>", ":m '>+1<CR><CR>gv=gv", { silent = true, desc = "Move block down" })
 set("v", "<A-K>", ":m '<-2<CR><CR>gv=gv", { silent = true, desc = "Move block up" })
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- Create Scratch File
+-- ════════════════════════════════════════════════════════════════════════════
+set("n", "<M-i>", scratch.new_scratch)
