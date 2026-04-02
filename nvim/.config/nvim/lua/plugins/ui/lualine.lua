@@ -23,7 +23,15 @@ return {
         options = {
           theme = "gruvbox-material",
           icons_enabled = true,
-          disabled_filetypes = { "neo-tree" },
+          disabled_filetypes = {
+            "neo-tree",
+            "dap-repl",
+            "dapui_watches",
+            "dapui_stacks",
+            "dapui_breakpoints",
+            "dapui_scopes",
+            "dapui_console",
+          },
           section_separators = { left = " ", right = " " },
           component_separators = { left = "|", right = "|" },
         },

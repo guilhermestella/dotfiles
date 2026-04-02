@@ -2,44 +2,48 @@ return {
   {
     "mfussenegger/nvim-dap",
     dependencies = {
-      "rcarriga/nvim-dap-ui",
       "nvim-neotest/nvim-nio",
+      "rcarriga/nvim-dap-ui",
     },
-    config = function()
-      -- gain access to the dap plugin and its functions
+    keys = function()
       local dap = require "dap"
-      -- gain access to the dap ui plugin and its functions
-      local dapui = require "dapui"
-      -- gain access to the dap widgets
-      local widgets = require "dap.ui.widgets"
 
-      -- Setup the dap ui with default configuration
-      dapui.setup()
-
-      -- setup an event listener for when the debugger is launched
-      dap.listeners.before.launch.dapui_config = function()
-        -- when the debugger is launched open up the debug ui
-        dapui.open()
+      local fn_input_breakpoint = function()
+        dap.toggle_breakpoint(vim.fn.input "Condition: ")
       end
 
-      -- Breakpoint
-      vim.keymap.set("n", "<leader>dt", dap.toggle_breakpoint, { desc = "➜ Toggle Breakpoint" })
-      vim.keymap.set("n", "<leader>dT", function()
-        dap.toggle_breakpoint(vim.fn.input "Condition: ")
-      end, { desc = "➜ Toggle Conditional Breakpoint" })
+      -- Key maps with F keys: M-F7 = <F19>, C-F7 = <F31>, C-F8 = <F32>
+      vim.keymap.set("n", "<F31>", fn_input_breakpoint, { desc = "➜ Toggle Conditional Breakpoint" })
+      vim.keymap.set("n", "<F32>", dap.toggle_breakpoint, { desc = "➜ Toggle Breakpoint" })
 
-      -- Navigation
-      vim.keymap.set("n", "<leader>dc", dap.continue, { desc = "➜ Continue" })
-      vim.keymap.set("n", "<leader>dsi", dap.step_into, { desc = "➜ Step Into" })
-      vim.keymap.set("n", "<leader>dsn", dap.step_over, { desc = "➜ Step Next" })
-      vim.keymap.set("n", "<leader>dso", dap.step_out, { desc = "➜ Step Out" })
+      vim.keymap.set("n", "<F9>", dap.continue, { desc = "➜ Continue" })
+      vim.keymap.set("n", "<F8>", dap.step_over, { desc = "➜ Step Next" })
+      vim.keymap.set("n", "<F7>", dap.step_into, { desc = "➜ Step Into" })
+      vim.keymap.set("n", "<F19>", dap.step_out, { desc = "➜ Step Out" })
+    end,
+    config = function()
+      local dap = require "dap"
+      local ui = require "dapui"
 
-      -- Widgets
-      vim.keymap.set("n", "<leader>de", dap.step_out, { desc = "➜ Evaluate" })
-      vim.keymap.set("n", "<leader>dE", dap.step_out, { desc = "➜ Evaluate Code" })
+      dap.listeners.after.event_initialized["on_start"] = function()
+        ui.open { layout = 1 }
+        ui.close { layout = 2 }
+      end
 
-      -- UI
-      vim.keymap.set("n", "<leader>dq", dapui.close, { desc = "➜ Quit" })
+      dap.listeners.after.event_stopped["on_stop"] = function(_, body)
+        local reason = body.reason
+        if reason == "breakpoint" then
+          ui.close { layout = 1 }
+          ui.open { layout = 2 }
+        end
+      end
+
+      dap.listeners.after.event_terminated["on_finish"] = function()
+        ui.open { layout = 1 }
+        ui.close { layout = 2 }
+      end
+
+      dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"
     end,
   },
 }
