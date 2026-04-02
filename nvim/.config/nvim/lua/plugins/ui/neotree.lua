@@ -27,8 +27,8 @@ return {
         },
       },
       window = {
-        position = "right",
-        width = 60,
+        position = "left",
+        width = 40,
         mappings = {
           ["<space>"] = false,
           ["l"] = "open",
@@ -50,6 +50,7 @@ return {
       },
       filesystem = {
         filtered_items = {
+          hide_dotfiles = false,
           hide_hidden = false,
         },
         window = {
@@ -98,7 +99,7 @@ return {
         if buf_name:match "neo%-tree" and buf_name:match(source) then
           vim.cmd("Neotree " .. source .. " close")
         else
-          vim.cmd("Neotree " .. source .. " focus reveal right")
+          vim.cmd("Neotree " .. source .. " focus reveal left")
         end
       end
 
