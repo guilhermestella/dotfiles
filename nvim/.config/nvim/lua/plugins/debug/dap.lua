@@ -6,6 +6,7 @@ return {
       "rcarriga/nvim-dap-ui",
     },
     keys = function()
+      ---@diagnostic disable: undefined-field
       local dap = require "dap"
 
       local fn_input_breakpoint = function()
@@ -22,12 +23,13 @@ return {
       vim.keymap.set("n", "<F19>", dap.step_out, { desc = "➜ Step Out" })
     end,
     config = function()
+      ---@diagnostic disable: undefined-field
       local dap = require "dap"
       local ui = require "dapui"
 
       dap.listeners.after.event_initialized["on_start"] = function()
-        ui.open { layout = 1 }
         ui.close { layout = 2 }
+        ui.open { layout = 1 }
       end
 
       dap.listeners.after.event_stopped["on_stop"] = function(_, body)
@@ -39,8 +41,8 @@ return {
       end
 
       dap.listeners.after.event_terminated["on_finish"] = function()
-        ui.open { layout = 1 }
         ui.close { layout = 2 }
+        ui.open { layout = 1 }
       end
 
       dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"

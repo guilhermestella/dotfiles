@@ -15,5 +15,6 @@ vim.api.nvim_create_autocmd("VimEnter", {
     vim.api.nvim_set_hl(0, "DapLogPoint", { link = "DiagnosticInfo" })
     vim.api.nvim_set_hl(0, "DapStopped", { link = "DiagnosticOk" })
     vim.api.nvim_set_hl(0, "DapBreakpointRejected", { link = "DiagnosticHint" })
+    vim.api.nvim_set_hl(0, "DapStoppedLine", { link = "CursorLine" })
   end,
 })
