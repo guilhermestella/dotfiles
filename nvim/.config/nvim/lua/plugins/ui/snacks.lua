@@ -51,10 +51,14 @@ return {
             },
           },
         },
-        explorer = {
-          layout = {
-            layout = {
-              position = "right",
+        notifications = {
+          layout = { preset = "ivy" },
+          win = {
+            preview = { wo = { wrap = true } },
+            input = {
+              keys = {
+                ["<M-n>"] = { "close", mode = { "i", "n" } },
+              },
             },
           },
         },
@@ -227,9 +231,9 @@ return {
       desc = "➜ Marks",
     },
     {
-      "<leader>sn",
+      "<M-n>",
       function()
-        Snacks.picker.notifications { win = { preview = { wo = { wrap = true } } } }
+        Snacks.picker.notifications { layout = "ivy", win = { preview = { wo = { wrap = true } } } }
       end,
       desc = "➜ Notifications",
     },
