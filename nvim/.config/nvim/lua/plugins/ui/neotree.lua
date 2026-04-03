@@ -50,10 +50,7 @@ return {
         },
       },
       filesystem = {
-        filtered_items = {
-          hide_dotfiles = false,
-          hide_hidden = false,
-        },
+        filtered_items = { visible = true },
         window = {
           mappings = {
             ["<bs>"] = false,
