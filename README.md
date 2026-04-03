@@ -10,6 +10,7 @@ A set of tools used in my workflow
 * [Tmux Plugins](https://github.com/tmux-plugins/tpm)
 * [Neovim[**]](https://github.com/neovim/neovim)
 * [Wofi[**]](https://hg.sr.ht/~scoopta/wofi)
+* [Mise[**]](https://github.com/jdx/mise)
 
 _[**] Must be installed_
 

@@ -1,0 +1,27 @@
+[tools]
+java = "25"
+node = "24.14.1"
+python = "3.14.0"
+usage = "latest"
+
+[tasks.setup]
+run = """
+mise run java
+mise run node
+mise run python
+"""
+
+[tasks.java]
+run = """
+for v in 11 17 21 25; do
+  mise install --quiet java@$v
+done
+"""
+
+[tasks.node]
+run = """
+mise install node@24.14.1 --quiet
+"""
+
+[tasks.python]
+run = "mise install python@3.14.0"
