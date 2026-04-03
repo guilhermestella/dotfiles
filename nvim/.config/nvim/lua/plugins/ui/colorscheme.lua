@@ -29,7 +29,27 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme "gruvbox-material"
+      -- vim.cmd.colorscheme "gruvbox-material"
+      -- vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
+      -- vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
+    end,
+  },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+    opts = {
+      flavour = "latte",
+      color_overrides = {
+        latte = {
+          base = "#ffffff",
+        },
+      },
+    },
+    config = function(_, opts)
+      require("catppuccin").setup(opts)
+      vim.cmd.colorscheme "catppuccin-latte"
+      vim.o.guicursor = "n-v-c:block,i:beam"
     end,
   },
 }

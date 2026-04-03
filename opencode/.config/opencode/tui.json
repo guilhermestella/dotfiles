@@ -1,6 +1,6 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "theme": "gruvbox",
+  "theme": "catppuccin-latte",
   "keybinds": {
     "leader": "ctrl+x",
     "messages_line_up": "ctrl+y",

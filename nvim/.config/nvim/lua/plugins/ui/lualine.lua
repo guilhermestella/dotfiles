@@ -10,7 +10,7 @@ return {
         },
         opts = {
           lsp = { auto_attach = true },
-          highlight = true,
+          highlight = false,
           separator = " » ",
           depth_limit = 8,
           depth_limit_indicator = "...",
@@ -19,9 +19,6 @@ return {
       },
     },
     config = function()
-      vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
-      vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
-
       require("lualine").setup {
         options = {
           icons_enabled = true,
