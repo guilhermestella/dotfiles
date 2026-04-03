@@ -10,7 +10,10 @@
     "blue": "#1e66f5",
     "red": "#d20f39",
     "yellow": "#df8e1d",
-    "purple": "#8839ef"
+    "purple": "#8839ef",
+    "peach": "#fe640b",
+    "mauve": "#8839ef",
+    "teal": "#179299"
   },
   "theme": {
     "primary": {
@@ -80,6 +83,50 @@
     "diffContext": {
       "dark": "fg_muted",
       "light": "fg_muted"
+    },
+    "syntaxComment": {
+      "dark": "fg_muted",
+      "light": "fg_muted"
+    },
+    "syntaxKeyword": {
+      "dark": "peach",
+      "light": "peach"
+    },
+    "syntaxFunction": {
+      "dark": "blue",
+      "light": "blue"
+    },
+    "syntaxVariable": {
+      "dark": "mauve",
+      "light": "mauve"
+    },
+    "syntaxString": {
+      "dark": "green",
+      "light": "green"
+    },
+    "syntaxNumber": {
+      "dark": "peach",
+      "light": "peach"
+    },
+    "syntaxType": {
+      "dark": "teal",
+      "light": "teal"
+    },
+    "syntaxOperator": {
+      "dark": "red",
+      "light": "red"
+    },
+    "syntaxPunctuation": {
+      "dark": "fg",
+      "light": "fg"
+    },
+    "markdownCode": {
+      "dark": "green",
+      "light": "green"
+    },
+    "markdownCodeBlock": {
+      "dark": "fg",
+      "light": "fg"
     }
   }
 }
