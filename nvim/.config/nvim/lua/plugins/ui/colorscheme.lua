@@ -29,9 +29,10 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      -- vim.cmd.colorscheme "gruvbox-material"
-      -- vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
-      -- vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
+      vim.cmd.colorscheme "gruvbox-material"
+      vim.o.background = "dark"
+      vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
+      vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
     end,
   },
   {
@@ -47,9 +48,9 @@ return {
       },
     },
     config = function(_, opts)
-      require("catppuccin").setup(opts)
-      vim.cmd.colorscheme "catppuccin-latte"
-      vim.o.guicursor = "n-v-c:block,i:beam"
+      -- require("catppuccin").setup(opts)
+      -- vim.cmd.colorscheme "catppuccin-latte"
+      -- vim.o.guicursor = "n-v-c:block,i:beam"
     end,
   },
 }

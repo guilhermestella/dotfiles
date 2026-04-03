@@ -33,7 +33,7 @@ set colorcolumn=120
 set linebreak
 set shortmess+=I
 let g:jellybeans_overrides = { 'background': { 'guibg': '060606' } }
-colorscheme catppuccin-latte
+colorscheme gruvbox
 
 " Indentation
 set expandtab
