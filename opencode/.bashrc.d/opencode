@@ -1,1 +1,2 @@
+export PATH="$HOME/.opencode/bin:$PATH"
 alias oc="opencode"
