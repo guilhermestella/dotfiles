@@ -50,9 +50,11 @@ return {
           lualine_z = { "location" },
         },
         winbar = {
+          lualine_a = { "filename" },
           lualine_c = { "navic" },
         },
         inactive_winbar = {
+          lualine_a = { "filename" },
           lualine_c = { "navic" },
         },
       }
