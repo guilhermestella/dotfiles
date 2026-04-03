@@ -50,7 +50,20 @@ return {
         },
       },
       filesystem = {
-        filtered_items = { visible = true },
+        filtered_items = {
+          visible = false,
+          always_show = {
+            ".gitignore",
+            ".babelrc",
+            ".eslintrc*",
+            ".github/",
+          },
+          hide_by_name = {
+            ".git",
+            "target/",
+            "node_modules/",
+          },
+        },
         window = {
           mappings = {
             ["<bs>"] = false,
