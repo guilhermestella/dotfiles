@@ -56,23 +56,24 @@ local function get_workspace(home_path)
 end
 
 local function get_runtimes(home_path)
+  local install_path = home_path .. "/.local/share/mise/installs/java"
   return {
     {
       name = "JavaSE-11",
-      path = home_path .. "/.jdk/jdk-11.0.2/",
+      path = install_path .. "/11.0.2/",
     },
     {
       name = "JavaSE-17",
-      path = home_path .. "/.jdk/jdk-17.0.2/",
+      path = install_path .. "/17.0.2/",
     },
     {
       name = "JavaSE-21",
-      path = home_path .. "/.jdk/jdk-21.0.2/",
+      path = install_path .. "/21.0.2/",
       default = true,
     },
     {
       name = "JavaSE-25",
-      path = home_path .. "/.jdk/jdk-25.0.1/",
+      path = install_path .. "/25.0.2/",
     },
   }
 end
@@ -106,7 +107,7 @@ end
 
 return {
   cmd = {
-    "/home/guistella/.jdk/jdk-21.0.2/bin/java",
+    "java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
     "-Dosgi.bundles.defaultStartLevel=4",
     "-Declipse.product=org.eclipse.jdt.ls.core.product",
