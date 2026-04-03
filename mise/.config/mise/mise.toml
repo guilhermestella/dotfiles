@@ -2,6 +2,8 @@
 java = "25"
 node = "24.14.1"
 python = "3.14.0"
+rust = "1.94.1"
+cargo = "latest"
 usage = "latest"
 
 [tasks.setup]
@@ -9,19 +11,32 @@ run = """
 mise run java
 mise run node
 mise run python
+mise run rust
+mise run usage
 """
 
 [tasks.java]
 run = """
 for v in 11 17 21 25; do
-  mise install --quiet java@$v
+  mise install java@$v
 done
 """
 
 [tasks.node]
 run = """
-mise install node@24.14.1 --quiet
+mise install node@24.14.1
 """
 
 [tasks.python]
 run = "mise install python@3.14.0"
+
+[tasks.rust]
+run = """
+mise install rust@1.94
+mise install cargo@0.95.0
+"""
+
+[tasks.usage]
+run = """
+mise install usage@latest
+"""
