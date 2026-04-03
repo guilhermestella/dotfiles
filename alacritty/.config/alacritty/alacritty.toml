@@ -24,3 +24,8 @@ italic.family = "JetBrains Mono Nerd Font"
 italic.style = "MediumItalic"
 bold_italic.family = "JetBrains Mono Nerd Font"
 bold_italic.style = "BoldItalic"
+
+[keyboard]
+bindings = [
+  { key = "NumpadEnter", mods = "None", chars = "\r" }
+]
