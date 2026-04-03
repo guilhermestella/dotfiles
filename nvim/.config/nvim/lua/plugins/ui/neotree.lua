@@ -19,6 +19,7 @@ return {
       hide_root_node = true,
       source_selector = {
         winbar = true,
+        statusline = true,
         sources = {
           { source = "filesystem", display_name = " 󰉓 File " },
           { source = "buffers", display_name = " 󰈚 Buf " },
