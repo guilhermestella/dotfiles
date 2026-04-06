@@ -1,8 +1,8 @@
-local opt_path = vim.fn.stdpath "config" .. "/lua/options"
+local opt_path = vim.fn.stdpath "config" .. "/lua/core/cmds"
 
 for _, file in ipairs(vim.fn.readdir(opt_path)) do
   local mod = file:match "^(.+)%.lua$"
   if mod and mod ~= "init" then
-    require("options." .. mod)
+    require("core.cmds." .. mod)
   end
 end
