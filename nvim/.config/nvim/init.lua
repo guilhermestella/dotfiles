@@ -17,6 +17,7 @@ require "core.cmds"
 require "core.autocmds"
 require("lazy").setup {
   spec = {
+    { import = "plugins" },
     { import = "plugins.code" },
     { import = "plugins.debug" },
     { import = "plugins.git" },
@@ -25,3 +26,4 @@ require("lazy").setup {
     { import = "plugins.ui" },
   },
 }
+require "core.format"
