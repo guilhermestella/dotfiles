@@ -25,5 +25,6 @@ require("lazy").setup {
     { import = "plugins.ui" },
   },
 }
-require "core.format"
 require "core.debug"
+require "core.explorer"
+require "core.format"
