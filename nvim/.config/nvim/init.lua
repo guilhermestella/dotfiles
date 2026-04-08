@@ -19,7 +19,6 @@ require("lazy").setup {
   spec = {
     { import = "plugins" },
     { import = "plugins.code" },
-    { import = "plugins.debug" },
     { import = "plugins.git" },
     { import = "plugins.lsp" },
     { import = "plugins.tools" },
@@ -27,3 +26,4 @@ require("lazy").setup {
   },
 }
 require "core.format"
+require "core.debug"
