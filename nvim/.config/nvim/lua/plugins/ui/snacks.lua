@@ -134,13 +134,6 @@ return {
       desc = "➜ Grep",
     },
     {
-      "<leader>`",
-      function()
-        Snacks.picker.git_status()
-      end,
-      desc = "➜ Git Status",
-    },
-    {
       "<leader><space>",
       function()
         Snacks.picker.smart()
@@ -155,50 +148,6 @@ return {
         Snacks.picker.projects()
       end,
       desc = "➜ Projects",
-    },
-
-    -- Git
-    {
-      "<leader>gb",
-      function()
-        Snacks.picker.git_branches()
-      end,
-      desc = "➜ Branches",
-    },
-    {
-      "<leader>gd",
-      function()
-        Snacks.picker.git_diff()
-      end,
-      desc = "➜ Diff (Hunks)",
-    },
-    {
-      "<leader>gf",
-      function()
-        Snacks.picker.git_log_file()
-      end,
-      desc = "➜ Log File",
-    },
-    {
-      "<leader>gl",
-      function()
-        Snacks.picker.git_log()
-      end,
-      desc = "➜ Log",
-    },
-    {
-      "<leader>gL",
-      function()
-        Snacks.picker.git_log_line()
-      end,
-      desc = "➜ Log Line",
-    },
-    {
-      "<leader>gs",
-      function()
-        Snacks.picker.git_stash()
-      end,
-      desc = "➜ Stash",
     },
 
     -- Search
