@@ -13,7 +13,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require "core.options"
 require "core.keymaps"
-require "core.cmds"
 require "core.autocmds"
 require("lazy").setup {
   spec = {
@@ -28,3 +27,4 @@ require("lazy").setup {
 require "core.debug"
 require "core.explorer"
 require "core.format"
+require "core.window"

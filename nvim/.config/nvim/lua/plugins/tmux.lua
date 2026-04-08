@@ -1,6 +1,7 @@
 return {
   {
     "mrjones2014/smart-splits.nvim",
+    lazy = false,
     init = function()
       vim.keymap.set("n", "<M-Left>", require("smart-splits").resize_left)
       vim.keymap.set("n", "<M-Down>", require("smart-splits").resize_down)
