@@ -2,22 +2,7 @@ return {
   {
     "saghen/blink.cmp",
     version = "1.*",
-    dependencies = {
-      {
-        "L3MON4D3/LuaSnip",
-        version = "v2.*",
-        dependencies = { "rafamadriz/friendly-snippets" },
-        config = function()
-          local ls = require "luasnip"
-          local from_vscode = require "luasnip.loaders.from_vscode"
-
-          from_vscode.lazy_load()
-          from_vscode.lazy_load { paths = vim.fn.stdpath "config" .. "/snippets" }
-
-          ls.filetype_extend("htmlangular", { "html" })
-        end,
-      },
-    },
+    lazy = false,
     opts = {
       keymap = {
         preset = "enter",

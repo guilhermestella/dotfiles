@@ -173,13 +173,6 @@ return {
       desc = "➜ Diagnostics",
     },
     {
-      "<leader>sm",
-      function()
-        Snacks.picker.marks()
-      end,
-      desc = "➜ Marks",
-    },
-    {
       "<M-n>",
       function()
         Snacks.picker.notifications { layout = "ivy", win = { preview = { wo = { wrap = true } } } }

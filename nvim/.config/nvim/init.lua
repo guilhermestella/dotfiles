@@ -13,17 +13,17 @@ vim.opt.rtp:prepend(lazypath)
 
 require "core.options"
 require "core.keymaps"
-require "core.autocmds"
 require("lazy").setup {
   spec = {
     { import = "plugins" },
-    { import = "plugins.code" },
     { import = "plugins.lsp" },
     { import = "plugins.tools" },
     { import = "plugins.ui" },
   },
 }
+require "core.completion"
 require "core.debug"
+require "core.editor"
 require "core.explorer"
 require "core.format"
 require "core.vcs"
