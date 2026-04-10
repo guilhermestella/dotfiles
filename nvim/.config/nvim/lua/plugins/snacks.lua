@@ -18,7 +18,11 @@ return {
       animate = { enabled = false },
     },
     input = { enabled = true },
-    notifier = { enabled = true },
+    notifier = {
+      enabled = true,
+      top_down = false,
+      margin = { top = 0, right = 1, bottom = 2 },
+    },
     picker = {
       enabled = true,
       hidden = true,
@@ -47,17 +51,6 @@ return {
             input = {
               keys = {
                 ["<c-d>"] = { "bufdelete", mode = { "i", "n" } },
-              },
-            },
-          },
-        },
-        notifications = {
-          layout = { preset = "ivy" },
-          win = {
-            preview = { wo = { wrap = true } },
-            input = {
-              keys = {
-                ["<M-n>"] = { "close", mode = { "i", "n" } },
               },
             },
           },
@@ -171,13 +164,6 @@ return {
         Snacks.picker.diagnostics()
       end,
       desc = "➜ Diagnostics",
-    },
-    {
-      "<M-n>",
-      function()
-        Snacks.picker.notifications { layout = "ivy", win = { preview = { wo = { wrap = true } } } }
-      end,
-      desc = "➜ Notifications",
     },
     {
       "<leader>sq",
