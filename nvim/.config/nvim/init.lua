@@ -18,7 +18,6 @@ require("lazy").setup {
     { import = "plugins" },
     { import = "plugins.lsp" },
     { import = "plugins.tools" },
-    { import = "plugins.ui" },
   },
 }
 require "core.completion"
@@ -27,5 +26,6 @@ require "core.editor"
 require "core.explorer"
 require "core.format"
 require "core.scratch"
+require "core.ui"
 require "core.vcs"
 require "core.window"
