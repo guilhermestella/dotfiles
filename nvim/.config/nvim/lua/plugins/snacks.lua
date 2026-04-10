@@ -152,20 +152,6 @@ return {
       desc = "➜ Commands",
     },
     {
-      "<leader>sd",
-      function()
-        Snacks.picker.diagnostics_buffer()
-      end,
-      desc = "➜ Buffer Diagnostics",
-    },
-    {
-      "<leader>sD",
-      function()
-        Snacks.picker.diagnostics()
-      end,
-      desc = "➜ Diagnostics",
-    },
-    {
       "<leader>sq",
       function()
         Snacks.picker.qflist()

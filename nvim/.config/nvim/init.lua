@@ -22,6 +22,7 @@ require("lazy").setup {
 }
 require "core.completion"
 require "core.debug"
+require "core.diagnostics"
 require "core.editor"
 require "core.explorer"
 require "core.format"
