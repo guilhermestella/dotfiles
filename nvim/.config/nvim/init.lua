@@ -11,13 +11,16 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require "core.options"
+-- lazy requires leader key to be defined before
+-- this is temporary as lazy will be replaced by pack
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
+
 require "core.keymaps"
 require("lazy").setup {
   spec = {
     { import = "plugins" },
     { import = "plugins.lsp" },
-    { import = "plugins.tools" },
   },
 }
 require "core.completion"
@@ -26,6 +29,7 @@ require "core.diagnostics"
 require "core.editor"
 require "core.explorer"
 require "core.format"
+require "core.general"
 require "core.notifications"
 require "core.scratch"
 require "core.ui"
