@@ -167,49 +167,5 @@ return {
     },
 
     -- Go To (LSP)
-    {
-      "gd",
-      function()
-        Snacks.picker.lsp_definitions()
-      end,
-      desc = "➜ Definition",
-    },
-    {
-      "gD",
-      function()
-        Snacks.picker.lsp_declarations()
-      end,
-      desc = "➜ Declaration",
-    },
-    {
-      "grr",
-      function()
-        Snacks.picker.lsp_references()
-      end,
-      desc = "➜ References",
-    },
-    {
-      "gri",
-      function()
-        Snacks.picker.lsp_implementations()
-      end,
-      desc = "➜ Implementation",
-    },
-
-    -- Go To Calls (LSP)
-    {
-      "gci",
-      function()
-        Snacks.picker.lsp_incoming_calls()
-      end,
-      desc = "➜ Incoming",
-    },
-    {
-      "gco",
-      function()
-        Snacks.picker.lsp_outgoing_calls()
-      end,
-      desc = "➜ Outgoing",
-    },
   },
 }

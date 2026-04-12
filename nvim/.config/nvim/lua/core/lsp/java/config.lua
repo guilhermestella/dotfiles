@@ -105,7 +105,7 @@ local function get_runtime()
   end)
 end
 
-return {
+vim.lsp.config("jdtls", {
   cmd = {
     "java",
     "-Declipse.application=org.eclipse.jdt.ls.core.id1",
@@ -236,7 +236,6 @@ return {
   on_attach = function()
     require("jdtls.dap").setup_dap()
     require("jdtls.dap").setup_dap_main_class_configs()
-    local springboot_nvim = require "springboot-nvim"
 
     vim.api.nvim_create_user_command("JdtGetRuntime", get_runtime, { desc = "Get current Java runtime" })
 
@@ -258,72 +257,13 @@ return {
       vim.notify(err_msg, vim.log.levels.INFO)
     end, { buffer = true, desc = "➜ Go to file" })
 
-    -- Vim-like shortcuts
-    vim.keymap.set(
-      "n",
-      "<leader>tm",
-      "<Cmd> lua require('jdtls').test_nearest_method()<CR>",
-      { desc = "➜ Test Method" }
-    )
 
-    vim.keymap.set(
-      "v",
-      "<leader>tm",
-      "<Esc><Cmd> lua require('jdtls').test_nearest_method(true)<CR>",
-      { desc = "➜ Test Method" }
-    )
+    vim.lsp.commands["test.run.function"] = function()
+      jdtls.test_nearest_method()
+    end
 
-    vim.keymap.set("n", "<leader>tc", "<Esc><Cmd> lua require('jdtls').test_class()<CR>", { desc = "➜ Test Class" })
-
-    -- IDE inherited shortcuts
-    vim.keymap.set(
-      "n",
-      "<C-M-o>",
-      "<Cmd> lua require('jdtls').organize_imports()<CR>",
-      { desc = "➜ Organize Imports" }
-    )
-
-    vim.keymap.set("n", "<C-M-m>", "<Cmd> lua require('jdtls').extract_method()<CR>", { desc = "➜ Extract Method" })
-
-    vim.keymap.set(
-      "v",
-      "<C-M-m>",
-      "<Esc><Cmd> lua require('jdtls').extract_method()<CR>",
-      { desc = "➜ Extract Method" }
-    )
-
-    vim.keymap.set(
-      "n",
-      "<C-M-v>",
-      "<Cmd> lua require('jdtls').extract_variable()<CR>",
-      { desc = "➜ Extract Variable" }
-    )
-
-    vim.keymap.set(
-      "v",
-      "<C-M-v>",
-      "<Esc><Cmd> lua require('jdtls').extract_variable(true)<CR>",
-      { desc = "➜ Extract Variable" }
-    )
-
-    vim.keymap.set(
-      "n",
-      "<C-M-c>",
-      "<Cmd> lua require('jdtls').extract_constant()<CR>",
-      { desc = "➜ Extract Constant" }
-    )
-
-    vim.keymap.set(
-      "v",
-      "<C-M-c>",
-      "<Esc><Cmd> lua require('jdtls').extract_constant(true)<CR>",
-      { desc = "➜ Extract Constant" }
-    )
-
-    vim.keymap.set("n", "<leader>jr", springboot_nvim.boot_run, { desc = "➜ Spring Boot Run Project" })
-    vim.keymap.set("n", "<leader>jc", springboot_nvim.generate_class, { desc = "➜ Java Create Class" })
-    vim.keymap.set("n", "<leader>ji", springboot_nvim.generate_interface, { desc = "➜ Java Create Interface" })
-    vim.keymap.set("n", "<leader>je", springboot_nvim.generate_enum, { desc = "➜ Java Create Enum" })
-    springboot_nvim.setup {}
+    vim.lsp.commands["test.run.file"] = function()
+      jdtls.test_class()
+    end
   end,
-}
+})

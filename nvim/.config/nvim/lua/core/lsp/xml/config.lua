@@ -1,4 +1,4 @@
-return {
+vim.lsp.config("lemminx", {
   settings = {
     xml = {
       validation = {
@@ -13,4 +13,4 @@ return {
       },
     },
   },
-}
+})

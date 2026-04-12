@@ -1,7 +1,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-return {
+vim.lsp.config("jsonls", {
   capabilities = capabilities,
   settings = {
     json = {
@@ -9,4 +9,4 @@ return {
       schemas = require("schemastore").json.schemas(),
     },
   },
-}
+})

@@ -1,7 +1,7 @@
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-return {
-  cmd = { "vscode-css-language-server", "--stdio" },
+vim.lsp.config("html", {
+  cmd = { "vscode-html-language-server", "--stdio" },
   capabilities = capabilities
-}
+})
