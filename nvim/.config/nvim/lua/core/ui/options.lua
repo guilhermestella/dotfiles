@@ -5,7 +5,6 @@ local set = vim.o
 local seto = vim.opt
 
 set.updatetime = 500
-set.termguicolors = true -- Enable 24-bit RBG colors in terminal
 set.number = true
 set.relativenumber = true
 set.numberwidth = 4 -- Keep a consistent 4-column gutter
