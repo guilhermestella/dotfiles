@@ -15,6 +15,11 @@ dap.listeners.after.event_stopped["on_stop"] = function(_, body)
   end
 end
 
+dap.listeners.after.continue["on_continue"] = function()
+  ui.close { layout = 2 }
+  ui.open { layout = 1 }
+end
+
 dap.listeners.after.event_terminated["on_finish"] = function()
   ui.close { layout = 2 }
   ui.open { layout = 1 }
