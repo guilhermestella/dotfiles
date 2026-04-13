@@ -31,4 +31,15 @@ M.step_into = dap.step_into
 M.step_out = dap.step_out
 M.toggle_breakpoint = dap.toggle_breakpoint
 
+function M.get_files(source)
+  local path = vim.fn.stdpath "config" .. "/lua/core/debug/" .. source
+  local files = vim.fn.glob(path .. "/*.lua", false, true)
+  local target = {}
+  for _, file in ipairs(files) do
+    local name = vim.fn.fnamemodify(file, ":t:r")
+    target[name] = require("core.debug." .. source .. "." .. name)
+  end
+  return target
+end
+
 return M

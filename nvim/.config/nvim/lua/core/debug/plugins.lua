@@ -1,5 +1,6 @@
 local dap = require "dap"
 local ui = require "dapui"
+local fn = require "core.debug.functions"
 
 ---@diagnostic disable: undefined-field
 dap.listeners.after.event_initialized["on_start"] = function()
@@ -70,10 +71,5 @@ ui.setup {
   },
 }
 
--- Load all configurations under core/debug/lang
-local lang_path = vim.fn.stdpath "config" .. "/lua/core/debug/lang"
-local files = vim.fn.glob(lang_path .. "/*.lua", false, true)
-for _, file in ipairs(files) do
-  local name = vim.fn.fnamemodify(file, ":t:r")
-  dap.configurations[name] = require("core.debug.lang." .. name)
-end
+dap.adapters = fn.get_files "adapters"
+dap.configurations = fn.get_files "configurations"
