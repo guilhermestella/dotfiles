@@ -64,3 +64,11 @@ ui.setup {
     },
   },
 }
+
+-- Load all configurations under core/debug/lang
+local lang_path = vim.fn.stdpath "config" .. "/lua/core/debug/lang"
+local files = vim.fn.glob(lang_path .. "/*.lua", false, true)
+for _, file in ipairs(files) do
+  local name = vim.fn.fnamemodify(file, ":t:r")
+  dap.configurations[name] = require("core.debug.lang." .. name)
+end
