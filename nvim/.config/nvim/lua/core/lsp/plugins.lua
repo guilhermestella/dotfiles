@@ -33,6 +33,7 @@ local installer_opts = {
     -- DAP
     "java-debug-adapter",
     "java-test",
+    "js-debug-adapter"
   },
 }
 
