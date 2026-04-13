@@ -2,12 +2,10 @@
 require "core.lsp.plugins"
 require "core.lsp.keymaps"
 
--- LSP Configurations
-require "core.lsp.css"
-require "core.lsp.html"
-require "core.lsp.java"
-require "core.lsp.json"
-require "core.lsp.lua"
-require "core.lsp.markdown"
-require "core.lsp.xml"
-require "core.lsp.yaml"
+local lsps_path = vim.fn.stdpath "config" .. "/lua/core/lsp"
+for _, module in ipairs(vim.fn.readdir(lsps_path)) do
+  local path = lsps_path .. "/" .. module
+  if vim.fn.isdirectory(path) == 1 then
+    require("core.lsp." .. module)
+  end
+end
