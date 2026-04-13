@@ -1,10 +1,16 @@
 local dap = require "dap"
 local ui = require "dapui"
+local snacks = require "snacks"
 
 local M = {}
 
 function M.toggle_conditional_breakpoint()
-  dap.toggle_breakpoint(vim.fn.input "Condition: ")
+  snacks.input({
+    prompt = "Search: ",
+    win = { relative = "cursor" },
+  }, function(input)
+    dap.toggle_breakpoint(input)
+  end)
 end
 
 function M.toggle_console()
