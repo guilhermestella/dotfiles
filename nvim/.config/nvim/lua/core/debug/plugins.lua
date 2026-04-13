@@ -61,8 +61,8 @@ ui.setup {
     {
       id = "2",
       elements = {
-        { id = "scopes", size = 0.70 },
         { id = "stacks", size = 0.30 },
+        { id = "scopes", size = 0.70 },
       },
       size = 15,
       position = "bottom",
