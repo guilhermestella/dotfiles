@@ -1,4 +1,5 @@
 local neo_tree = require "neo-tree"
+local snacks = require "snacks"
 
 neo_tree.setup {
   sources = {
@@ -71,6 +72,13 @@ neo_tree.setup {
         ["."] = false,
         ["bd"] = false,
         ["b"] = false,
+        ["d"] = function(state)
+          local node = state.tree:get_node()
+          local bufnr = node.extra.bufnr
+          if bufnr and bufnr > 0 then
+            snacks.bufdelete(bufnr)
+          end
+        end,
       },
     },
   },
