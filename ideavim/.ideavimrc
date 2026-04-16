@@ -145,11 +145,12 @@ map <leader>rs <Action>(Stop)
 map <C-F7> <Action>(EditBreakpoint)
 map <C-F8> <Action>(ToggleLineBreakpoint)
 map <C-S-F8> <Action>(ViewBreakpoints)
+map <M-e> <Action>(QuickEvaluateExpression)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Marks
 " ════════════════════════════════════════════════════════════════════════════
-" map mm <Action>(ToggleBookmark)
+map mm <Action>(ToggleBookmark)
 map <M-m> <Action>(ActivateBookmarksToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
