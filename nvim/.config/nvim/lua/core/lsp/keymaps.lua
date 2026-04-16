@@ -26,12 +26,12 @@ set({ "n", "v" }, "<M-CR>", fn.actions, { desc = "➜ LSP Code Action" })
 -- ════════════════════════════════════════════════════════════════════════════
 -- Test
 -- ════════════════════════════════════════════════════════════════════════════
-set("n", "<leader>tm", fn.test_function, { desc = "➜ Test Method" })
-set("n", "<leader>tc", fn.test_file, { desc = "➜ Test Method" })
+set("n", "<leader>rt", fn.test_function, { desc = "➜ Run Test Function" })
+set("n", "<leader>rT", fn.test_file, { desc = "➜ Run Test File" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Other
 -- ════════════════════════════════════════════════════════════════════════════
 set("n", "<C-M-o>", fn.organize_imports, { desc = "➜ Organize Imports" })
 set("n", "K", fn.show_documentation, { desc = "➜ Show documentation" })
-set("n", "<leader>Ti", fn.toggle_inlay_hints, { desc = "➜ Toggle Inlay Hints" })
+set("n", "<leader>ti", fn.toggle_inlay_hints, { desc = "➜ Toggle Inlay Hints" })
