@@ -38,6 +38,19 @@ vnoremap > >gv
 map == <Action>(ReformatCode)
 vmap = <Action>(ReformatCode)
 
+" Refactor
+map gd <Action>(GotoDeclaration)
+map gri <Action>(GotoImplementation)
+map grr <Action>(FindUsages)
+map grn <Action>(RenameElement)
+
+" Text Object Navigation
+map ]f <Action>(MethodDown)
+map [f <Action>(MethodUp)
+
+" Highlight Usages
+map * *N<Action>(HighlightUsagesInFile)
+
 " ════════════════════════════════════════════════════════════════════════════
 " Windows, buffers, etc
 " ════════════════════════════════════════════════════════════════════════════
@@ -60,6 +73,27 @@ nnoremap <C-l> <C-w>l
 " Buffers
 nnoremap <C-w>c :q<CR>
 nnoremap <C-w>q :bd<CR>
+
+" ════════════════════════════════════════════════════════════════════════════
+" Diagnostic
+" ════════════════════════════════════════════════════════════════════════════
+map ]d <Action>(GotoNextError)
+map [d <Action>(GotoPreviousError)
+map =d <Action>(ShowErrorDescription)
+map <C-w>d <Action>(ShowErrorDescription)
+
+" ════════════════════════════════════════════════════════════════════════════
+" Git
+" ════════════════════════════════════════════════════════════════════════════
+map <M-y> <Action>(Annotate)
+map ]h <Action>(VcsShowNextChangeMarker)
+map [h <Action>(VcsShowPrevChangeMarker)
+map =c <Action>(VcsShowCurrentChangeMarker)
+
+" ════════════════════════════════════════════════════════════════════════════
+" Terminal
+" ════════════════════════════════════════════════════════════════════════════
+map <M-t> <Action>(ActivateTerminalToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
 " NerdTree
