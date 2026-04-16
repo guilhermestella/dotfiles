@@ -50,6 +50,8 @@ neo_tree.setup {
         ".babelrc",
         ".eslintrc*",
         ".github/",
+        ".opencode",
+        ".scratch"
       },
       hide_by_name = {
         ".git",
