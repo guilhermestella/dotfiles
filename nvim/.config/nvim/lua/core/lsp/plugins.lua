@@ -16,6 +16,8 @@ local installer_opts = {
     "lua_ls",
     "marksman",
     "ts_ls",
+    "vtsls",
+    "vue_ls",
     "yaml-language-server",
 
     -- Formatter
@@ -33,7 +35,7 @@ local installer_opts = {
     -- DAP
     "java-debug-adapter",
     "java-test",
-    "js-debug-adapter"
+    "js-debug-adapter",
   },
 }
 

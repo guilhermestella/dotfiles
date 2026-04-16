@@ -2,7 +2,10 @@ local navic = require "nvim-navic"
 local lualine = require "lualine"
 
 navic.setup {
-  lsp = { auto_attach = true },
+  lsp = {
+    auto_attach = true,
+    preference = { "vue_ls", "vtsls", "ts_ls" },
+  },
   highlight = false,
   separator = " » ",
   depth_limit = 8,

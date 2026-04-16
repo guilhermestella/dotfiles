@@ -9,6 +9,7 @@ conform.setup {
     svelte = { "prettier" },
     css = { "prettier" },
     html = { "prettier" },
+    vue = { "prettier" },
     json = { "prettier" },
     yaml = { "prettier" },
     markdown = { "prettier" },

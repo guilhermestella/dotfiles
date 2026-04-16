@@ -7,6 +7,7 @@ vscode.lazy_load { paths = vim.fn.stdpath "config" .. "/lua/core/completion/snip
 
 luasnip.setup()
 luasnip.filetype_extend("htmlangular", { "html" })
+luasnip.filetype_extend("vue", { "html" })
 
 blink.setup {
   keymap = {
