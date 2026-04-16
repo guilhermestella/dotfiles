@@ -16,9 +16,18 @@ let mapleader = " "
 " ════════════════════════════════════════════════════════════════════════════
 " Global Options
 " ════════════════════════════════════════════════════════════════════════════
-set clipboard+=unnamedplus
 set number
 set relativenumber
+set clipboard+=unnamedplus
+
+" ════════════════════════════════════════════════════════════════════════════
+" Search
+" ════════════════════════════════════════════════════════════════════════════
+set hlsearch
+set incsearch
+set ignorecase
+set smartcase
+noremap <silent> <Esc> :noh<CR><Esc>
 
 " ════════════════════════════════════════════════════════════════════════════
 " Editing
@@ -31,8 +40,8 @@ vmap <A-S-J> :m '>+1<CR>gv=gv
 vmap <A-S-K> :m '<-2<CR>gv=gv
 
 " Indentation
-vnoremap < <gv
-vnoremap > >gv
+vmap < <gv
+vmap > >gv
 
 " Format
 map == <Action>(ReformatCode)
@@ -40,6 +49,7 @@ vmap = <Action>(ReformatCode)
 
 " LSP Actions
 map gd <Action>(GotoDeclaration)
+map grd <Action>(SafeDelete)
 map gri <Action>(GotoImplementation)
 map grr <Action>(FindUsages)
 map grs <Action>(GotoSuperMethod)
@@ -62,6 +72,12 @@ map [f <Action>(MethodUp)
 map * *N<Action>(HighlightUsagesInFile)
 
 " ════════════════════════════════════════════════════════════════════════════
+" Fold
+" ════════════════════════════════════════════════════════════════════════════
+map zC <Action>(CollapseAllRegions)
+map zO <Action>(ExpandAllRegions)
+
+" ════════════════════════════════════════════════════════════════════════════
 " Windows, buffers, etc
 " ════════════════════════════════════════════════════════════════════════════
 " Resize Windows
@@ -71,18 +87,19 @@ map <M-Up>    <Action>(StretchSplitToTop)
 map <M-Down>  <Action>(StretchSplitToBottom)
 
 " Buffer Navigation
-map <A-k> :tabnext<CR>
-map <A-j> :tabprev<CR>
+map <A-k> <Action>(NextTab)
+map <A-j> <Action>(PreviousTab)
 
 " Windows Navigation
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+map <C-w>u <Action>(ReopenClosedTab)
 
 " Buffers
-nnoremap <C-w>c :q<CR>
-nnoremap <C-w>q :bd<CR>
+map <C-w>c :q<CR>
+map <C-w>q :bd<CR>
 
 " Keep centralized
 map <C-d> <C-d>zz
@@ -95,6 +112,7 @@ map ]d <Action>(GotoNextError)
 map [d <Action>(GotoPreviousError)
 map =d <Action>(ShowErrorDescription)
 map <C-w>d <Action>(ShowErrorDescription)
+map <M-p> <Action>(ActivateProblemsViewToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Git
@@ -122,11 +140,25 @@ map <leader>rr <Action>(ChooseRunConfiguration)
 map <leader>rs <Action>(Stop)
 
 " ════════════════════════════════════════════════════════════════════════════
+" Debug
+" ════════════════════════════════════════════════════════════════════════════
+map <C-F7> <Action>(EditBreakpoint)
+map <C-F8> <Action>(ToggleLineBreakpoint)
+map <C-S-F8> <Action>(ViewBreakpoints)
+
+" ════════════════════════════════════════════════════════════════════════════
+" Marks
+" ════════════════════════════════════════════════════════════════════════════
+" map mm <Action>(ToggleBookmark)
+map <M-m> <Action>(ActivateBookmarksToolWindow)
+
+" ════════════════════════════════════════════════════════════════════════════
 " UI Panels
 " ════════════════════════════════════════════════════════════════════════════
 map <M-1> :NERDTreeToggle<CR>
+map <M-3> <Action>(ActivateCommitToolWindow)
 map <M-4> <Action>(ActivateStructureToolWindow)
 map <M-g> <Action>(ActivateVersionControlToolWindow)
-map <leader><leader> <Action>(GotoFile)
+map <leader><leader> <Action>(SearchEverywhere)
 map <leader>/ <Action>(FindInPath)
 vmap / <Action>(FindInPath)
