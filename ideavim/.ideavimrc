@@ -25,14 +25,18 @@ set relativenumber
 " ════════════════════════════════════════════════════════════════════════════
 
 " Move Block
-nnoremap <A-S-J> :m .+1<CR>==
-nnoremap <A-S-K> :m .-2<CR>==
-vnoremap <A-S-J> :m '>+1<CR>gv=gv
-vnoremap <A-S-K> :m '<-2<CR>gv=gv
+nmap <A-S-J> :m .+1<CR>==
+nmap <A-S-K> :m .-2<CR>==
+vmap <A-S-J> :m '>+1<CR>gv=gv
+vmap <A-S-K> :m '<-2<CR>gv=gv
 
 " Indentation
 vnoremap < <gv
 vnoremap > >gv
+
+" Format
+map == <Action>(ReformatCode)
+vmap = <Action>(ReformatCode)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Windows, buffers, etc
