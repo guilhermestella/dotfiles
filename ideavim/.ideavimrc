@@ -25,8 +25,8 @@ set relativenumber
 " ════════════════════════════════════════════════════════════════════════════
 
 " Move Block
-nmap <A-S-J> :m .+1<CR>==
-nmap <A-S-K> :m .-2<CR>==
+map <A-S-J> :m .+1<CR>==
+map <A-S-K> :m .-2<CR>==
 vmap <A-S-J> :m '>+1<CR>gv=gv
 vmap <A-S-K> :m '<-2<CR>gv=gv
 
@@ -38,11 +38,21 @@ vnoremap > >gv
 map == <Action>(ReformatCode)
 vmap = <Action>(ReformatCode)
 
-" Refactor
+" LSP Actions
 map gd <Action>(GotoDeclaration)
 map gri <Action>(GotoImplementation)
 map grr <Action>(FindUsages)
+map grs <Action>(GotoSuperMethod)
 map grn <Action>(RenameElement)
+map <C-M-o> <Action>(OptimizeImports)
+
+" Refactor
+map <C-M-c> <action>(IntroduceConstant)
+map <C-M-v> <action>(IntroduceVariable)
+map <C-M-m> <action>(ExtractMethod)
+vmap <C-M-c> <action>(IntroduceConstant)
+vmap <C-M-v> <action>(IntroduceVariable)
+vmap <C-M-m> <action>(ExtractMethod)
 
 " Text Object Navigation
 map ]f <Action>(MethodDown)
@@ -55,14 +65,14 @@ map * *N<Action>(HighlightUsagesInFile)
 " Windows, buffers, etc
 " ════════════════════════════════════════════════════════════════════════════
 " Resize Windows
-nmap <M-Left>  <Action>(StretchSplitToLeft)
-nmap <M-Right> <Action>(StretchSplitToRight)
-nmap <M-Up>    <Action>(StretchSplitToTop)
-nmap <M-Down>  <Action>(StretchSplitToBottom)
+map <M-Left>  <Action>(StretchSplitToLeft)
+map <M-Right> <Action>(StretchSplitToRight)
+map <M-Up>    <Action>(StretchSplitToTop)
+map <M-Down>  <Action>(StretchSplitToBottom)
 
 " Buffer Navigation
-map <A-j> :tabnext<CR>
-map <A-k> :tabprev<CR>
+map <A-k> :tabnext<CR>
+map <A-j> :tabprev<CR>
 
 " Windows Navigation
 nnoremap <C-h> <C-w>h
@@ -73,6 +83,10 @@ nnoremap <C-l> <C-w>l
 " Buffers
 nnoremap <C-w>c :q<CR>
 nnoremap <C-w>q :bd<CR>
+
+" Keep centralized
+map <C-d> <C-d>zz
+map <C-u> <C-u>zz
 
 " ════════════════════════════════════════════════════════════════════════════
 " Diagnostic
@@ -88,7 +102,7 @@ map <C-w>d <Action>(ShowErrorDescription)
 map <M-y> <Action>(Annotate)
 map ]h <Action>(VcsShowNextChangeMarker)
 map [h <Action>(VcsShowPrevChangeMarker)
-map =c <Action>(VcsShowCurrentChangeMarker)
+map =h <Action>(VcsShowCurrentChangeMarker)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Terminal
@@ -102,11 +116,17 @@ let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapJumpParent='h'
 
 " ════════════════════════════════════════════════════════════════════════════
+" Runners
+" ════════════════════════════════════════════════════════════════════════════
+map <leader>rr <Action>(ChooseRunConfiguration)
+map <leader>rs <Action>(Stop)
+
+" ════════════════════════════════════════════════════════════════════════════
 " UI Panels
 " ════════════════════════════════════════════════════════════════════════════
-nmap <M-1> :NERDTreeToggle<CR>
-nmap <M-4> <Action>(ActivateStructureToolWindow)
-nmap <M-g> <Action>(ActivateVersionControlToolWindow)
-nmap <leader><leader> <Action>(GotoFile)
-nmap <leader>/ <Action>(FindInPath)
+map <M-1> :NERDTreeToggle<CR>
+map <M-4> <Action>(ActivateStructureToolWindow)
+map <M-g> <Action>(ActivateVersionControlToolWindow)
+map <leader><leader> <Action>(GotoFile)
+map <leader>/ <Action>(FindInPath)
 vmap / <Action>(FindInPath)
