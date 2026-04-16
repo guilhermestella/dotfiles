@@ -9,16 +9,16 @@ set mini-ai
 set commentary
 
 " ════════════════════════════════════════════════════════════════════════════
-" Leader Definition
+" Global
 " ════════════════════════════════════════════════════════════════════════════
 let mapleader = " "
+set clipboard+=unnamedplus
 
 " ════════════════════════════════════════════════════════════════════════════
-" Global Options
+" Gutter
 " ════════════════════════════════════════════════════════════════════════════
 set number
 set relativenumber
-set clipboard+=unnamedplus
 
 " ════════════════════════════════════════════════════════════════════════════
 " Search
@@ -28,11 +28,13 @@ set incsearch
 set ignorecase
 set smartcase
 noremap <silent> <Esc> :noh<CR><Esc>
+map <leader><leader> <Action>(SearchEverywhere)
+map <leader>/ <Action>(FindInPath)
+vmap / <Action>(FindInPath)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Editing
 " ════════════════════════════════════════════════════════════════════════════
-
 " Move Block
 map <A-S-J> :m .+1<CR>==
 map <A-S-K> :m .-2<CR>==
@@ -71,6 +73,9 @@ map [f <Action>(MethodUp)
 " Highlight Usages
 map * *N<Action>(HighlightUsagesInFile)
 
+" Toggle Inlay Hints
+map <leader>ti <Action>(ToggleInlayHintsGloballyAction)
+
 " ════════════════════════════════════════════════════════════════════════════
 " Fold
 " ════════════════════════════════════════════════════════════════════════════
@@ -105,6 +110,9 @@ map <C-w>q :bd<CR>
 map <C-d> <C-d>zz
 map <C-u> <C-u>zz
 
+" Scratch File
+map <M-i> <Action>(NewScratchFile)
+
 " ════════════════════════════════════════════════════════════════════════════
 " Diagnostic
 " ════════════════════════════════════════════════════════════════════════════
@@ -121,6 +129,8 @@ map <M-y> <Action>(Annotate)
 map ]h <Action>(VcsShowNextChangeMarker)
 map [h <Action>(VcsShowPrevChangeMarker)
 map =h <Action>(VcsShowCurrentChangeMarker)
+map <M-g> <Action>(ActivateVersionControlToolWindow)
+map <M-3> <Action>(ActivateCommitToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Terminal
@@ -128,16 +138,12 @@ map =h <Action>(VcsShowCurrentChangeMarker)
 map <M-t> <Action>(ActivateTerminalToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
-" NerdTree
-" ════════════════════════════════════════════════════════════════════════════
-let g:NERDTreeMapActivateNode='l'
-let g:NERDTreeMapJumpParent='h'
-
-" ════════════════════════════════════════════════════════════════════════════
 " Runners
 " ════════════════════════════════════════════════════════════════════════════
 map <leader>rr <Action>(ChooseRunConfiguration)
 map <leader>rs <Action>(Stop)
+map <leader>rt <action>(Run)
+map <leader>rd <action>(Debug)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Debug
@@ -154,12 +160,19 @@ map mm <Action>(ToggleBookmark)
 map <M-m> <Action>(ActivateBookmarksToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
-" UI Panels
+" Complete
 " ════════════════════════════════════════════════════════════════════════════
+" Up and Down in Autocomplete
+sethandler <C-n> i:vim
+sethandler <C-p> i:vim
+imap <C-n> <Down>
+imap <C-p> <Up>
+
+" ════════════════════════════════════════════════════════════════════════════
+" Explorer
+" ════════════════════════════════════════════════════════════════════════════
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
 map <M-1> :NERDTreeToggle<CR>
-map <M-3> <Action>(ActivateCommitToolWindow)
 map <M-4> <Action>(ActivateStructureToolWindow)
-map <M-g> <Action>(ActivateVersionControlToolWindow)
-map <leader><leader> <Action>(SearchEverywhere)
-map <leader>/ <Action>(FindInPath)
-vmap / <Action>(FindInPath)
+
