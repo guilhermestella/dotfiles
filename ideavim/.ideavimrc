@@ -1,0 +1,74 @@
+" ════════════════════════════════════════════════════════════════════════════
+" Plugins
+" ════════════════════════════════════════════════════════════════════════════
+set NERDTree
+set surround
+set commentary
+set highlightedyank
+set mini-ai
+set commentary
+
+" ════════════════════════════════════════════════════════════════════════════
+" Leader Definition
+" ════════════════════════════════════════════════════════════════════════════
+let mapleader = " "
+
+" ════════════════════════════════════════════════════════════════════════════
+" Global Options
+" ════════════════════════════════════════════════════════════════════════════
+set clipboard+=unnamedplus
+set number
+set relativenumber
+
+" ════════════════════════════════════════════════════════════════════════════
+" Editing
+" ════════════════════════════════════════════════════════════════════════════
+
+" Move Block
+nnoremap <A-S-J> :m .+1<CR>==
+nnoremap <A-S-K> :m .-2<CR>==
+vnoremap <A-S-J> :m '>+1<CR>gv=gv
+vnoremap <A-S-K> :m '<-2<CR>gv=gv
+
+" Indentation
+vnoremap < <gv
+vnoremap > >gv
+
+" ════════════════════════════════════════════════════════════════════════════
+" Windows, buffers, etc
+" ════════════════════════════════════════════════════════════════════════════
+" Resize Windows
+nmap <M-Left>  <Action>(StretchSplitToLeft)
+nmap <M-Right> <Action>(StretchSplitToRight)
+nmap <M-Up>    <Action>(StretchSplitToTop)
+nmap <M-Down>  <Action>(StretchSplitToBottom)
+
+" Buffer Navigation
+map <A-j> :tabnext<CR>
+map <A-k> :tabprev<CR>
+
+" Windows Navigation
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+
+" Buffers
+nnoremap <C-w>c :q<CR>
+nnoremap <C-w>q :bd<CR>
+
+" ════════════════════════════════════════════════════════════════════════════
+" NerdTree
+" ════════════════════════════════════════════════════════════════════════════
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+
+" ════════════════════════════════════════════════════════════════════════════
+" UI Panels
+" ════════════════════════════════════════════════════════════════════════════
+nmap <M-1> :NERDTreeToggle<CR>
+nmap <M-4> <Action>(ActivateStructureToolWindow)
+nmap <M-g> <Action>(ActivateVersionControlToolWindow)
+nmap <leader><leader> <Action>(GotoFile)
+nmap <leader>/ <Action>(FindInPath)
+vmap / <Action>(FindInPath)
