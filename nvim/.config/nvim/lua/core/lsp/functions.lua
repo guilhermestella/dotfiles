@@ -130,4 +130,11 @@ function M.test_file()
   run_custom_command "test.run.file"
 end
 
+-- ════════════════════════════════════════════════════════════════════════════
+-- LSP Helpers
+-- ════════════════════════════════════════════════════════════════════════════
+function M.toggle_inlay_hints()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end
+
 return M
