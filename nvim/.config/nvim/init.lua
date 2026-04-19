@@ -20,18 +20,6 @@ require("lazy").setup("plugins", {
   defaults = { lazy = false },
 })
 
-require "core.completion"
-require "core.debug"
-require "core.diagnostics"
-require "core.editor"
-require "core.explorer"
-require "core.format"
-require "core.general"
-require "core.lsp"
-require "core.notifications"
-require "core.scratch"
-require "core.statusline"
-require "core.themes"
+require "core.dev"
+require "core.tool"
 require "core.ui"
-require "core.vcs"
-require "core.window"
