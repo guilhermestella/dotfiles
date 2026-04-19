@@ -1,5 +1,5 @@
 local set = vim.keymap.set
-local fn = require "core.dev.vcs.functions"
+local fn = require "core.dev.git.functions"
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Hunk
