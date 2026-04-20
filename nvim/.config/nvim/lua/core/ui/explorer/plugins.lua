@@ -24,6 +24,9 @@ neo_tree.setup {
     position = "left",
     width = 40,
     mappings = {
+      ["<Esc>"] = function()
+        vim.cmd "wincmd p"
+      end,
       ["<space>"] = false,
       ["l"] = "open",
       ["h"] = "close_node",
@@ -51,7 +54,7 @@ neo_tree.setup {
         ".eslintrc*",
         ".github/",
         ".opencode",
-        ".scratch"
+        ".scratch",
       },
       hide_by_name = {
         ".git",
