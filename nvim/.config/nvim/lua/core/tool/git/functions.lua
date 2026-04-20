@@ -37,6 +37,7 @@ function M.nav_prev_hunk()
   gs.nav_hunk "prev"
 end
 
+M.setup = gs.setup
 M.preview_hunk = gs.preview_hunk
 M.reset_hunk = gs.reset_hunk
 M.reset_buffer = gs.reset_buffer
