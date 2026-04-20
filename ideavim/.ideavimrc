@@ -172,7 +172,7 @@ imap <C-p> <Up>
 " Explorer
 " ════════════════════════════════════════════════════════════════════════════
 let g:NERDTreeMapActivateNode='l'
-let g:NERDTreeMapJumpParent='h'
+let g:NERDTreeMapCloseDir='h'
 map <M-1> :NERDTreeFocus<CR>
 map <M-q> :NERDTreeFind<CR>
 map <M-4> <Action>(ActivateStructureToolWindow)
