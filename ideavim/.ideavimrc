@@ -167,6 +167,7 @@ sethandler <C-n> i:vim
 sethandler <C-p> i:vim
 imap <C-n> <Down>
 imap <C-p> <Up>
+imap <C-Space> <Action>(CodeCompletion)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Explorer
