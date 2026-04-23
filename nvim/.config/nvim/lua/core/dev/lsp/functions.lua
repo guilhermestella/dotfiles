@@ -110,27 +110,6 @@ M.rename = vim.lsp.buf.rename
 M.actions = vim.lsp.buf.code_action
 
 -- ════════════════════════════════════════════════════════════════════════════
--- LSP Custom Actions (not standard by lsp servers)
--- ════════════════════════════════════════════════════════════════════════════
-local function run_custom_command(command)
-  local ok, _ = pcall(function()
-    vim.lsp.commands[command]()
-  end)
-
-  if not ok then
-    vim.notify("LSP not started or does not implements " .. command, vim.log.INFO)
-  end
-end
-
-function M.test_function()
-  run_custom_command "test.run.function"
-end
-
-function M.test_file()
-  run_custom_command "test.run.file"
-end
-
--- ════════════════════════════════════════════════════════════════════════════
 -- LSP Helpers
 -- ════════════════════════════════════════════════════════════════════════════
 function M.toggle_inlay_hints()

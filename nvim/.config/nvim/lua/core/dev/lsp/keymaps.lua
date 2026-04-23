@@ -24,12 +24,6 @@ set({ "n", "v" }, "gra", fn.actions, { desc = "➜ LSP Code Action" })
 set({ "n", "v" }, "<M-CR>", fn.actions, { desc = "➜ LSP Code Action" })
 
 -- ════════════════════════════════════════════════════════════════════════════
--- Test
--- ════════════════════════════════════════════════════════════════════════════
-set("n", "<leader>rt", fn.test_function, { desc = "➜ Run Test Function" })
-set("n", "<leader>rT", fn.test_file, { desc = "➜ Run Test File" })
-
--- ════════════════════════════════════════════════════════════════════════════
 -- Other
 -- ════════════════════════════════════════════════════════════════════════════
 set("n", "<C-M-o>", fn.organize_imports, { desc = "➜ Organize Imports" })

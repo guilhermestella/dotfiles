@@ -9,4 +9,13 @@ return {
     sourceMaps = true,
     runtimeExecutable = "/usr/bin/brave-browser",
   },
+  {
+    type = "pwa-node",
+    request = "launch",
+    name = "Launch file using Node.js (nvim-dap)",
+    program = "${file}",
+    args = "${args}",
+    cwd = "${workspaceFolder}",
+    console = "integratedTerminal",
+  },
 }

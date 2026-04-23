@@ -1,6 +1,12 @@
 local set = vim.keymap.set
 local fn = require "core.dev.debug.functions"
 
+-- ════════════════════════════════════════════════════════════════════════════
+-- Run Test
+-- ════════════════════════════════════════════════════════════════════════════
+set("n", "<leader>rt", fn.test_function, { desc = "➜ Run Test Function" })
+set("n", "<leader>rT", fn.test_file, { desc = "➜ Run Test File" })
+
 -- Key maps with F keys: M-F7 = <F19>, C-F7 = <F31>, C-F8 = <F32>
 set("n", "<F31>", fn.toggle_conditional_breakpoint, { desc = "➜ Toggle Conditional Breakpoint" })
 set("n", "<F32>", fn.toggle_breakpoint, { desc = "➜ Toggle Breakpoint" })

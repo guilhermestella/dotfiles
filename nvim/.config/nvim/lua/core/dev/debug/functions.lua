@@ -4,6 +4,14 @@ local snacks = require "snacks"
 
 local M = {}
 
+function M.test_function()
+  vim.cmd "TestNearest -strategy=dap"
+end
+
+function M.test_file()
+  vim.cmd "TestClass -strategy=dap"
+end
+
 function M.toggle_conditional_breakpoint()
   snacks.input({
     prompt = "Search: ",

@@ -126,7 +126,7 @@ vim.lsp.config("jdtls", {
     "-data",
     get_workspace(home),
   },
-  root_dir = jdtls.setup.find_root { ".git", "mvnw", "gradlew", "pom.xml", "build.gradle" },
+  root_dir = vim.fs.root(0, { ".git", "mvnw", "gradlew" }),
   settings = {
     java = {
       -- Enable code formatting
@@ -256,14 +256,5 @@ vim.lsp.config("jdtls", {
       local err_msg = string.format('Cannot find file "%s"', file)
       vim.notify(err_msg, vim.log.levels.INFO)
     end, { buffer = true, desc = "➜ Go to file" })
-
-
-    vim.lsp.commands["test.run.function"] = function()
-      jdtls.test_nearest_method()
-    end
-
-    vim.lsp.commands["test.run.file"] = function()
-      jdtls.test_class()
-    end
   end,
 })

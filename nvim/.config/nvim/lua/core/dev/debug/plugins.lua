@@ -73,3 +73,26 @@ ui.setup {
 
 dap.adapters = fn.get_files "adapters"
 dap.configurations = fn.get_files "configurations"
+
+-- Vim-test runners
+local runners = fn.get_files "runners"
+vim.g["test#custom_strategies"] = {
+  dap = function(cmd)
+    local runner = cmd:match "^%S+"
+    local args = cmd:sub(#runner + 2)
+
+    for name, module in pairs(runners) do
+      if runner:find(name) then
+        local config = module(runner, args)
+        if config then
+          dap.run(config)
+        else
+          -- nil returned: handled internally (jdtls for mvn)
+        end
+        return
+      end
+    end
+
+    vim.notify("No runner found for: " .. cmd, vim.log.levels.ERROR)
+  end,
+}
