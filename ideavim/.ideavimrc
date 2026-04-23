@@ -15,6 +15,11 @@ let mapleader = " "
 set clipboard+=unnamedplus
 
 " ════════════════════════════════════════════════════════════════════════════
+" Unmap
+" ════════════════════════════════════════════════════════════════════════════
+map <S-CR> <nop>
+
+" ════════════════════════════════════════════════════════════════════════════
 " Gutter
 " ════════════════════════════════════════════════════════════════════════════
 set number
@@ -52,10 +57,12 @@ vmap = <Action>(ReformatCode)
 " LSP Actions
 map gd <Action>(GotoDeclaration)
 map grd <Action>(SafeDelete)
+map gra <Action>(ShowIntentionActions)
 map gri <Action>(GotoImplementation)
 map grr <Action>(FindUsages)
 map grs <Action>(GotoSuperMethod)
 map grn <Action>(RenameElement)
+map <M-CR> <Action>(ShowIntentionActions)
 map <C-M-o> <Action>(OptimizeImports)
 
 " Refactor
@@ -128,7 +135,9 @@ map <M-p> <Action>(ActivateProblemsViewToolWindow)
 map <M-y> <Action>(Annotate)
 map ]h <Action>(VcsShowNextChangeMarker)
 map [h <Action>(VcsShowPrevChangeMarker)
-map =h <Action>(VcsShowCurrentChangeMarker)
+map ghp <Action>(VcsShowCurrentChangeMarker)
+map ghr <Action>(Vcs.RollbackChangedLines)
+map ghR <Action>($SelectAll)<Action>(Vcs.RollbackChangedLines)<Action>(EditorEscape)
 map <M-g> <Action>(ActivateVersionControlToolWindow)
 map <M-3> <Action>(ActivateCommitToolWindow)
 
@@ -177,4 +186,3 @@ let g:NERDTreeMapCloseDir='h'
 map <M-1> :NERDTreeFocus<CR>
 map <M-q> :NERDTreeFind<CR>
 map <M-4> <Action>(ActivateStructureToolWindow)
-
