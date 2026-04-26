@@ -41,3 +41,11 @@ set("n", "N", "Nzzzv", { desc = "Previous result" })
 -- Esc Action
 -- ════════════════════════════════════════════════════════════════════════════
 set("n", "<Esc>", fn.close_float_window, { noremap = true, silent = true, desc = "Esc Action" })
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- Search
+-- ════════════════════════════════════════════════════════════════════════════
+set("x", "/", fn.search_selection, { desc = "➜ Search Selection" })
+set("n", "<leader>/", fn.search, { desc = "➜ Search Text" })
+set("n", "<leader><space>", fn.find_files, { desc = "➜ Search Files" })
+set("n", "<M-u>", fn.undo_history, { desc = "➜ Undo History" })

@@ -1,4 +1,5 @@
 local sp = require "smart-splits"
+local snacks = require "snacks"
 
 local M = {}
 
@@ -25,5 +26,21 @@ M.move_cursor_left = sp.move_cursor_left
 M.move_cursor_down = sp.move_cursor_down
 M.move_cursor_up = sp.move_cursor_up
 M.move_cursor_right = sp.move_cursor_right
+
+function M.search()
+  snacks.picker.grep()
+end
+
+function M.search_selection()
+  snacks.picker.grep_word { live = true }
+end
+
+function M.find_files()
+  snacks.picker.smart()
+end
+
+function M.undo_history()
+  snacks.picker.undo()
+end
 
 return M
