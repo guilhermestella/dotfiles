@@ -1,5 +1,5 @@
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = { "markdown", "md", "yaml", "yml", "xml", "lua", "json" },
+  pattern = { "markdown", "md", "yaml", "yml", "xml", "lua", "json", "javascript" },
   callback = function(args)
     local ft = args.match
     local opts = {
@@ -8,6 +8,7 @@ vim.api.nvim_create_autocmd("FileType", {
       xml = { expandtab = true, shiftwidth = 2, tabstop = 2, textwidth = 0 },
       lua = { expandtab = true, shiftwidth = 2, tabstop = 2 },
       json = { expandtab = true, shiftwidth = 2, tabstop = 2 },
+      javascript = { expandtab = true, shiftwidth = 2, tabstop = 2 },
     }
 
     if opts[ft] then
