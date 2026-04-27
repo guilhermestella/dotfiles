@@ -110,8 +110,9 @@ map <C-l> <C-w>l
 map <C-w>u <Action>(ReopenClosedTab)
 
 " Buffers
-map <C-w>c :q<CR>
-map <C-w>q :bd<CR>
+map <C-w>c <Action>(CloseEditor)
+map <C-w>q <Action>(CloseEditor)
+map <C-w>Q <Action>(CloseAllEditorsButActive)
 
 " Keep centralized
 map <C-d> <C-d>zz
@@ -151,8 +152,11 @@ map <M-t> <Action>(ActivateTerminalToolWindow)
 " ════════════════════════════════════════════════════════════════════════════
 map <leader>rr <Action>(ChooseRunConfiguration)
 map <leader>rs <Action>(Stop)
-map <leader>rt <action>(Run)
-map <leader>rd <action>(Debug)
+
+" ════════════════════════════════════════════════════════════════════════════
+" Test
+" ════════════════════════════════════════════════════════════════════════════
+map <leader>tf <Action>(TestTreePopupMenu)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Debug
@@ -174,8 +178,8 @@ map <M-m> <Action>(ActivateBookmarksToolWindow)
 " Up and Down in Autocomplete
 sethandler <C-n> i:vim
 sethandler <C-p> i:vim
-imap <C-n> <Down>
-imap <C-p> <Up>
+imap <C-n> <Action>(EditorDown)
+imap <C-p> <Action>(EditorUp)
 imap <C-Space> <Action>(CodeCompletion)
 
 " ════════════════════════════════════════════════════════════════════════════
