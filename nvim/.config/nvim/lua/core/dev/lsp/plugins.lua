@@ -1,3 +1,4 @@
+local fn = require "core.dev.lsp.functions"
 local mason = require "mason"
 local mason_lspconfig = require "mason-lspconfig"
 local mason_installer = require "mason-tool-installer"
@@ -43,3 +44,4 @@ mason.setup()
 mason_lspconfig.setup()
 mason_installer.setup(installer_opts)
 mason_dap.setup()
+fn.toggle_inlay_hints()
