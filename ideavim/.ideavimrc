@@ -183,6 +183,11 @@ imap <C-p> <Action>(EditorUp)
 imap <C-Space> <Action>(CodeCompletion)
 
 " ════════════════════════════════════════════════════════════════════════════
+" AI Tools
+" ════════════════════════════════════════════════════════════════════════════
+map <C-/> <Action>(com.google.tools.intellij.aiplugin.generation.GenerateManualInlineCompletionAction)
+
+" ════════════════════════════════════════════════════════════════════════════
 " Explorer
 " ════════════════════════════════════════════════════════════════════════════
 let g:NERDTreeMapActivateNode='l'
