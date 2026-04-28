@@ -1,0 +1,2 @@
+export PATH="$HOME/.local/mise/bin:$PATH"
+# eval "$(mise activate zsh)"
