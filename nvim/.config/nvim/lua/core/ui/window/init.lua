@@ -1,5 +1,4 @@
 require "core.ui.window.options"
 require "core.ui.window.plugins"
-require "core.ui.window.cmds"
 require "core.ui.window.autocmds"
 require "core.ui.window.keymaps"
