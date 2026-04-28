@@ -49,6 +49,11 @@ nnoremap <M-j> :bnext<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+" Copy & Paste
+nnoremap y "+y
+vnoremap y "+y
+nnoremap p "+p
+
 " Window navigation
 nnoremap <C-h> <C-w>h
 nnoremap <C-j> <C-w>j
