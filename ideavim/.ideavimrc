@@ -66,16 +66,20 @@ map <M-CR> <Action>(ShowIntentionActions)
 map <C-M-o> <Action>(OptimizeImports)
 
 " Refactor
-map <C-M-c> <action>(IntroduceConstant)
-map <C-M-v> <action>(IntroduceVariable)
-map <C-M-m> <action>(ExtractMethod)
-vmap <C-M-c> <action>(IntroduceConstant)
-vmap <C-M-v> <action>(IntroduceVariable)
-vmap <C-M-m> <action>(ExtractMethod)
+map <C-M-c> <Action>(IntroduceConstant)
+map <C-M-v> <Action>(IntroduceVariable)
+map <C-M-m> <Action>(ExtractMethod)
+vmap <C-M-c> <Action>(IntroduceConstant)
+vmap <C-M-v> <Action>(IntroduceVariable)
+vmap <C-M-m> <Action>(ExtractMethod)
 
 " Text Object Navigation
 map ]f <Action>(MethodDown)<Action>(EditorCenterView)
 map [f <Action>(MethodUp)<Action>(EditorCenterView)
+
+" Next/Previous Match
+map n nzz
+map N Nzz
 
 " Highlight Usages
 map * *N<Action>(HighlightUsagesInFile)
