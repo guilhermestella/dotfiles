@@ -74,8 +74,8 @@ vmap <C-M-v> <action>(IntroduceVariable)
 vmap <C-M-m> <action>(ExtractMethod)
 
 " Text Object Navigation
-map ]f <Action>(MethodDown)
-map [f <Action>(MethodUp)
+map ]f <Action>(MethodDown)<Action>(EditorCenterView)
+map [f <Action>(MethodUp)<Action>(EditorCenterView)
 
 " Highlight Usages
 map * *N<Action>(HighlightUsagesInFile)
