@@ -64,6 +64,7 @@ map grs <Action>(GotoSuperMethod)
 map grn <Action>(RenameElement)
 map <M-CR> <Action>(ShowIntentionActions)
 map <C-M-o> <Action>(OptimizeImports)
+imap <C-k> <Action>(ParameterInfo)
 
 " Refactor
 map <C-M-c> <Action>(IntroduceConstant)
@@ -80,6 +81,10 @@ map [f <Action>(MethodUp)<Action>(EditorCenterView)
 " Next/Previous Match
 map n nzz
 map N Nzz
+
+" Next/Previous Jump
+map <C-i> <C-i>zz
+map <C-o> <C-o>zz
 
 " Highlight Usages
 map * *N<Action>(HighlightUsagesInFile)
