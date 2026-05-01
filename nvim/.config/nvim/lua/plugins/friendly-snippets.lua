@@ -1,4 +1,3 @@
-return {
-  "rafamadriz/friendly-snippets",
-  lazy = false,
+vim.pack.add {
+  { src = "https://github.com/rafamadriz/friendly-snippets" },
 }

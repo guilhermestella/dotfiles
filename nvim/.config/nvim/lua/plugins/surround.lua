@@ -1,4 +1,3 @@
-return {
-  "kylechui/nvim-surround",
-  lazy = false,
+vim.pack.add {
+  { src = "https://github.com/kylechui/nvim-surround" },
 }

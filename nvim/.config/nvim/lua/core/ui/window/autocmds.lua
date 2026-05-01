@@ -21,21 +21,21 @@ vim.api.nvim_create_autocmd({ "VimResume", "FocusGained", "BufEnter", "CursorHol
   command = "silent! checktime",
 })
 
-vim.api.nvim_create_autocmd({ "VimLeavePre", "VimSuspend", "FocusLost", "InsertLeave", "TextChanged" }, {
-  group = win_group,
-  desc = "Auto save all files on focus lost",
-  command = "silent! update",
-})
-
-vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
-  group = win_group,
-  desc = "Auto save buffer",
-  callback = function()
-    if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand "%" ~= "" then
-      vim.cmd.write { bang = true }
-    end
-  end,
-})
+-- vim.api.nvim_create_autocmd({ "VimLeavePre", "VimSuspend", "FocusLost", "InsertLeave", "TextChanged" }, {
+--   group = win_group,
+--   desc = "Auto save all files on focus lost",
+--   command = "silent! update",
+-- })
+--
+-- vim.api.nvim_create_autocmd({ "BufLeave", "WinLeave" }, {
+--   group = win_group,
+--   desc = "Auto save buffer",
+--   callback = function()
+--     if vim.bo.modified and vim.bo.buftype == "" and vim.fn.expand "%" ~= "" then
+--       vim.cmd.write { bang = true }
+--     end
+--   end,
+-- })
 
 vim.api.nvim_create_autocmd("TextYankPost", {
   group = win_group,

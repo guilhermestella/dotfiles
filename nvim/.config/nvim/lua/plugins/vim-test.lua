@@ -1,3 +1,3 @@
-return {
-  "vim-test/vim-test",
+vim.pack.add {
+  { src = "https://github.com/vim-test/vim-test" },
 }

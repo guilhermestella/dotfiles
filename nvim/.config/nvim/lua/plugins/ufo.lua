@@ -1,5 +1,4 @@
-return {
-  "kevinhwang91/nvim-ufo",
-  lazy = false,
-  dependencies = { "kevinhwang91/promise-async" },
+vim.pack.add {
+  { src = "https://github.com/kevinhwang91/promise-async" },
+  { src = "https://github.com/kevinhwang91/nvim-ufo" },
 }

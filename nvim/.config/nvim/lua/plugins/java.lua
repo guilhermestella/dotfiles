@@ -1,4 +1,3 @@
-return {
-  "mfussenegger/nvim-jdtls",
-  lazy = false,
+vim.pack.add {
+  { src = "https://github.com/mfussenegger/nvim-jdtls" },
 }

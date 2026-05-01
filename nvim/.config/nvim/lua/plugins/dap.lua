@@ -1,8 +1,5 @@
-return {
-  "mfussenegger/nvim-dap",
-  lazy = false,
-  dependencies = {
-    { "nvim-neotest/nvim-nio", lazy = false },
-    { "rcarriga/nvim-dap-ui", lazy = false },
-  },
+vim.pack.add {
+  { src = "https://github.com/nvim-neotest/nvim-nio" },
+  { src = "https://github.com/rcarriga/nvim-dap-ui" },
+  { src = "https://github.com/mfussenegger/nvim-dap" },
 }

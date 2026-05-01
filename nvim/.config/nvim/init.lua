@@ -1,24 +1,11 @@
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system {
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    "--branch=stable", -- latest stable release
-    lazypath,
-  }
+local plugin_path = vim.fn.stdpath "config" .. "/lua/plugins"
+local plugin_files = vim.fn.glob(plugin_path .. "/*.lua", true, true)
+for _, file in ipairs(plugin_files) do
+  local plugin_name = file:match "lua/(.+).lua$"
+  if plugin_name then
+    require(plugin_name)
+  end
 end
-vim.opt.rtp:prepend(lazypath)
-
--- lazy requires leader key to be defined before
--- this is temporary as lazy will be replaced by pack
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
-
-require("lazy").setup("plugins", {
-  defaults = { lazy = false },
-})
 
 require "core.dev"
 require "core.tool"

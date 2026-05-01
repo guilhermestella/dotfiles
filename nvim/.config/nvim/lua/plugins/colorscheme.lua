@@ -1,22 +1,6 @@
-return {
-  {
-    "wtfox/jellybeans.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-  {
-    "Mofiqul/dracula.nvim",
-    lazy = false,
-    priority = 1000,
-  },
-  {
-    "sainnhe/gruvbox-material",
-    lazy = false,
-    priority = 1000,
-  },
-  {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
-  },
+vim.pack.add {
+  { src = "https://github.com/wtfox/jellybeans.nvim" },
+  { src = "https://github.com/Mofiqul/dracula.nvim" },
+  { src = "https://github.com/sainnhe/gruvbox-material" },
+  { src = "https://github.com/catppuccin/nvim" },
 }

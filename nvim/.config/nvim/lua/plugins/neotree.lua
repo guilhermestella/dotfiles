@@ -1,10 +1,6 @@
-return {
-  "nvim-neo-tree/neo-tree.nvim",
-  branch = "v3.x",
-  lazy = false,
-  dependencies = {
-    "nvim-lua/plenary.nvim",
-    "MunifTanjim/nui.nvim",
-    "nvim-tree/nvim-web-devicons",
-  },
+vim.pack.add {
+  { src = "https://github.com/nvim-lua/plenary.nvim" },
+  { src = "https://github.com/MunifTanjim/nui.nvim" },
+  { src = "https://github.com/nvim-tree/nvim-web-devicons" },
+  { src = "https://github.com/nvim-neo-tree/neo-tree.nvim", version = "v3.x" },
 }

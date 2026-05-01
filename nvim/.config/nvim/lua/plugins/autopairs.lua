@@ -1,4 +1,3 @@
-return {
-  "windwp/nvim-autopairs",
-  lazy = false,
+vim.pack.add {
+  { src = "https://github.com/windwp/nvim-autopairs" },
 }
