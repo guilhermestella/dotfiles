@@ -6,6 +6,9 @@ set surround
 set commentary
 set highlightedyank
 set mini-ai
+set argtextobj
+set textobj-entire
+set functiontextobj
 set commentary
 
 " ════════════════════════════════════════════════════════════════════════════
@@ -41,8 +44,8 @@ vmap / <Action>(FindInPath)
 " Editing
 " ════════════════════════════════════════════════════════════════════════════
 " Move Block
-map <A-S-J> :m .+1<CR>==
-map <A-S-K> :m .-2<CR>==
+map <A-S-J> :m .+1<CR>=
+map <A-S-K> :m .-2<CR>=
 vmap <A-S-J> :m '>+1<CR>gv=gv
 vmap <A-S-K> :m '<-2<CR>gv=gv
 
