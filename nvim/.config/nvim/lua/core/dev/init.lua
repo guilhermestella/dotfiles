@@ -1,7 +1,3 @@
--- general
-require "core.dev.options"
-
--- modules
 require "core.dev.completion"
 require "core.dev.debug"
 require "core.dev.diagnostics"
