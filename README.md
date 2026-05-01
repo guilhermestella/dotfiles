@@ -11,6 +11,8 @@ A set of tools used in my workflow
 * [Neovim[**]](https://github.com/neovim/neovim)
 * [Wofi[**]](https://hg.sr.ht/~scoopta/wofi)
 * [Mise[**]](https://github.com/jdx/mise)
+* [ripgrep[**]](https://github.com/burntsushi/ripgrep)
+* [fzf[**]](https://github.com/junegunn/fzf)
 
 _[**] Must be installed_
 
