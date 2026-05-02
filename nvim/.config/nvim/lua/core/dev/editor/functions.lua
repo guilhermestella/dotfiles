@@ -33,11 +33,13 @@ function M.select_around_scope()
 end
 
 function M.goto_next_function()
-  move.goto_next_start({ "@function.outer", "@class.outer" }, "textobjects")
+  move.goto_next_start({ "@function.outer", "@class.outer", "@method.outer" }, "textobjects")
+  vim.cmd "normal! zz"
 end
 
 function M.goto_previous_function()
-  move.goto_previous_start({ "@function.outer", "@class.outer" }, "textobjects")
+  move.goto_previous_start({ "@function.outer", "@class.outer", "@method.outer" }, "textobjects")
+  vim.cmd "normal! zz"
 end
 
 local layout = { layout = "ivy", win = { preview = { wo = { wrap = true } } } }

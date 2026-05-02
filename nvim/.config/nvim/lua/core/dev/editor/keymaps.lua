@@ -15,8 +15,8 @@ set({ "x", "o" }, "aa", fn.select_around_argument)
 set({ "x", "o" }, "ia", fn.select_inner_argument)
 set({ "x", "o" }, "as", fn.select_around_scope)
 
-set({ "n", "x", "o" }, "]f", fn.goto_next_function, { desc = "➜ Function" })
-set({ "n", "x", "o" }, "[f", fn.goto_previous_function, { desc = "➜ Function" })
+set({ "n", "x", "o" }, "]]", fn.goto_next_function, { desc = "➜ Function" })
+set({ "n", "x", "o" }, "[[", fn.goto_previous_function, { desc = "➜ Function" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Search word without jump
