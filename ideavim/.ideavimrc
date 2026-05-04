@@ -78,8 +78,8 @@ vmap <C-M-v> <Action>(IntroduceVariable)
 vmap <C-M-m> <Action>(ExtractMethod)
 
 " Text Object Navigation
-map ]f <Action>(MethodDown)<Action>(EditorCenterView)
-map [f <Action>(MethodUp)<Action>(EditorCenterView)
+map ]] <Action>(MethodDown)
+map [[ <Action>(MethodUp)
 
 " Next/Previous Match
 map n nzz
