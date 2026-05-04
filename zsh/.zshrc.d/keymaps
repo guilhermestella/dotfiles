@@ -4,4 +4,4 @@ bindkey "^[[1;5D" vi-backward-word
 
 # Alt + arrows
 bindkey "^[[1;3C" end-of-line
-bindkey "^[[1;3D" begining-of-line
+bindkey "^[[1;3D" beginning-of-line
