@@ -1,6 +1,8 @@
 theme = Gruvbox Material
 background = #282828
 
+macos-option-as-alt = true
+
 # super mod
 keybind = super+q=close_window
 
@@ -11,20 +13,6 @@ keybind = ctrl+arrow_right=esc:f
 # ctrl + shift mod
 keybind = ctrl+shift+c=copy_to_clipboard
 keybind = ctrl+shift+v=paste_from_clipboard
-
-# shift mod
-keybind = shift+end=adjust_selection:end
-keybind = shift+home=adjust_selection:home
-keybind = shift+page_down=adjust_selection:page_down
-keybind = shift+page_up=adjust_selection:page_up
-keybind = shift+arrow_down=adjust_selection:down
-keybind = shift+arrow_left=adjust_selection:left
-keybind = shift+arrow_right=adjust_selection:right
-keybind = shift+arrow_up=adjust_selection:up
-
-# alt mod
-keybind = alt+arrow_left=esc:b
-keybind = alt+arrow_right=esc:f
 
 # default ghostty
 # super + alt   + shift + j     write_screen_file:open,plain
