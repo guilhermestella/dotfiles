@@ -119,6 +119,8 @@ map <C-h> <C-w>h
 map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
+map <C-w>H <Action>(MoveEditorToOppositeTabGroup)
+map <C-w>L <Action>(MoveEditorToOppositeTabGroup)
 map <C-w>u <Action>(ReopenClosedTab)
 
 " Buffers
@@ -202,8 +204,15 @@ map <C-/> <Action>(com.google.tools.intellij.aiplugin.generation.GenerateManualI
 " ════════════════════════════════════════════════════════════════════════════
 " Explorer
 " ════════════════════════════════════════════════════════════════════════════
+let g:NERDTreeMapToggleZoom=''
+let g:NERDTreeMapNewFile='a'
+let g:NERDTreeMapNewDir='A'
+let g:nerdtreemapopensplit='s'
+let g:NERDTreeMapOpenVSplit='v'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
+let g:NERDTreeMapPaste='p'
+let g:NERDTreeMapRename='r'
 map <M-1> :NERDTreeFocus<CR>
 map <M-q> :NERDTreeFind<CR>
 map <M-4> <Action>(ActivateStructureToolWindow)
