@@ -1,5 +1,4 @@
-theme = Gruvbox Material
-background = #282828
+theme = vscode
 
 # super mod
 keybind = super+q=close_window

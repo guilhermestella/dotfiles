@@ -1,0 +1,29 @@
+# VSCode Dark+ Theme
+background = #1f1f1f
+foreground = #d4d4d4
+
+# Palette (ANSI colors 0-15)
+palette = 0=#1e1e1e
+palette = 1=#f44747
+palette = 2=#6a9955
+palette = 3=#d7ba7d
+palette = 4=#569cd6
+palette = 5=#c586c0
+palette = 6=#4ec9b0
+palette = 7=#d4d4d4
+palette = 8=#808080
+palette = 9=#f44747
+palette = 10=#6a9955
+palette = 11=#d7ba7d
+palette = 12=#569cd6
+palette = 13=#c586c0
+palette = 14=#4ec9b0
+palette = 15=#ffffff
+
+# Cursor colors
+cursor-color = #aeafad
+cursor-text = #1e1e1e
+
+# Selection colors
+selection-background = #264f78
+selection-foreground = #ffffff
