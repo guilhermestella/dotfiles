@@ -202,6 +202,11 @@ imap <C-Space> <Action>(CodeCompletion)
 map <C-/> <Action>(com.google.tools.intellij.aiplugin.generation.GenerateManualInlineCompletionAction)
 
 " ════════════════════════════════════════════════════════════════════════════
+" Project
+" ════════════════════════════════════════════════════════════════════════════
+map <M-Esc> <Action>(ManageRecentProjects)
+
+" ════════════════════════════════════════════════════════════════════════════
 " Explorer
 " ════════════════════════════════════════════════════════════════════════════
 let g:NERDTreeMapToggleZoom=''
