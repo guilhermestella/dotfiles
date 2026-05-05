@@ -164,8 +164,8 @@ map <M-t> <Action>(ActivateTerminalToolWindow)
 " ════════════════════════════════════════════════════════════════════════════
 " Runners
 " ════════════════════════════════════════════════════════════════════════════
-map <leader>rr <Action>(ChooseRunConfiguration)
-map <leader>rs <Action>(Stop)
+map <M-S-r> <Action>(ChooseRunConfiguration)
+map <M-S-s> <Action>(Stop)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Test
