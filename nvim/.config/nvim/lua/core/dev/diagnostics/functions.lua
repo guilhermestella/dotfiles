@@ -21,6 +21,7 @@ local opts = {
     input = {
       keys = {
         ["<M-p>"] = { "close", mode = { "i", "n" } },
+        ["<M-P>"] = { "close", mode = { "i", "n" } },
         ["<Esc>"] = { "unfocus", mode = "i" },
       },
     },
