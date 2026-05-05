@@ -4,6 +4,6 @@ local fn = require "core.dev.lsp.markdown.functions"
 vim.api.nvim_create_autocmd("FileType", {
   pattern = { "markdown", "markdown.mdx" },
   callback = function(args)
-    set("n", "<leader>tm", fn.toggle, { buffer = args.buf, desc = "➜ Render Markdown Toggle" })
+    set("n", "<leader>Tm", fn.toggle, { buffer = args.buf, desc = "➜ Render Markdown Toggle" })
   end,
 })

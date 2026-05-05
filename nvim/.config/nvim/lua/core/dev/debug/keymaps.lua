@@ -4,8 +4,8 @@ local fn = require "core.dev.debug.functions"
 -- ════════════════════════════════════════════════════════════════════════════
 -- Run Test
 -- ════════════════════════════════════════════════════════════════════════════
-set("n", "<leader>rt", fn.test_function, { desc = "➜ Run Test Function" })
-set("n", "<leader>rT", fn.test_file, { desc = "➜ Run Test File" })
+set("n", "<leader>tf", fn.test_function, { desc = "➜ Test Function" })
+set("n", "<leader>tF", fn.test_file, { desc = "➜ Test File" })
 
 -- Key maps with F keys: M-F7 = <F19>, C-F7 = <F31>, C-F8 = <F32>
 set("n", "<F31>", fn.toggle_conditional_breakpoint, { desc = "➜ Toggle Conditional Breakpoint" })
