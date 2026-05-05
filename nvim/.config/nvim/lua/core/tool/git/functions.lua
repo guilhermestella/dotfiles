@@ -42,6 +42,53 @@ M.preview_hunk = gs.preview_hunk
 M.reset_hunk = gs.reset_hunk
 M.reset_buffer = gs.reset_buffer
 
+local opts = {
+  layout = "ivy",
+  show_empty = true,
+  auto_close = false,
+  actions = {
+    unfocus = function(picker)
+      vim.cmd "stopinsert"
+      vim.schedule(function()
+        if picker.main and vim.api.nvim_win_is_valid(picker.main) then
+          vim.api.nvim_set_current_win(picker.main)
+        end
+      end)
+    end,
+  },
+  win = {
+    preview = { wo = { wrap = true } },
+    input = {
+      keys = {
+        ["<M-g>"] = { "close", mode = { "i", "n" } },
+        ["<M-G>"] = { "close", mode = { "i", "n" } },
+        ["<Esc>"] = { "unfocus", mode = "i" },
+      },
+    },
+  },
+}
+
+local function show_git_source(source)
+  local pickers = snacks.picker.get { source = source }
+  if pickers[1] then
+    if pickers[1]:is_focused() then
+      pickers[1]:close()
+    else
+      pickers[1]:focus()
+    end
+  else
+    snacks.picker[source](opts)
+  end
+end
+
+function M.show_log()
+  show_git_source "git_log"
+end
+
+function M.show_file_log()
+  show_git_source "git_log_file"
+end
+
 local layout = { layout = "ivy", win = { preview = { wo = { wrap = true } } } }
 
 function M.show_status()
@@ -54,14 +101,6 @@ end
 
 function M.show_diff()
   snacks.picker.git_diff(layout)
-end
-
-function M.show_log()
-  snacks.picker.git_log(layout)
-end
-
-function M.show_file_log()
-  snacks.picker.git_log_file(layout)
 end
 
 function M.show_line_log()
