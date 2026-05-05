@@ -3,7 +3,7 @@ local set_theme = vim.cmd.colorscheme
 local fn = require "core.ui.themes.functions"
 
 set.termguicolors = true -- Enable 24-bit RBG colors in terminal
-set_theme "gruvbox-material"
+set_theme "vscode"
 
 vim.api.nvim_create_autocmd("VimEnter", {
   desc = "Setup colorscheme at startup",

@@ -21,11 +21,16 @@ function M.setup_colorscheme()
     vim.o.guicursor = "n-v-c:block,i:beam"
   end
 
+  local function vscode()
+    vim.o.background = "dark"
+  end
+
   local handlers = {
     ["gruvbox-material"] = gruvbox_material,
     ["jellybeans"] = jellybeans,
     ["dracula"] = dracula,
     ["catppuccin_latte"] = catppuccin_latte,
+    ["vscode"] = vscode,
   }
 
   local fn = handlers[colorscheme]

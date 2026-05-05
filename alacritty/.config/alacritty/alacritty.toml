@@ -1,6 +1,6 @@
 # Alacritty Configuration (TOML)
 
-general.import = ["./gruvbox-dark.toml"]
+general.import = ["./vscode.toml"]
 general.live_config_reload = true
 
 [window]
