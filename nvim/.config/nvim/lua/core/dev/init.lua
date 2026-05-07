@@ -1,5 +1,4 @@
 require "core.dev.completion"
-require "core.dev.debug"
 require "core.dev.diagnostics"
 require "core.dev.editor"
 require "core.dev.format"

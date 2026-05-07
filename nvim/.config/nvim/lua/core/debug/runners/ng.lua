@@ -18,7 +18,7 @@ return function(_, args)
   for runner, config in pairs(runners) do
     if vim.fn.executable(config.bin) == 1 then
       local parsed = config.parser(args)
-      return require("core.dev.debug.runners." .. runner)(runner, parsed)
+      return require("core.debug.runners." .. runner)(runner, parsed)
     end
   end
   vim.notify("Could not find ng runners in node_modules", vim.log.levels.ERROR)

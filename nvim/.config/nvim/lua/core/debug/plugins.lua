@@ -1,6 +1,6 @@
 local dap = require "dap"
 local ui = require "dapui"
-local fn = require "core.dev.debug.functions"
+local fn = require "core.debug.functions"
 
 ---@diagnostic disable: undefined-field
 dap.listeners.after.event_initialized["on_start"] = function()

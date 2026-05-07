@@ -1,5 +1,5 @@
 local set = vim.keymap.set
-local fn = require "core.dev.debug.functions"
+local fn = require "core.debug.functions"
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Run Test
