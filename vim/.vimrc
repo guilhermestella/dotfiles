@@ -28,8 +28,6 @@ set numberwidth=4
 set nowrap
 set breakindent
 set showmode
-set cmdheight=1
-set colorcolumn=120
 set linebreak
 set shortmess+=I
 let g:jellybeans_overrides = { 'background': { 'guibg': '060606' } }
