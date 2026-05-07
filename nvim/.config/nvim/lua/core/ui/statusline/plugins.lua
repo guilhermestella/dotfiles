@@ -8,7 +8,7 @@ navic.setup {
   },
   highlight = false,
   separator = " » ",
-  depth_limit = 8,
+  depth_limit = 4,
   depth_limit_indicator = "...",
   lazy_update_context = false,
 }
@@ -31,21 +31,21 @@ lualine.setup {
   sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff", "diagnostics", "filename" },
-    lualine_c = {},
+    lualine_c = { "navic" },
   },
   inactive_sections = {
     lualine_a = { "mode" },
     lualine_b = { "branch", "diff", "diagnostics", "filename" },
-    lualine_c = {},
+    lualine_c = { "navic" },
     lualine_y = { "progress" },
     lualine_z = { "location" },
   },
-  winbar = {
-    lualine_a = { "filename" },
-    lualine_c = { "navic" },
-  },
-  inactive_winbar = {
-    lualine_a = { "filename" },
-    lualine_c = { "navic" },
-  },
+  -- winbar = {
+  --   lualine_a = { "filename" },
+  --   lualine_c = { "navic" },
+  -- },
+  -- inactive_winbar = {
+  --   lualine_a = { "filename" },
+  --   lualine_c = { "navic" },
+  -- },
 }
