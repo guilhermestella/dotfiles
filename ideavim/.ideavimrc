@@ -198,6 +198,7 @@ map <M-m> <Action>(ActivateBookmarksToolWindow)
 " Undo
 " ════════════════════════════════════════════════════════════════════════════
 map <M-u> <Action>(LocalHistory.ShowHistory)
+vmap <M-u> <Action>(LocalHistory.ShowSelectionHistory)
 map <M-S-u> <Action>(LocalHistory.ShowProjectHistory)
 
 " ════════════════════════════════════════════════════════════════════════════
