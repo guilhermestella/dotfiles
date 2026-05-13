@@ -159,7 +159,9 @@ map [h <Action>(VcsShowPrevChangeMarker)
 map ghp <Action>(VcsShowCurrentChangeMarker)
 map ghr <Action>(Vcs.RollbackChangedLines)
 map ghR <Action>($SelectAll)<Action>(Vcs.RollbackChangedLines)<Action>(EditorEscape)
-map <M-g> <Action>(ActivateVersionControlToolWindow)
+map <M-g> <Action>(Vcs.ShowTabbedFileHistory)
+map <M-S-g> <Action>(Vcs.Show.Log)
+vmap <M-g> <Action>(Vcs.ShowHistoryForBlock)
 map <M-3> <Action>(ActivateCommitToolWindow)
 
 " ════════════════════════════════════════════════════════════════════════════
@@ -191,6 +193,12 @@ map <M-e> <Action>(QuickEvaluateExpression)
 " ════════════════════════════════════════════════════════════════════════════
 map mm <Action>(ToggleBookmark)
 map <M-m> <Action>(ActivateBookmarksToolWindow)
+
+" ════════════════════════════════════════════════════════════════════════════
+" Undo
+" ════════════════════════════════════════════════════════════════════════════
+map <M-u> <Action>(LocalHistory.ShowHistory)
+map <M-S-u> <Action>(LocalHistory.ShowProjectHistory)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Complete
