@@ -44,10 +44,10 @@ vmap / <Action>(FindInPath)
 " Editing
 " ════════════════════════════════════════════════════════════════════════════
 " Move Block
-map <A-S-J> :m .+1<CR>=
-map <A-S-K> :m .-2<CR>=
-vmap <A-S-J> :m '>+1<CR>gv=gv
-vmap <A-S-K> :m '<-2<CR>gv=gv
+map <A-S-J> <Action>(MoveLineDown)
+map <A-S-K> <Action>(MoveLineUp)
+vmap <A-S-J> <Action>(MoveLineDown)
+vmap <A-S-K> <Action>(MoveLineUp)
 
 " Indentation
 vmap < <gv
@@ -135,6 +135,12 @@ map <C-u> <C-u>zz
 " Scratch File
 map <M-i> <Action>(NewScratchFile)
 
+" Jump
+nmap f <Action>(flash.search)
+xmap f <Action>(flash.search)
+nmap F <Action>(flash.treesitter)
+xmap F <Action>(flash.treesitter)
+
 " ════════════════════════════════════════════════════════════════════════════
 " Diagnostic
 " ════════════════════════════════════════════════════════════════════════════
@@ -200,6 +206,7 @@ imap <C-Space> <Action>(CodeCompletion)
 " AI Tools
 " ════════════════════════════════════════════════════════════════════════════
 map <C-/> <Action>(com.google.tools.intellij.aiplugin.generation.GenerateManualInlineCompletionAction)
+imap <C-/> <Action>(com.google.tools.intellij.aiplugin.generation.GenerateManualInlineCompletionAction)
 
 " ════════════════════════════════════════════════════════════════════════════
 " Project
@@ -209,7 +216,7 @@ map <M-Esc> <Action>(ManageRecentProjects)
 " ════════════════════════════════════════════════════════════════════════════
 " Explorer
 " ════════════════════════════════════════════════════════════════════════════
-let g:NERDTreeMapToggleZoom=''
+let g:NERDTreeMapToggleZoom='z'
 let g:NERDTreeMapNewFile='a'
 let g:NERDTreeMapNewDir='A'
 let g:nerdtreemapopensplit='s'
