@@ -1,4 +1,4 @@
-theme = vscode
+theme = dark:vscode,light:Catppuccin Latte
 
 # super mod
 keybind = super+q=close_window
@@ -15,8 +15,25 @@ keybind = ctrl+shift+v=paste_from_clipboard
 keybind = alt+arrow_left=unbind
 keybind = alt+arrow_right=unbind
 
-# MacOS Adapt
+# Config
+copy-on-select = clipboard
+window-decoration = true
+window-padding-balance = true
+
+# macos
+macos-titlebar-style = hidden
 macos-option-as-alt = true
+
+# Font
+font-size = 13
+font-family = "JetBrainsMono Nerd Font"
+font-style = "Medium"
+font-family-bold = "JetBrainsMono Nerd Font"
+font-style-bold = "Bold"
+font-family-italic = "JetBrainsMono Nerd Font"
+font-style-italic = "Medium Italic"
+font-family-bold-italic = "JetBrainsMono Nerd Font"
+font-style-bold-italic = "Bold Italic"
 
 # default ghostty
 # super + alt   + shift + j     write_screen_file:open,plain
