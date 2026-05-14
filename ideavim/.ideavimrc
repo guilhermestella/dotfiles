@@ -228,10 +228,12 @@ map <M-Esc> <Action>(ManageRecentProjects)
 let g:NERDTreeMapToggleZoom='z'
 let g:NERDTreeMapNewFile='a'
 let g:NERDTreeMapNewDir='A'
-let g:nerdtreemapopensplit='s'
+let g:NERDTreeMapOpenSplit='s'
 let g:NERDTreeMapOpenVSplit='v'
 let g:NERDTreeMapActivateNode='l'
 let g:NERDTreeMapCloseDir='h'
+let g:NERDTreeMapOpenRecursively='o'
+let g:NERDTreeMapCloseChildren='c'
 let g:NERDTreeMapPaste='p'
 let g:NERDTreeMapRename='r'
 map <M-1> :NERDTreeFocus<CR>
