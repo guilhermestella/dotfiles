@@ -8,8 +8,8 @@ require("snacks").setup {
     preset = {
       lazy = false,
       keys = {
-        { icon = " ", key = "<leader><Space>", desc = "Find File", action = ":lua Snacks.picker.smart()" },
-        { icon = " ", key = "<leader>/", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
+        { icon = " ", key = "<Space>", desc = "Find File", action = ":lua Snacks.picker.smart()" },
+        { icon = " ", key = "f", desc = "Find Text", action = ":lua Snacks.picker.grep()" },
         { icon = " ", key = "r", desc = "Recent Files", action = ":lua Snacks.dashboard.pick('oldfiles')" },
         { icon = "󰒲 ", key = "u", desc = "Update", action = ":lua vim.pack.update()" },
         { icon = " ", key = "q", desc = "Quit", action = ":qa" },
