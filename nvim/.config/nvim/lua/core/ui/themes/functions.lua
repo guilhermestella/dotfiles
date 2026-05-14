@@ -1,10 +1,7 @@
 local M = {}
 
-function M.setup_colorscheme()
-  local colorscheme = vim.g.colors_name
-
+function M.setup_colorscheme(colorscheme)
   local function gruvbox_material()
-    vim.o.background = "dark"
     vim.api.nvim_set_hl(0, "WinBar", { bg = "none" })
     vim.api.nvim_set_hl(0, "WinBarNC", { bg = "none" })
   end
@@ -22,7 +19,7 @@ function M.setup_colorscheme()
   end
 
   local function vscode()
-    vim.o.background = "dark"
+    -- vim.api.nvim_set_hl(0, "Normal", { bg = "NONE" })
   end
 
   local handlers = {
@@ -33,9 +30,10 @@ function M.setup_colorscheme()
     ["vscode"] = vscode,
   }
 
-  local fn = handlers[colorscheme]
-  if fn then
-    fn()
+  local setup = handlers[colorscheme]
+  vim.cmd.colorscheme(colorscheme)
+  if setup then
+    setup()
   end
 end
 
