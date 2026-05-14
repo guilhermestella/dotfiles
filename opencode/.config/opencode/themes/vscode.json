@@ -1,10 +1,13 @@
 {
   "$schema": "https://opencode.ai/theme.json",
   "defs": {
-    "bg": "#1f1f1f",
+    "bg_dark": "#1f1f1f",
+    "bg_light": "#ffffff",
     "bg_mid": "#252526",
-    "bg_subtle": "#333333",
-    "fg": "#d4d4d4",
+    "bg_subtle_dark": "#333333",
+    "bg_subtle_light": "#f6f8fa",
+    "fg_dark": "#d4d4d4",
+    "fg_light": "#1f1f1f",
     "fg_muted": "#4a8cb5",
     "comment": "#4a8cb5",
     "green": "#6a9955",
@@ -19,7 +22,7 @@
   "theme": {
     "primary": {
       "dark": "blue",
-      "light": "cyan"
+      "light": "blue"
     },
     "secondary": {
       "dark": "teal",
@@ -46,28 +49,28 @@
       "light": "cyan"
     },
     "text": {
-      "dark": "fg",
-      "light": "fg"
+      "dark": "fg_dark",
+      "light": "fg_light"
     },
     "textMuted": {
       "dark": "fg_muted",
       "light": "fg_muted"
     },
     "background": {
-      "dark": "bg",
-      "light": "bg"
+      "dark": "bg_dark",
+      "light": "bg_light"
     },
     "backgroundPanel": {
       "dark": "bg_mid",
-      "light": "bg_mid"
+      "light": "bg_subtle_light"
     },
     "backgroundElement": {
-      "dark": "bg_subtle",
-      "light": "bg_subtle"
+      "dark": "bg_subtle_dark",
+      "light": "bg_subtle_light"
     },
     "border": {
-      "dark": "bg_subtle",
-      "light": "bg_subtle"
+      "dark": "bg_subtle_dark",
+      "light": "bg_subtle_light"
     },
     "borderActive": {
       "dark": "blue",
@@ -114,20 +117,20 @@
       "light": "teal"
     },
     "syntaxOperator": {
-      "dark": "fg",
-      "light": "fg"
+      "dark": "fg_dark",
+      "light": "fg_dark"
     },
     "syntaxPunctuation": {
-      "dark": "fg",
-      "light": "fg"
+      "dark": "fg_dark",
+      "light": "fg_dark"
     },
     "markdownCode": {
       "dark": "orange",
       "light": "orange"
     },
     "markdownCodeBlock": {
-      "dark": "fg",
-      "light": "fg"
+      "dark": "fg_dark",
+      "light": "fg_dark"
     }
   }
 }
