@@ -1,6 +1,3 @@
--- ════════════════════════════════════════════════════════════════════════════
--- Editing Keymaps
--- ════════════════════════════════════════════════════════════════════════════
 local fn = require "core.dev.editor.functions"
 local set = vim.keymap.set
 
@@ -22,7 +19,7 @@ set({ "n", "x", "o" }, "[[", fn.goto_previous_function, { desc = "➜ Function" 
 -- Search
 -- ════════════════════════════════════════════════════════════════════════════
 set("n", "*", "*N", { noremap = true })
-set("v", "/", "y/\\V<C-r>\"<CR>", { noremap = true })
+set("v", "/", 'y/\\V<C-r>"<CR>', { noremap = true })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Indentation
@@ -37,9 +34,3 @@ set("n", "<A-J>", ":m .+1<CR>==", { silent = true, desc = "Move line down" })
 set("n", "<A-K>", ":m .-2<CR>==", { silent = true, desc = "Move line up" })
 set("v", "<A-J>", ":m '>+1<CR><CR>gv=gv", { silent = true, desc = "Move block down" })
 set("v", "<A-K>", ":m '<-2<CR><CR>gv=gv", { silent = true, desc = "Move block up" })
-
--- ════════════════════════════════════════════════════════════════════════════
--- Marks
--- ════════════════════════════════════════════════════════════════════════════
-set("n", "m", fn.toggle_mark)
-set("n", "<M-m>", fn.show_marks, { desc = "➜ Marks" })

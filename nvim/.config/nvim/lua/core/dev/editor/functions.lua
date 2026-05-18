@@ -1,6 +1,5 @@
 local select = require "nvim-treesitter-textobjects.select"
 local move = require "nvim-treesitter-textobjects.move"
-local snacks = require "snacks"
 
 local M = {}
 
@@ -40,24 +39,6 @@ end
 function M.goto_previous_function()
   move.goto_previous_start({ "@function.outer", "@class.outer", "@method.outer" }, "textobjects")
   vim.cmd "normal! zz"
-end
-
-local layout = { layout = "ivy", win = { preview = { wo = { wrap = true } } } }
-
-function M.show_marks()
-  snacks.picker.marks(layout)
-end
-
-function M.toggle_mark()
-  local line = vim.fn.line "."
-  local next_char = vim.fn.getcharstr()
-  local mark = vim.fn.getpos("'" .. next_char)
-  if mark[2] == line then
-    vim.cmd("delmarks " .. next_char)
-  else
-    vim.cmd("mark " .. next_char)
-  end
-  vim.cmd "redraw!"
 end
 
 return M
