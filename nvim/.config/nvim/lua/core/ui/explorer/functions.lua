@@ -30,8 +30,4 @@ function M.toggle_git_status()
   toggle("git_status", true)
 end
 
-function M.toggle_symbols()
-  toggle("document_symbols", true)
-end
-
 return M

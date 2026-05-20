@@ -6,18 +6,15 @@ neo_tree.setup {
     "filesystem",
     "buffers",
     "git_status",
-    "document_symbols",
   },
   clipboard = { sync = "global" },
   hide_root_node = true,
   source_selector = {
     winbar = true,
-    statusline = true,
     sources = {
       { source = "filesystem", display_name = " 󰉓 File " },
-      { source = "buffers", display_name = " 󰈚 Buf " },
+      { source = "buffers", display_name = " 󰈚 Buffer " },
       { source = "git_status", display_name = " 󰊢 Git " },
-      { source = "document_symbols", display_name = " 󰆧 Symb " },
     },
   },
   window = {
@@ -44,6 +41,8 @@ neo_tree.setup {
       ["e"] = false,
       ["<"] = false,
       [">"] = false,
+      ["<M-j>"] = "prev_source",
+      ["<M-k>"] = "next_source",
     },
   },
   filesystem = {
