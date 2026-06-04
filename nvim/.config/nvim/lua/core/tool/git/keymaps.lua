@@ -27,6 +27,6 @@ fn.setup {
     set("n", "<leader>gs", fn.show_stash, { buffer = buf, desc = "➜ Stash" })
     set("n", "<M-S-g>", fn.show_log, { buffer = buf, desc = "➜ Log All" })
     set("n", "<M-g>", fn.show_file_log, { buffer = buf, desc = "➜ Log File" })
-    set("n", "<leader>gll", fn.show_line_log, { buffer = buf, desc = "➜ Log Line" })
+    set("v", "<M-g>", fn.show_line_log, { buffer = buf, desc = "➜ Log Line" })
   end,
 }
