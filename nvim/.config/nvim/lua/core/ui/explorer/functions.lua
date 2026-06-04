@@ -1,3 +1,6 @@
+local snacks = require "snacks"
+local events = require "neo-tree.events"
+
 local M = {}
 
 local function toggle(source, reveal)
@@ -29,5 +32,16 @@ end
 function M.toggle_git_status()
   toggle("git_status", true)
 end
+
+function M.delete_buffer(bufnr)
+  vim.notify('test')
+  snacks.bufdelete(bufnr)
+end
+
+function M.on_move(data)
+  snacks.rename.on_rename_file(data.source, data.destination)
+end
+
+M.explorer_events = events
 
 return M

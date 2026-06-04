@@ -1,7 +1,11 @@
 local neo_tree = require "neo-tree"
-local snacks = require "snacks"
+local fn = require "core.ui.explorer.functions"
 
 neo_tree.setup {
+  event_handlers = {
+    { event = fn.explorer_events.FILE_MOVED, handler = fn.on_move },
+    { event = fn.explorer_events.FILE_RENAMED, handler = fn.on_move },
+  },
   sources = {
     "filesystem",
     "buffers",
@@ -81,7 +85,7 @@ neo_tree.setup {
           local node = state.tree:get_node()
           local bufnr = node.extra.bufnr
           if bufnr and bufnr > 0 then
-            snacks.bufdelete(bufnr)
+            fn.delete_buffer(bufnr)
           end
         end,
       },
