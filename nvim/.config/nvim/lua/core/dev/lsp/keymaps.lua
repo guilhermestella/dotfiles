@@ -7,9 +7,9 @@ local fn = require "core.dev.lsp.functions"
 set("n", "gd", fn.show_definitions, { desc = "➜ Goto definitions" })
 set("n", "gD", fn.show_declarations, { desc = "➜ Goto declarations" })
 set("n", "grr", fn.show_references, { desc = "➜ Goto related references" })
-set("n", "<M-f>", fn.show_references, { desc = "➜ Goto related references" })
 set("n", "gri", fn.show_implementations, { desc = "➜ Goto related implementations" })
 set("n", "grt", fn.show_type_definitions, { desc = "➜ Goto related types" })
+set("n", "<M-f>", fn.show_find, { desc = "➜ Toggle LSP view" })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Refactor

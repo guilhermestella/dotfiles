@@ -1,81 +1,58 @@
-local snacks = require "snacks"
+local trouble = require "trouble"
 
 local M = {}
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Show LSP references
 -- ════════════════════════════════════════════════════════════════════════════
-local opts = {
-  layout = "ivy",
-  show_empty = true,
-  auto_close = false,
-  actions = {
-    unfocus = function(picker)
-      vim.cmd "stopinsert"
-      vim.schedule(function()
-        if picker.main and vim.api.nvim_win_is_valid(picker.main) then
-          vim.api.nvim_set_current_win(picker.main)
-        end
-      end)
-    end,
-  },
-  win = {
-    preview = { wo = { wrap = true } },
-    input = {
-      keys = {
-        ["<M-f>"] = { "close", mode = { "i", "n" } },
-        ["<Esc>"] = { "unfocus", mode = "i" },
-      },
-    },
-  },
-}
+local _trouble_view = nil
 
-local function toggle_lsp_picker(source)
-  local pickers = snacks.picker.get { source = source }
-  if pickers[1] then
-    if pickers[1]:is_focused() then
-      pickers[1]:close()
-    else
-      pickers[1]:focus()
-    end
-  else
-    snacks.picker[source](opts)
+function M.show_find()
+  if not trouble.last_mode then
+    trouble.toggle {
+      mode = "qflist",
+      open_no_results = true,
+      warn_no_results = false,
+      refresh = false,
+    }
+    return
   end
+
+  if _trouble_view and _trouble_view.opts.mode == trouble.last_mode then
+    if _trouble_view:is_open() then
+      _trouble_view:close()
+    else
+      _trouble_view.win:open()
+      _trouble_view:update()
+      if _trouble_view.opts.focus then
+        vim.api.nvim_set_current_win(_trouble_view.win.win)
+      end
+    end
+    return
+  end
+
+  -- First call (or different mode): open normally
+  _trouble_view = trouble.toggle { mode = trouble.last_mode }
 end
 
 function M.show_references()
-  toggle_lsp_picker "lsp_references"
-end
-
-local fast_opts = {
-  layout = {
-    preset = "dropdown",
-    layout = {
-      box = "vertical",
-      border = "rounded",
-      width = 0.5,
-      height = 0.5,
-      { win = "input", height = 1, border = "bottom" },
-      { win = "list", height = 0.4 },
-      { win = "preview", border = "top", height = 0.6 },
-    },
-  },
-}
-
-function M.show_definitions()
-  snacks.picker.lsp_definitions(fast_opts)
-end
-
-function M.show_declarations()
-  snacks.picker.lsp_declarations(fast_opts)
+  trouble.open "lsp_references"
 end
 
 function M.show_implementations()
-  snacks.picker.lsp_implementations(fast_opts)
+  trouble.open "lsp_implementations"
+end
+
+function M.show_definitions()
+  trouble.open "lsp_definitions"
+end
+
+function M.show_declarations()
+  trouble.open "lsp_declarations"
 end
 
 function M.show_type_definitions()
-  snacks.picker.lsp_type_definitions(fast_opts)
+  trouble.open "lsp_type_definitions"
 end
 
 function M.show_documentation()
