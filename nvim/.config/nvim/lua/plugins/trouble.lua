@@ -21,5 +21,7 @@ require("trouble").setup {
   },
   keys = {
     ["<M-f>"] = "close",
+    ["<M-p>"] = "close",
+    ["<M-S-p>"] = "close",
   },
 }

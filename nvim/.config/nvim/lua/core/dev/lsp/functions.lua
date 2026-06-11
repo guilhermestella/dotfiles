@@ -1,3 +1,4 @@
+local snacks = require "snacks"
 local trouble = require "trouble"
 
 local M = {}
@@ -5,54 +6,61 @@ local M = {}
 -- ════════════════════════════════════════════════════════════════════════════
 -- Show LSP references
 -- ════════════════════════════════════════════════════════════════════════════
-local _trouble_view = nil
+local _lsp_ref_view = nil
 
 function M.show_find()
-  if not trouble.last_mode then
-    trouble.toggle {
-      mode = "qflist",
-      open_no_results = true,
-      warn_no_results = false,
-      refresh = false,
-    }
+  if not _lsp_ref_view then
+    _lsp_ref_view = trouble.open "lsp_references"
     return
   end
 
-  if _trouble_view and _trouble_view.opts.mode == trouble.last_mode then
-    if _trouble_view:is_open() then
-      _trouble_view:close()
+  if _lsp_ref_view and _lsp_ref_view.opts.mode == "lsp_references" then
+    if _lsp_ref_view:is_open() then
+      _lsp_ref_view:close()
     else
-      _trouble_view.win:open()
-      _trouble_view:update()
-      if _trouble_view.opts.focus then
-        vim.api.nvim_set_current_win(_trouble_view.win.win)
+      _lsp_ref_view.win:open()
+      _lsp_ref_view:update()
+      if _lsp_ref_view.opts.focus then
+        _lsp_ref_view.win:focus()
       end
     end
     return
   end
-
-  -- First call (or different mode): open normally
-  _trouble_view = trouble.toggle { mode = trouble.last_mode }
 end
 
 function M.show_references()
-  trouble.open "lsp_references"
+  _lsp_ref_view = trouble.open "lsp_references"
 end
 
+local fast_opts = {
+  layout = {
+    preset = "dropdown",
+    layout = {
+      box = "vertical",
+      border = "rounded",
+      width = 0.5,
+      height = 0.5,
+      { win = "input", height = 1, border = "bottom" },
+      { win = "list", height = 0.4 },
+      { win = "preview", border = "top", height = 0.6 },
+    },
+  },
+}
+
 function M.show_implementations()
-  trouble.open "lsp_implementations"
+  snacks.picker.lsp_implementations(fast_opts)
 end
 
 function M.show_definitions()
-  trouble.open "lsp_definitions"
+  snacks.picker.lsp_definitions(fast_opts)
 end
 
 function M.show_declarations()
-  trouble.open "lsp_declarations"
+  snacks.picker.lsp_declarations(fast_opts)
 end
 
 function M.show_type_definitions()
-  trouble.open "lsp_type_definitions"
+  snacks.picker.lsp_type_definitions(fast_opts)
 end
 
 function M.show_documentation()
