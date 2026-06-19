@@ -21,10 +21,10 @@ fn.setup {
     -- ════════════════════════════════════════════════════════════════════════════
     -- Show, find, search
     -- ════════════════════════════════════════════════════════════════════════════
-    set("n", "<leader>`", fn.show_status, { buffer = buf, desc = "➜ Status" })
+    set("n", "<leader>gs", fn.show_status, { buffer = buf, desc = "➜ Status" })
     set("n", "<leader>gb", fn.show_branches, { buffer = buf, desc = "➜ Branches" })
     set("n", "<leader>gd", fn.show_diff, { buffer = buf, desc = "➜ Diff (Hunks)" })
-    set("n", "<leader>gs", fn.show_stash, { buffer = buf, desc = "➜ Stash" })
+    set("n", "<leader>gS", fn.show_stash, { buffer = buf, desc = "➜ Stash" })
     set("n", "<M-S-g>", fn.show_log, { buffer = buf, desc = "➜ Log All" })
     set("n", "<M-g>", fn.show_file_log, { buffer = buf, desc = "➜ Log File" })
     set("v", "<M-g>", fn.show_line_log, { buffer = buf, desc = "➜ Log Line" })
