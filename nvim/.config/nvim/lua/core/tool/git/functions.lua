@@ -89,26 +89,10 @@ function M.show_file_log()
   show_git_source "git_log_file"
 end
 
-local layout = { layout = "ivy", win = { preview = { wo = { wrap = true } } } }
-
-function M.show_status()
-  snacks.picker.git_status(layout)
-end
-
-function M.show_branches()
-  snacks.picker.git_branches(layout)
-end
-
-function M.show_diff()
-  snacks.picker.git_diff(layout)
-end
-
-function M.show_line_log()
-  snacks.picker.git_log_line(layout)
-end
-
-function M.show_stash()
-  snacks.picker.git_stash(layout)
-end
+M.show_diff = snacks.picker.git_diff
+M.show_stash = snacks.picker.git_stash
+M.show_status = snacks.picker.git_status
+M.show_branches = snacks.picker.git_branches
+M.show_line_log = snacks.picker.git_log_line
 
 return M
