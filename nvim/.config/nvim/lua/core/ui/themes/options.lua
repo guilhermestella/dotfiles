@@ -3,11 +3,7 @@ local fn = require "core.ui.themes.functions"
 
 set.termguicolors = true -- Enable 24-bit RBG colors in terminal
 
-vim.api.nvim_create_autocmd("UIEnter", {
-  callback = function()
-    fn.setup_colorscheme("vscode", "vscode")
-  end,
-})
+fn.setup_colorscheme("vscode", "vscode")
 
 vim.api.nvim_create_autocmd("OptionSet", {
   pattern = "background",
