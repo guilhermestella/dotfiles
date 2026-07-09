@@ -8,7 +8,7 @@ navic.setup {
   },
   highlight = false,
   separator = " » ",
-  depth_limit = 4,
+  depth_limit = 0,
   depth_limit_indicator = "...",
   lazy_update_context = false,
 }
@@ -30,22 +30,34 @@ lualine.setup {
   },
   sections = {
     lualine_a = { "mode" },
-    lualine_b = { "branch", "diff", "diagnostics", "filename" },
-    lualine_c = { "navic" },
+    lualine_b = { "branch" },
+    lualine_c = { "diff", "diagnostics" },
+    lualine_x = { "location", "progress", "encoding", "lsp_status" },
+    lualine_y = {},
+    lualine_z = {},
   },
   inactive_sections = {
     lualine_a = { "mode" },
-    lualine_b = { "branch", "diff", "diagnostics", "filename" },
-    lualine_c = { "navic" },
-    lualine_y = { "progress" },
-    lualine_z = { "location" },
+    lualine_b = { "branch" },
+    lualine_c = { "diff", "diagnostics" },
+    lualine_x = { "location", "progress", "encoding", "lsp_status" },
+    lualine_y = {},
+    lualine_z = {},
   },
-  -- winbar = {
-  --   lualine_a = { "filename" },
-  --   lualine_c = { "navic" },
-  -- },
-  -- inactive_winbar = {
-  --   lualine_a = { "filename" },
-  --   lualine_c = { "navic" },
-  -- },
+  winbar = {
+    lualine_c = { {
+      function()
+        return " "
+      end,
+      separator = { right = "" },
+    }, "navic" },
+  },
+  inactive_winbar = {
+    lualine_c = { {
+      function()
+        return " "
+      end,
+      separator = { right = "" },
+    }, "navic" },
+  },
 }
