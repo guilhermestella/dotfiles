@@ -29,13 +29,13 @@ macos-option-as-alt = true
 # Font
 font-size = 12
 font-family = "JetBrainsMono Nerd Font"
-font-style = "Medium"
+font-style = "Bold"
 font-family-bold = "JetBrainsMono Nerd Font"
-font-style-bold = "Bold"
+font-style-bold = "Extrabold"
 font-family-italic = "JetBrainsMono Nerd Font"
-font-style-italic = "Medium Italic"
+font-style-italic = "Bold Italic"
 font-family-bold-italic = "JetBrainsMono Nerd Font"
-font-style-bold-italic = "Bold Italic"
+font-style-bold-italic = "Extrabold Italic"
 
 # default ghostty
 # super + alt   + shift + j     write_screen_file:open,plain
