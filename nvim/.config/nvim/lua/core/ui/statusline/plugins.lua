@@ -1,17 +1,4 @@
-local navic = require "nvim-navic"
 local lualine = require "lualine"
-
-navic.setup {
-  lsp = {
-    auto_attach = true,
-    preference = { "vue_ls", "vtsls", "ts_ls" },
-  },
-  highlight = false,
-  separator = " » ",
-  depth_limit = 0,
-  depth_limit_indicator = "...",
-  lazy_update_context = false,
-}
 
 lualine.setup {
   options = {
@@ -43,21 +30,5 @@ lualine.setup {
     lualine_x = { "location", "progress", "encoding", "lsp_status" },
     lualine_y = {},
     lualine_z = {},
-  },
-  winbar = {
-    lualine_c = { {
-      function()
-        return " "
-      end,
-      separator = { right = "" },
-    }, "navic" },
-  },
-  inactive_winbar = {
-    lualine_c = { {
-      function()
-        return " "
-      end,
-      separator = { right = "" },
-    }, "navic" },
   },
 }
