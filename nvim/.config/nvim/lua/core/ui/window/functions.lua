@@ -43,4 +43,33 @@ function M.undo_history()
   snacks.picker.undo()
 end
 
+function M.undo_history_selection()
+  local start_line = vim.api.nvim_buf_get_mark(0, "<")[1]
+  local end_line = vim.api.nvim_buf_get_mark(0, ">")[1]
+
+  snacks.picker.undo {
+    filter = {
+      filter = function(item)
+        if not item.resolved then
+          return true
+        end
+        local diff = item.diff
+        if not diff then
+          return true
+        end
+        for line in diff:gmatch "[+-].-\n" do
+          local lnum = line:match "^[+-]%s*(%d+)"
+          if lnum and tonumber(lnum) >= start_line and tonumber(lnum) <= end_line then
+            return true
+          end
+        end
+        return false
+      end,
+    },
+    diff = {
+      ctxlen = 0,
+    },
+  }
+end
+
 return M
