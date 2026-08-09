@@ -23,7 +23,7 @@ Resize the focused window to given screen coordinates via GNOME Shell D-Bus.
 ### Usage
 
 ```sh
-winscale.sh [x y width height]
+winscale.sh [%widht, %height]
 ```
 
 All four arguments are positional and required together. If omitted, the window
@@ -33,15 +33,9 @@ is placed at an "almost maximized" position on a 1920×1080 screen.
 
 ```sh
 # Almost maximized (default)
-winscale.sh
-
-# Left half of a 1920×1080 screen
-winscale.sh 0 0 960 1080
-
-# Right half of a 1920×1080 screen
-winscale.sh 960 0 960 1080
+winscale.sh 100 100
 
 # Custom size and position
-winscale.sh 100 100 800 600
+winscale.sh 85 80
 ```
 
