@@ -15,6 +15,7 @@ local installer_opts = {
     "lemminx", -- xml
     "lua_ls",
     "marksman",
+    "rust-analyzer",
     "ts_ls",
     "vtsls",
     "vue_ls",
