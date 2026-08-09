@@ -1,16 +1,26 @@
 #!/bin/bash
 
-# Usage: resize-window.sh [x y width height]
-# Defaults to "almost maximized" on a 1920x1080 screen if no args given.
-X=${1:-20}
-Y=${2:-52}
-WIDTH=${3:-1880}
-HEIGHT=${4:-1000}
+# Usage: winscale.sh [width_percent] [height_percent]
+# Sizes the window to a percentage of the current screen (default: 90x90), centered.
+# Examples: winscale.sh        -> 90% width, 90% height
+#           winscale.sh 80     -> 80% width, 90% height
+#           winscale.sh 80 60  -> 80% width, 60% height
+W_PERCENT=${1:-90}
+H_PERCENT=${2:-90}
 
-if [ "$#" -ne 0 ] && [ "$#" -ne 4 ]; then
-  echo "Usage: $0 [x y width height]" >&2
+if [ "$#" -gt 2 ]; then
+  echo "Usage: $0 [width_percent] [height_percent]" >&2
   exit 1
 fi
+
+# Get current screen resolution
+read -r SWIDTH SHEIGHT < <(xdpyinfo | awk '/dimensions:/{split($2,a,"x"); print a[1], a[2]}')
+
+# Compute centered window size
+WIDTH=$((SWIDTH * W_PERCENT / 100))
+HEIGHT=$((SHEIGHT * H_PERCENT / 100))
+X=$(((SWIDTH - WIDTH) / 2))
+Y=$(((SHEIGHT - HEIGHT) / 2))
 
 # Get wm_class of the currently focused window
 FOCUSED_RAW=$(gdbus call --session --dest org.gnome.Shell \
