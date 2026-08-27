@@ -5,7 +5,7 @@ vim.lsp.config("lua_ls", {
                 version = "LuaJIT",
             },
             diagnostics = {
-                globals = { "vim" },
+                enable = false,
             },
             workspace = {
                 library = {

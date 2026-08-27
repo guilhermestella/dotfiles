@@ -6,7 +6,7 @@ vim.api.nvim_create_autocmd("FileType", {
             markdown = { wrap = true, linebreak = true, spell = true, textwidth = 80 },
             yaml = { expandtab = true, shiftwidth = 2, tabstop = 2, textwidth = 0 },
             xml = { expandtab = true, shiftwidth = 2, tabstop = 2, textwidth = 0 },
-            lua = { expandtab = true, shiftwidth = 2, tabstop = 2 },
+            lua = { expandtab = true, shiftwidth = 4, tabstop = 4 },
             json = { expandtab = true, shiftwidth = 2, tabstop = 2 },
             javascript = { expandtab = true, shiftwidth = 2, tabstop = 2 },
         }
