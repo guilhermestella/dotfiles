@@ -1,6 +1,8 @@
 local severity = vim.diagnostic.severity
 
 vim.diagnostic.config {
+    update_in_insert = true,
+    severity_sort = true,
     signs = {
         severity_sort = true,
         culhl = {

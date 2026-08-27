@@ -59,6 +59,7 @@ neo_tree.setup {
                 ".github/",
                 ".opencode",
                 ".scratch",
+                ".luacheckrc",
             },
             hide_by_name = {
                 ".git",
