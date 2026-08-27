@@ -30,6 +30,7 @@ local installer_opts = {
         -- Linters
         "eslint",
         "jsonlint",
+        "luacheck",
         "markdownlint",
         "yamllint",
 
