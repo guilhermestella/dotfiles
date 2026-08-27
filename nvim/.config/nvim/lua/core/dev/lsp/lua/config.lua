@@ -1,21 +1,21 @@
 vim.lsp.config("lua_ls", {
-  settings = {
-    Lua = {
-      runtime = {
-        version = "LuaJIT",
-      },
-      diagnostics = {
-        globals = { "vim" },
-      },
-      workspace = {
-        library = {
-          vim.env.VIMRUNTIME,
+    settings = {
+        Lua = {
+            runtime = {
+                version = "LuaJIT",
+            },
+            diagnostics = {
+                globals = { "vim" },
+            },
+            workspace = {
+                library = {
+                    vim.env.VIMRUNTIME,
+                },
+                checkThirdParty = false,
+            },
+            telemetry = {
+                enable = false,
+            },
         },
-        checkThirdParty = false,
-      },
-      telemetry = {
-        enable = false,
-      },
     },
-  },
 })

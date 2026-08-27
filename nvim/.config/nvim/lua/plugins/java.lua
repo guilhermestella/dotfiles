@@ -1,3 +1,3 @@
 vim.pack.add {
-  { src = "https://github.com/mfussenegger/nvim-jdtls" },
+    { src = "https://github.com/mfussenegger/nvim-jdtls" },
 }

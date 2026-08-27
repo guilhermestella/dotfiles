@@ -4,40 +4,40 @@ local mason_installer = require "mason-tool-installer"
 local mason_dap = require "mason-nvim-dap"
 
 local installer_opts = {
-  ensure_installed = {
-    -- LSP
-    "angularls",
-    "bashls",
-    "cssls",
-    "html",
-    "jdtls",
-    "json-lsp",
-    "lemminx", -- xml
-    "lua_ls",
-    "marksman",
-    "rust-analyzer",
-    "ts_ls",
-    "vtsls",
-    "vue_ls",
-    "yaml-language-server",
+    ensure_installed = {
+        -- LSP
+        "angularls",
+        "bashls",
+        "cssls",
+        "html",
+        "jdtls",
+        "json-lsp",
+        "lemminx", -- xml
+        "lua_ls",
+        "marksman",
+        "rust-analyzer",
+        "ts_ls",
+        "vtsls",
+        "vue_ls",
+        "yaml-language-server",
 
-    -- Formatter
-    "google-java-format",
-    "stylua",
-    "xmlformatter",
-    "yamlfmt",
+        -- Formatter
+        "google-java-format",
+        "stylua",
+        "xmlformatter",
+        "yamlfmt",
 
-    -- Linters
-    "eslint",
-    "jsonlint",
-    "markdownlint",
-    "yamllint",
+        -- Linters
+        "eslint",
+        "jsonlint",
+        "markdownlint",
+        "yamllint",
 
-    -- DAP
-    "java-debug-adapter",
-    "java-test",
-    "js-debug-adapter",
-  },
+        -- DAP
+        "java-debug-adapter",
+        "java-test",
+        "js-debug-adapter",
+    },
 }
 
 mason.setup()

@@ -1,3 +1,3 @@
 vim.pack.add {
-  { src = "https://github.com/vim-test/vim-test" },
+    { src = "https://github.com/vim-test/vim-test" },
 }

@@ -1,11 +1,11 @@
 vim.lsp.config("yamlls", {
-  settings = {
-    yaml = {
-      validate = true,
-      completion = true,
-      hover = true,
-      schemastore = { enable = false, url = "" },
-      schemas = require("schemastore").yaml.schemas(),
+    settings = {
+        yaml = {
+            validate = true,
+            completion = true,
+            hover = true,
+            schemastore = { enable = false, url = "" },
+            schemas = require("schemastore").yaml.schemas(),
+        },
     },
-  },
 })

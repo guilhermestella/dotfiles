@@ -6,8 +6,8 @@ set.termguicolors = true -- Enable 24-bit RBG colors in terminal
 fn.setup_colorscheme("vscode", "vscode")
 
 vim.api.nvim_create_autocmd("OptionSet", {
-  pattern = "background",
-  callback = function()
-    fn.setup_colorscheme("vscode", "vscode")
-  end,
+    pattern = "background",
+    callback = function()
+        fn.setup_colorscheme("vscode", "vscode")
+    end,
 })

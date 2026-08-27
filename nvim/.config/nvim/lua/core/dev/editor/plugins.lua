@@ -5,24 +5,24 @@ local autotag = require "nvim-ts-autotag"
 local surround = require "nvim-surround"
 
 text_objects.setup {
-  select = {
-    lookahead = true,
-    selection_modes = {
-      ["@parameter.outer"] = "v",
-      ["@function.outer"] = "V",
-      ["@class.outer"] = "V",
+    select = {
+        lookahead = true,
+        selection_modes = {
+            ["@parameter.outer"] = "v",
+            ["@function.outer"] = "V",
+            ["@class.outer"] = "V",
+        },
+        include_surrounding_whitespace = false,
     },
-    include_surrounding_whitespace = false,
-  },
-  move = {
-    set_jumps = true,
-  },
+    move = {
+        set_jumps = true,
+    },
 }
 
 ufo.setup {
-  provider_selector = function()
-    return { "treesitter", "indent" }
-  end,
+    provider_selector = function()
+        return { "treesitter", "indent" }
+    end,
 }
 
 autopairs.setup()

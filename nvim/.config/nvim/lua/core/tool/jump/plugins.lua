@@ -1,7 +1,7 @@
 require("flash").setup {
-  modes = {
-    char = {
-      keys = {},
+    modes = {
+        char = {
+            keys = {},
+        },
     },
-  },
 }

@@ -4,71 +4,71 @@ local fn = require "core.debug.functions"
 
 ---@diagnostic disable: undefined-field
 dap.listeners.after.event_initialized["on_start"] = function()
-  ui.close { layout = 2 }
-  ui.open { layout = 1 }
+    ui.close { layout = 2 }
+    ui.open { layout = 1 }
 end
 
 dap.listeners.after.event_stopped["on_stop"] = function(_, body)
-  local reason = body.reason
-  if reason == "breakpoint" then
-    ui.close { layout = 1 }
-    ui.open { layout = 2 }
-  end
+    local reason = body.reason
+    if reason == "breakpoint" then
+        ui.close { layout = 1 }
+        ui.open { layout = 2 }
+    end
 end
 
 dap.listeners.after.continue["on_continue"] = function()
-  ui.close { layout = 2 }
-  ui.open { layout = 1 }
+    ui.close { layout = 2 }
+    ui.open { layout = 1 }
 end
 
 dap.listeners.after.event_terminated["on_finish"] = function()
-  ui.close { layout = 2 }
-  ui.open { layout = 1 }
+    ui.close { layout = 2 }
+    ui.open { layout = 1 }
 end
 
 dap.defaults.fallback.switchbuf = "usevisible,usetab,newtab"
 
 ui.setup {
-  icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
-  controls = {
-    icons = {
-      pause = "⏸",
-      play = "▶",
-      step_into = "⏎",
-      step_over = "⏭",
-      step_out = "⏮",
-      step_back = "b",
-      run_last = "▶▶",
-      terminate = "⏹",
-      disconnect = "⏏",
+    icons = { expanded = "▾", collapsed = "▸", current_frame = "*" },
+    controls = {
+        icons = {
+            pause = "⏸",
+            play = "▶",
+            step_into = "⏎",
+            step_over = "⏭",
+            step_out = "⏮",
+            step_back = "b",
+            run_last = "▶▶",
+            terminate = "⏹",
+            disconnect = "⏏",
+        },
     },
-  },
-  expand_lines = true,
-  floating = { border = "rounded" },
-  render = {
-    max_type_length = 60,
-    max_value_lines = 200,
-  },
-  layouts = {
-    {
-      id = "1",
-      elements = {
-        { id = "console", size = 0.70 },
-        { id = "repl", size = 0.30 },
-      },
-      size = 15,
-      position = "bottom",
+    expand_lines = true,
+    floating = { border = "rounded" },
+    render = {
+        max_type_length = 60,
+        max_value_lines = 200,
     },
-    {
-      id = "2",
-      elements = {
-        { id = "stacks", size = 0.30 },
-        { id = "scopes", size = 0.70 },
-      },
-      size = 15,
-      position = "bottom",
+    layouts = {
+        {
+            id = "1",
+            elements = {
+                { id = "console", size = 0.70 },
+                { id = "repl", size = 0.30 },
+            },
+            size = 15,
+            position = "bottom",
+        },
+        {
+            id = "2",
+            elements = {
+                { id = "stacks", size = 0.30 },
+                { id = "scopes", size = 0.70 },
+            },
+            size = 15,
+            position = "bottom",
+        },
     },
-  },
 }
 
 dap.adapters = fn.get_files "adapters"
@@ -77,22 +77,22 @@ dap.configurations = fn.get_files "configurations"
 -- Vim-test runners
 local runners = fn.get_files "runners"
 vim.g["test#custom_strategies"] = {
-  dap = function(cmd)
-    local runner = cmd:match "^%S+"
-    local args = cmd:sub(#runner + 2)
+    dap = function(cmd)
+        local runner = cmd:match "^%S+"
+        local args = cmd:sub(#runner + 2)
 
-    for name, module in pairs(runners) do
-      if runner:find(name) then
-        local config = module(runner, args)
-        if config then
-          dap.run(config)
-        else
-          -- nil returned: handled internally (jdtls for mvn)
+        for name, module in pairs(runners) do
+            if runner:find(name) then
+                local config = module(runner, args)
+                if config then
+                    dap.run(config)
+                else
+                    -- nil returned: handled internally (jdtls for mvn)
+                end
+                return
+            end
         end
-        return
-      end
-    end
 
-    vim.notify("No runner found for: " .. cmd, vim.log.levels.ERROR)
-  end,
+        vim.notify("No runner found for: " .. cmd, vim.log.levels.ERROR)
+    end,
 }

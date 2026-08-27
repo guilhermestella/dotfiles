@@ -3,11 +3,11 @@ local flash = require "flash"
 local M = {}
 
 function M.jump()
-  flash.jump()
+    flash.jump()
 end
 
 function M.select()
-  flash.treesitter()
+    flash.treesitter()
 end
 
 return M

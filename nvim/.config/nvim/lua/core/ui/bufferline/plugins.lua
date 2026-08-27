@@ -1,3 +1,3 @@
 require("barbar").setup {
-  minimum_padding = 2,
+    minimum_padding = 2,
 }

@@ -2,110 +2,110 @@ local neo_tree = require "neo-tree"
 local fn = require "core.ui.explorer.functions"
 
 neo_tree.setup {
-  event_handlers = {
-    { event = fn.explorer_events.FILE_MOVED, handler = fn.on_move },
-    { event = fn.explorer_events.FILE_RENAMED, handler = fn.on_move },
-  },
-  sources = {
-    "filesystem",
-    "buffers",
-    "git_status",
-  },
-  clipboard = { sync = "global" },
-  hide_root_node = true,
-  source_selector = {
-    winbar = true,
+    event_handlers = {
+        { event = fn.explorer_events.FILE_MOVED, handler = fn.on_move },
+        { event = fn.explorer_events.FILE_RENAMED, handler = fn.on_move },
+    },
     sources = {
-      { source = "filesystem", display_name = " 󰉓 File " },
-      { source = "buffers", display_name = " 󰈚 Buffer " },
-      { source = "git_status", display_name = " 󰊢 Git " },
+        "filesystem",
+        "buffers",
+        "git_status",
     },
-  },
-  window = {
-    position = "left",
-    width = 40,
-    mappings = {
-      ["<Esc>"] = function()
-        vim.cmd "wincmd p"
-      end,
-      ["<space>"] = false,
-      ["l"] = "open",
-      ["h"] = "close_node",
-      ["P"] = false,
-      ["<C-f>"] = false,
-      ["<C-b>"] = false,
-      ["s"] = "open_split",
-      ["v"] = "open_vsplit",
-      ["t"] = false,
-      ["w"] = false,
-      ["C"] = "close_all_subnodes",
-      ["O"] = "expand_all_subnodes",
-      ["Z"] = false,
-      ["<C-r>"] = false,
-      ["e"] = false,
-      ["<"] = false,
-      [">"] = false,
-      ["<M-j>"] = "prev_source",
-      ["<M-k>"] = "next_source",
-    },
-  },
-  filesystem = {
-    filtered_items = {
-      visible = false,
-      always_show = {
-        ".gitignore",
-        ".babelrc",
-        ".eslintrc*",
-        ".github/",
-        ".opencode",
-        ".scratch",
-      },
-      hide_by_name = {
-        ".git",
-        "target/",
-        "node_modules/",
-      },
+    clipboard = { sync = "global" },
+    hide_root_node = true,
+    source_selector = {
+        winbar = true,
+        sources = {
+            { source = "filesystem", display_name = " 󰉓 File " },
+            { source = "buffers", display_name = " 󰈚 Buffer " },
+            { source = "git_status", display_name = " 󰊢 Git " },
+        },
     },
     window = {
-      mappings = {
-        ["<bs>"] = false,
-        ["."] = false,
-      },
+        position = "left",
+        width = 40,
+        mappings = {
+            ["<Esc>"] = function()
+                vim.cmd "wincmd p"
+            end,
+            ["<space>"] = false,
+            ["l"] = "open",
+            ["h"] = "close_node",
+            ["P"] = false,
+            ["<C-f>"] = false,
+            ["<C-b>"] = false,
+            ["s"] = "open_split",
+            ["v"] = "open_vsplit",
+            ["t"] = false,
+            ["w"] = false,
+            ["C"] = "close_all_subnodes",
+            ["O"] = "expand_all_subnodes",
+            ["Z"] = false,
+            ["<C-r>"] = false,
+            ["e"] = false,
+            ["<"] = false,
+            [">"] = false,
+            ["<M-j>"] = "prev_source",
+            ["<M-k>"] = "next_source",
+        },
     },
-  },
-  buffers = {
-    show_unloaded = true,
-    window = {
-      mappings = {
-        ["<bs>"] = false,
-        ["."] = false,
-        ["bd"] = false,
-        ["b"] = false,
-        ["d"] = function(state)
-          local node = state.tree:get_node()
-          local bufnr = node.extra.bufnr
-          if bufnr and bufnr > 0 then
-            fn.delete_buffer(bufnr)
-          end
-        end,
-      },
+    filesystem = {
+        filtered_items = {
+            visible = false,
+            always_show = {
+                ".gitignore",
+                ".babelrc",
+                ".eslintrc*",
+                ".github/",
+                ".opencode",
+                ".scratch",
+            },
+            hide_by_name = {
+                ".git",
+                "target/",
+                "node_modules/",
+            },
+        },
+        window = {
+            mappings = {
+                ["<bs>"] = false,
+                ["."] = false,
+            },
+        },
     },
-  },
-  git_status = {
-    window = {
-      mappings = {
-        ["A"] = false,
-        ["gu"] = false,
-        ["gU"] = false,
-        ["ga"] = false,
-        ["gt"] = false,
-        ["gr"] = false,
-        ["gc"] = false,
-        ["gp"] = false,
-        ["gg"] = false,
-        ["i"] = "show_file_details",
-        ["b"] = false,
-      },
+    buffers = {
+        show_unloaded = true,
+        window = {
+            mappings = {
+                ["<bs>"] = false,
+                ["."] = false,
+                ["bd"] = false,
+                ["b"] = false,
+                ["d"] = function(state)
+                    local node = state.tree:get_node()
+                    local bufnr = node.extra.bufnr
+                    if bufnr and bufnr > 0 then
+                        fn.delete_buffer(bufnr)
+                    end
+                end,
+            },
+        },
     },
-  },
+    git_status = {
+        window = {
+            mappings = {
+                ["A"] = false,
+                ["gu"] = false,
+                ["gU"] = false,
+                ["ga"] = false,
+                ["gt"] = false,
+                ["gr"] = false,
+                ["gc"] = false,
+                ["gp"] = false,
+                ["gg"] = false,
+                ["i"] = "show_file_details",
+                ["b"] = false,
+            },
+        },
+    },
 }

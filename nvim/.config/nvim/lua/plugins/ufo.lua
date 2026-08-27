@@ -1,4 +1,4 @@
 vim.pack.add {
-  { src = "https://github.com/kevinhwang91/promise-async" },
-  { src = "https://github.com/kevinhwang91/nvim-ufo" },
+    { src = "https://github.com/kevinhwang91/promise-async" },
+    { src = "https://github.com/kevinhwang91/nvim-ufo" },
 }
