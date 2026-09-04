@@ -20,7 +20,7 @@ copy-on-select = clipboard
 window-decoration = false
 window-padding-balance = false
 window-padding-x = 0
-window-padding-y = 5,0
+window-padding-y = 12,0
 
 # macos
 macos-titlebar-style = hidden
