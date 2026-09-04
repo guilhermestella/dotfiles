@@ -22,6 +22,8 @@ set noswapfile
 " UI
 set updatetime=500
 set termguicolors
+set t_RF=
+if $VIM_BACKGROUND isnot# '' | set background=$VIM_BACKGROUND | endif
 set number
 set relativenumber
 set numberwidth=4
@@ -30,7 +32,6 @@ set breakindent
 set showmode
 set linebreak
 set shortmess+=I
-let g:jellybeans_overrides = { 'background': { 'guibg': '060606' } }
 colorscheme vscode
 
 " Indentation
