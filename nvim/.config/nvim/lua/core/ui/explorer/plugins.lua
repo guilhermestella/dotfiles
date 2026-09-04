@@ -5,6 +5,8 @@ neo_tree.setup {
     event_handlers = {
         { event = fn.explorer_events.FILE_MOVED, handler = fn.on_move },
         { event = fn.explorer_events.FILE_RENAMED, handler = fn.on_move },
+        { event = fn.explorer_events.NEO_TREE_WINDOW_AFTER_OPEN, handler = fn.on_open },
+        { event = fn.explorer_events.NEO_TREE_WINDOW_BEFORE_CLOSE, handler = fn.on_close },
     },
     sources = {
         "filesystem",
@@ -14,7 +16,8 @@ neo_tree.setup {
     clipboard = { sync = "global" },
     hide_root_node = true,
     source_selector = {
-        winbar = true,
+        winbar = false,
+        statusline = true,
         sources = {
             { source = "filesystem", display_name = " 󰉓 File " },
             { source = "buffers", display_name = " 󰈚 Buffer " },

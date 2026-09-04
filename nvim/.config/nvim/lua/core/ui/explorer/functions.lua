@@ -1,5 +1,7 @@
 local snacks = require "snacks"
 local events = require "neo-tree.events"
+local barbar_api = require "barbar.api"
+local get_width = vim.api.nvim_win_get_width
 
 local M = {}
 
@@ -40,6 +42,16 @@ end
 
 function M.on_move(data)
     snacks.rename.on_rename_file(data.source, data.destination)
+end
+
+function M.on_open(args)
+    if args.position == "left" or args.position == "right" then
+        barbar_api.set_offset(get_width(args.winid), "Explorer", nil, args.position)
+    end
+end
+
+function M.on_close(args)
+    barbar_api.set_offset(0, nil, nil, args.position)
 end
 
 M.explorer_events = events
