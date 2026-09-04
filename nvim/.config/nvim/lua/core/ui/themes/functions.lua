@@ -10,6 +10,11 @@ function M.setup_colorscheme(light, dark)
         colorscheme = light
     end
 
+    local function vscode()
+        hl(0, "BufferTabpageFill", { bg = "#1f1f1f" })
+        hl(0, "BufferInactiveSign", { bg = "#1f1f1f" })
+    end
+
     local function gruvbox_material()
         hl(0, "WinBar", { bg = "none" })
         hl(0, "WinBarNC", { bg = "none" })
@@ -27,6 +32,7 @@ function M.setup_colorscheme(light, dark)
         ["gruvbox-material"] = gruvbox_material,
         ["jellybeans"] = jellybeans,
         ["catppuccin_latte"] = catppuccin_latte,
+        ["vscode"] = vscode,
     }
 
     vim.cmd.colorscheme(colorscheme)
