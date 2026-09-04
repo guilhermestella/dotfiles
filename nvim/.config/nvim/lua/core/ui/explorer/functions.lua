@@ -5,6 +5,12 @@ local get_width = vim.api.nvim_win_get_width
 
 local M = {}
 
+local source_map = {
+    ["filesystem"] = "󰉓 Files",
+    ["buffers"] = "󰈚 Buffers",
+    ["git_status"] = "󰊢 Git",
+}
+
 local function toggle(source, reveal)
     local rev = reveal and " reveal " or ""
 
@@ -46,7 +52,9 @@ end
 
 function M.on_open(args)
     if args.position == "left" or args.position == "right" then
-        barbar_api.set_offset(get_width(args.winid), "Explorer", nil, args.position)
+        local window_width = get_width(args.winid)
+        local source_name = source_map[args.source]
+        barbar_api.set_offset(window_width, source_name, nil, args.position)
     end
 end
 

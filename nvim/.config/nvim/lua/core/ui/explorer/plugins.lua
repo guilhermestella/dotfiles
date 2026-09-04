@@ -15,15 +15,6 @@ neo_tree.setup {
     },
     clipboard = { sync = "global" },
     hide_root_node = true,
-    source_selector = {
-        winbar = false,
-        statusline = true,
-        sources = {
-            { source = "filesystem", display_name = " 󰉓 File " },
-            { source = "buffers", display_name = " 󰈚 Buffer " },
-            { source = "git_status", display_name = " 󰊢 Git " },
-        },
-    },
     window = {
         position = "left",
         width = 40,
