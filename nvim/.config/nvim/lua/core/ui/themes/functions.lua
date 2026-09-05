@@ -15,6 +15,7 @@ function M.setup_colorscheme(light, dark)
             hl(0, "BufferCurrentSign", { fg = "#1f1f1f", bg = "#1f1f1f" })
             hl(0, "BufferTabpageFill", { fg = "#1f1f1f", bg = "#1f1f1f" })
             hl(0, "BufferInactiveSign", { fg = "#2d2d2d", bg = "#2d2d2d" })
+            hl(0, "BufferOffset", { fg = "#ffffff", bg = "#1f1f1f", bold = true })
         end
     end
 
