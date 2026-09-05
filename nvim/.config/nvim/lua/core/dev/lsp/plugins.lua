@@ -23,6 +23,7 @@ local installer_opts = {
 
         -- Formatter
         "google-java-format",
+        "prettier",
         "stylua",
         "xmlformatter",
         "yamlfmt",
