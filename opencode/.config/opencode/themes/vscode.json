@@ -57,12 +57,12 @@
       "light": "fg_muted"
     },
     "background": {
-      "dark": "bg_dark",
-      "light": "bg_light"
+      "dark": "none",
+      "light": "none"
     },
     "backgroundPanel": {
       "dark": "bg_mid",
-      "light": "bg_subtle_light"
+      "light": "bg_mid"
     },
     "backgroundElement": {
       "dark": "bg_subtle_dark",
