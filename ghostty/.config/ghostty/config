@@ -22,6 +22,9 @@ window-padding-balance = false
 window-padding-x = 0
 window-padding-y = 12,0
 
+# Appearance
+background-opacity = 0.99
+
 # macos
 macos-titlebar-style = hidden
 macos-option-as-alt = true
