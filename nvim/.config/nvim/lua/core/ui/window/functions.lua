@@ -13,6 +13,12 @@ function M.close_float_window()
         return
     end
 
+    for _, w in ipairs(vim.api.nvim_tabpage_list_wins(0)) do
+        if vim.api.nvim_win_get_config(w).relative ~= "" then
+            vim.api.nvim_win_close(w, false)
+        end
+    end
+
     -- otherwise, just clear search highlights
     vim.cmd "nohlsearch"
 end
