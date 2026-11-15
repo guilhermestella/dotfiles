@@ -1,8 +1,8 @@
 [tools]
-java = "25"
-node = "24.14.1"
-python = "3.14.0"
-rust = "1.94.1"
+java = "27"
+node = "26.13.1"
+python = "3.15.2"
+rust = "1.100.0"
 cargo = "latest"
 usage = "latest"
 
@@ -24,7 +24,7 @@ done
 
 [tasks.node]
 run = """
-mise install node@24.14.1
+mise install node@26.13.0
 """
 
 [tasks.python]
