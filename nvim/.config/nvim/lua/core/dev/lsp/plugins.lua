@@ -29,7 +29,7 @@ local installer_opts = {
         "yamlfmt",
 
         -- Linters
-        "eslint",
+        "eslint_d",
         "jsonlint",
         "luacheck",
         "markdownlint",
