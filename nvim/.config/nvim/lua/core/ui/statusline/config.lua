@@ -1,5 +1,8 @@
 local lualine = require "lualine"
 
+local events = lualine.get_config().options.refresh.events
+vim.list_extend(events, { "RecordingEnter", "RecordingLeave" })
+
 local mode = {
     "mode",
     fmt = function(mode)
@@ -18,6 +21,14 @@ local mode = {
         }
         return map[mode] or mode
     end,
+}
+
+local recording = {
+    function()
+        local reg = vim.fn.reg_recording()
+        return reg == "" and "" or ("REC @" .. reg)
+    end,
+    color = { fg = "#ff6b6b", gui = "bold" },
 }
 
 local diagnostics = {
@@ -89,9 +100,12 @@ lualine.setup {
         disabled_filetypes = { "mason" },
         section_separators = " ",
         component_separators = "|",
+        refresh = {
+            events = events,
+        },
     },
     sections = {
-        lualine_a = { mode },
+        lualine_a = { mode, recording },
         lualine_b = { "branch" },
         lualine_c = { diff, diagnostics },
         lualine_x = {},
