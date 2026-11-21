@@ -2,6 +2,7 @@ local neo_tree = require "neo-tree"
 local fn = require "core.ui.explorer.functions"
 
 neo_tree.setup {
+    auto_clean_after_session_restore = true,
     event_handlers = {
         { event = fn.explorer_events.FILE_MOVED, handler = fn.on_move },
         { event = fn.explorer_events.FILE_RENAMED, handler = fn.on_move },
