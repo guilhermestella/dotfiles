@@ -1,4 +1,4 @@
-require "core.dev.lsp.plugins"
+require "core.dev.lsp.config"
 require "core.dev.lsp.keymaps"
 
 local lsps_path = vim.fn.stdpath "config" .. "/lua/core/dev/lsp"

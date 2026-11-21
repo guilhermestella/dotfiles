@@ -1,1 +1,1 @@
-require "core.dev.completion.plugins"
+require "core.dev.completion.config"

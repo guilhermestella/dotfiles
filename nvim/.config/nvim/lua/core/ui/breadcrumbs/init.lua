@@ -1,1 +1,1 @@
-require "core.ui.breadcrumbs.plugins"
+require "core.ui.breadcrumbs.config"

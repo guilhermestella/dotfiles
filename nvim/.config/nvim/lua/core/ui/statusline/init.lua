@@ -1,2 +1,2 @@
 require "core.ui.statusline.options"
-require "core.ui.statusline.plugins"
+require "core.ui.statusline.config"

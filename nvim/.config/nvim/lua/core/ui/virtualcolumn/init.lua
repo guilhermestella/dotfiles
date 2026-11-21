@@ -1,1 +1,1 @@
-require "core.ui.virtualcolumn.plugins"
+require "core.ui.virtualcolumn.config"
