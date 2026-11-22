@@ -58,30 +58,34 @@ local function get_workspace(home_path)
     return cache_dir .. project_name
 end
 
-local function get_runtimes(home_path)
+local function get_jdk_runtime(home_path)
+    return home_path .. "/.local/share/mise/installs/java/25/bin/java"
+end
+
+local function get_available_runtimes(home_path)
     local install_path = home_path .. "/.local/share/mise/installs/java"
     return {
         {
             name = "JavaSE-11",
-            path = install_path .. "/11.0.2/",
+            path = install_path .. "/11",
         },
         {
             name = "JavaSE-17",
-            path = install_path .. "/17.0.2/",
+            path = install_path .. "/17",
         },
         {
             name = "JavaSE-21",
-            path = install_path .. "/21.0.2/",
+            path = install_path .. "/21",
             default = true,
         },
         {
             name = "JavaSE-25",
-            path = install_path .. "/25.0.2/",
+            path = install_path .. "/25",
         },
     }
 end
 
-local function get_runtime()
+local function get_current_runtime()
     local bufnr = vim.api.nvim_get_current_buf()
     local _, client = next(vim.lsp.get_clients { name = "jdtls" })
     if not client then
@@ -110,7 +114,7 @@ end
 
 vim.lsp.config("jdtls", {
     cmd = {
-        "java",
+        get_jdk_runtime(home),
         "-Declipse.application=org.eclipse.jdt.ls.core.id1",
         "-Dosgi.bundles.defaultStartLevel=4",
         "-Declipse.product=org.eclipse.jdt.ls.core.product",
@@ -207,7 +211,7 @@ vim.lsp.config("jdtls", {
             },
             -- If changes to the project will require the developer to update the projects configuration advise the developer before accepting the change
             configuration = {
-                runtimes = get_runtimes(home),
+                runtimes = get_available_runtimes(home),
                 updateBuildConfiguration = "automatic",
             },
             -- enable code lens in the lsp
@@ -242,7 +246,7 @@ vim.lsp.config("jdtls", {
 
         vim.api.nvim_create_user_command(
             "JdtGetRuntime",
-            get_runtime,
+            get_current_runtime,
             { desc = "Get current Java runtime" }
         )
 
