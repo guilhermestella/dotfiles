@@ -19,7 +19,9 @@ vim.opt.writebackup = false -- Don't create backup while editing
 vim.opt.swapfile = false -- Don't create swap files
 
 -- ════════════════════════════════════════════════════════════════════════════
--- Fold
+-- Fold (native treesitter folds; Neovim 0.11+)
 -- ════════════════════════════════════════════════════════════════════════════
+vim.o.foldmethod = "expr"
+vim.o.foldexpr = "v:lua.vim.treesitter.foldexpr()"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
