@@ -3,7 +3,7 @@ local snacks = require "snacks"
 local M = {}
 
 local opts = {
-    layout = "ivy",
+    layout = "bottom",
     show_empty = true,
     auto_close = false,
     actions = {
