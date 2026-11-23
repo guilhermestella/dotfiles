@@ -10,4 +10,5 @@ render.setup {
             enabled = true,
         },
     },
+    latex = { enabled = false },
 }
