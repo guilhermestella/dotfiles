@@ -21,7 +21,7 @@ local function toggle(source, reveal)
     if buf_name:match "neo%-tree" and buf_name:match(source) then
         vim.cmd("Neotree " .. source .. " close")
     else
-        vim.cmd("Neotree " .. source .. " focus " .. rev .. " left")
+        vim.cmd("Neotree " .. source .. " focus " .. rev .. " right")
     end
 end
 
