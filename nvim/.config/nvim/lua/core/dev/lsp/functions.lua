@@ -8,13 +8,12 @@ local M = {}
 -- ════════════════════════════════════════════════════════════════════════════
 local _lsp_ref_view = nil
 
-function M.show_find()
+function M.toggle_find()
     if not _lsp_ref_view then
-        _lsp_ref_view = trouble.open "lsp_references"
         return
     end
 
-    if _lsp_ref_view and _lsp_ref_view.opts.mode == "lsp_references" then
+    if _lsp_ref_view then
         if _lsp_ref_view:is_open() then
             _lsp_ref_view:close()
         else
@@ -32,35 +31,28 @@ function M.show_references()
     _lsp_ref_view = trouble.open "lsp_references"
 end
 
-local fast_opts = {
-    layout = {
-        preset = "dropdown",
-        layout = {
-            box = "vertical",
-            border = "rounded",
-            width = 0.5,
-            height = 0.5,
-            { win = "input", height = 1, border = "bottom" },
-            { win = "list", height = 0.4 },
-            { win = "preview", border = "top", height = 0.6 },
-        },
-    },
-}
-
 function M.show_implementations()
-    snacks.picker.lsp_implementations(fast_opts)
+    _lsp_ref_view = trouble.open "lsp_implementations"
 end
 
 function M.show_definitions()
-    snacks.picker.lsp_definitions(fast_opts)
-end
+    local view = trouble.open "lsp_definitions"
+    if not view then
+        return
+    end
 
-function M.show_declarations()
-    snacks.picker.lsp_declarations(fast_opts)
+    view.first_update:next(function()
+        if view:count() == 0 then
+            view:close()
+            _lsp_ref_view = trouble.open "lsp_references"
+            return
+        end
+        _lsp_ref_view = view
+    end)
 end
 
 function M.show_type_definitions()
-    snacks.picker.lsp_type_definitions(fast_opts)
+    _lsp_ref_view = trouble.open "lsp_type_definitions"
 end
 
 function M.show_documentation()

@@ -4,12 +4,15 @@ vim.pack.add {
 
 require("trouble").setup {
     auto_refresh = false,
-    auto_preview = true,
-    warn_no_results = false,
-    open_no_results = true,
     focus = true,
     restore = true,
     follow = false,
+    warn_no_results = false,
+    modes = {
+        diagnostics = {
+            auto_refresh = true,
+        },
+    },
     preview = {
         type = "split",
         relative = "win",
