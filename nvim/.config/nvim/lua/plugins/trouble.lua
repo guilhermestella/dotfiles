@@ -10,6 +10,7 @@ require("trouble").setup {
     warn_no_results = false,
     modes = {
         diagnostics = {
+            open_no_results = true,
             auto_refresh = true,
         },
     },
