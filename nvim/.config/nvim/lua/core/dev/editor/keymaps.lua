@@ -12,8 +12,8 @@ set({ "x", "o" }, "aa", fn.select_around_argument)
 set({ "x", "o" }, "ia", fn.select_inner_argument)
 set({ "x", "o" }, "as", fn.select_around_scope)
 
-set({ "n", "x", "o" }, "]]", fn.goto_next_function, { desc = "➜ Function" })
-set({ "n", "x", "o" }, "[[", fn.goto_previous_function, { desc = "➜ Function" })
+set({ "n", "x", "o" }, "]]", fn.goto_next_function)
+set({ "n", "x", "o" }, "[[", fn.goto_previous_function)
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Search
@@ -24,8 +24,8 @@ set("v", "/", 'y/\\V<C-r>"<CR>', { noremap = true })
 -- ════════════════════════════════════════════════════════════════════════════
 -- Indentation
 -- ════════════════════════════════════════════════════════════════════════════
-set("v", "<", "<gv", { desc = "Indent Left" })
-set("v", ">", ">gv", { desc = "Indent Right" })
+set("v", "<", "<gv")
+set("v", ">", ">gv")
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Move Block (Visual Mode)

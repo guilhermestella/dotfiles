@@ -20,21 +20,21 @@ set("n", "<C-l>", fn.move_cursor_right)
 -- ════════════════════════════════════════════════════════════════════════════
 -- Navigate inside buffer
 -- ════════════════════════════════════════════════════════════════════════════
-set("n", "<C-d>", "<C-d>zz", { desc = "Scroll downwards" })
-set("n", "<C-u>", "<C-u>zz", { desc = "Scroll upwards" })
-set("n", "n", "nzzzv", { desc = "Next result" })
-set("n", "N", "Nzzzv", { desc = "Previous result" })
+set("n", "<C-d>", "<C-d>zz")
+set("n", "<C-u>", "<C-u>zz")
+set("n", "n", "nzzzv")
+set("n", "N", "Nzzzv")
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Esc Action
 -- ════════════════════════════════════════════════════════════════════════════
-set("n", "<Esc>", fn.close_float_window, { noremap = true, silent = true, desc = "Esc Action" })
+set("n", "<Esc>", fn.close_float_window, { noremap = true, silent = true })
 
 -- ════════════════════════════════════════════════════════════════════════════
 -- Search
 -- ════════════════════════════════════════════════════════════════════════════
-set("x", "<M-S-f>", fn.search_selection, { desc = "➜ Search Selection" })
-set("n", "<M-S-f>", fn.search, { desc = "➜ Search Text" })
-set("n", "<leader><space>", fn.find_files, { desc = "➜ Search Files" })
-set("n", "<M-u>", fn.undo_history, { desc = "➜ Undo History" })
-set("x", "<M-u>", fn.undo_history_selection, { desc = "➜ Undo Selection History" })
+set("x", "<M-S-f>", fn.search_selection)
+set("n", "<M-S-f>", fn.search)
+set("n", "<leader><space>", fn.find_files)
+set("n", "<M-u>", fn.undo_history)
+set("x", "<M-u>", fn.undo_history_selection)

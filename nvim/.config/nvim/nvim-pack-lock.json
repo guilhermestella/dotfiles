@@ -6,7 +6,7 @@
       "version": "'v2.5.0'"
     },
     "SchemaStore.nvim": {
-      "rev": "ffbe34a31de0cf696f688e7d9e226dc5b86b4323",
+      "rev": "624384c0e0671db9ee8cd23e2678840e84335903",
       "src": "https://github.com/b0o/SchemaStore.nvim"
     },
     "backend-tmux": {
@@ -43,7 +43,7 @@
       "src": "https://github.com/rafamadriz/friendly-snippets"
     },
     "gitsigns.nvim": {
-      "rev": "c0862d382a35b7b45757d8d151a6a634c09bf3ce",
+      "rev": "ea38d317af34f8ffcfbaf0f0dcc1471736661a4c",
       "src": "https://github.com/lewis6991/gitsigns.nvim"
     },
     "gruvbox": {
@@ -112,7 +112,7 @@
       "src": "https://github.com/mfussenegger/nvim-lint"
     },
     "nvim-lspconfig": {
-      "rev": "4648fd8ba5c678d7e2db75ae44ffac269bb589d8",
+      "rev": "7d22e678970d95d8d18494ec389c52b07111c53a",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-navic": {

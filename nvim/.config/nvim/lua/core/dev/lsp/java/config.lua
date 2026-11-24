@@ -244,11 +244,7 @@ vim.lsp.config("jdtls", {
         require("jdtls.dap").setup_dap()
         require("jdtls.dap").setup_dap_main_class_configs()
 
-        vim.api.nvim_create_user_command(
-            "JdtGetRuntime",
-            get_current_runtime,
-            { desc = "Get current Java runtime" }
-        )
+        vim.api.nvim_create_user_command("JdtGetRuntime", get_current_runtime)
 
         -- Vim override shortcuts
         vim.keymap.set("n", "gf", function()

@@ -13,6 +13,9 @@ require("trouble").setup {
             open_no_results = true,
             auto_refresh = true,
         },
+        qflist = {
+            auto_refresh = true,
+        }
     },
     preview = {
         type = "split",
